@@ -320,7 +320,22 @@
             "7 × 8",
             "56"
           ]
+        ],
+        "parole": [
+          {
+            "parola": "SCRITTURA",
+            "indizio": "L'hanno inventata i Sumeri"
+          },
+          {
+            "parola": "PIRAMIDE",
+            "indizio": "L'hanno costruita gli Egizi"
+          }
         ]
+      },
+      "figurina": {
+        "nome": "Riccio",
+        "emoji": "🦔",
+        "fatto": "Quando va in letargo il suo cuore rallenta tantissimo: da circa 190 a circa 20 battiti al minuto."
       }
     },
     {
@@ -525,7 +540,22 @@
             "il sole sorge",
             "a Est"
           ]
+        ],
+        "parole": [
+          {
+            "parola": "ACCENTO",
+            "indizio": "Ce l'ha la è del verbo essere"
+          },
+          {
+            "parola": "PIANTA",
+            "indizio": "Il disegno di una stanza vista dall'alto"
+          }
         ]
+      },
+      "figurina": {
+        "nome": "Ghepardo",
+        "emoji": "🐆",
+        "fatto": "È l'animale di terra più veloce: in uno scatto breve supera i 100 km all'ora."
       }
     },
     {
@@ -726,7 +756,22 @@
             "seventy-two",
             "72"
           ]
+        ],
+        "parole": [
+          {
+            "parola": "EVAPORAZIONE",
+            "indizio": "Quello che succede alla pozzanghera col sole"
+          },
+          {
+            "parola": "COLLETTIVO",
+            "indizio": "Un nome che indica un gruppo, come gregge"
+          }
         ]
+      },
+      "figurina": {
+        "nome": "Balenottera azzurra",
+        "emoji": "🐋",
+        "fatto": "È l'animale più grande mai vissuto sulla Terra: può superare i 25 metri, più di un autobus e mezzo."
       }
     },
     {
@@ -922,7 +967,22 @@
             "She has got",
             "lei ha"
           ]
+        ],
+        "parole": [
+          {
+            "parola": "MESOPOTAMIA",
+            "indizio": "La terra tra il Tigri e l'Eufrate"
+          },
+          {
+            "parola": "FRAZIONE",
+            "indizio": "Una parte di un intero, come 3/4"
+          }
         ]
+      },
+      "figurina": {
+        "nome": "Ape",
+        "emoji": "🐝",
+        "fatto": "Per avvisare le compagne dove sono i fiori fa una danza a forma di otto."
       }
     },
     {
@@ -1130,7 +1190,22 @@
             "half past seven",
             "7:30"
           ]
+        ],
+        "parole": [
+          {
+            "parola": "APPENNINI",
+            "indizio": "Montagne lungo tutta la penisola"
+          },
+          {
+            "parola": "FUTURO",
+            "indizio": "Il tempo di «andremo»"
+          }
         ]
+      },
+      "figurina": {
+        "nome": "Aquila reale",
+        "emoji": "🦅",
+        "fatto": "Vive anche sulle Alpi e ha una vista così acuta da vedere una lepre da lontanissimo."
       }
     },
     {
@@ -1330,7 +1405,22 @@
             "acqua",
             "si scrive con cq"
           ]
+        ],
+        "parole": [
+          {
+            "parola": "ALVEARE",
+            "indizio": "La casa delle api"
+          },
+          {
+            "parola": "CONDENSAZIONE",
+            "indizio": "Il vapore che diventa nuvola"
+          }
         ]
+      },
+      "figurina": {
+        "nome": "Polpo",
+        "emoji": "🐙",
+        "fatto": "Ha tre cuori, il sangue blu e può cambiare colore in un attimo."
       }
     },
     {
@@ -1524,7 +1614,22 @@
             "54 × 3",
             "162"
           ]
+        ],
+        "parole": [
+          {
+            "parola": "HAMMURABI",
+            "indizio": "Il re delle leggi scritte"
+          },
+          {
+            "parola": "SUPERLATIVO",
+            "indizio": "Il grado di «buonissimo»"
+          }
         ]
+      },
+      "figurina": {
+        "nome": "Camaleonte",
+        "emoji": "🦎",
+        "fatto": "Muove gli occhi uno indipendente dall'altro: può guardare avanti e indietro insieme."
       }
     },
     {
@@ -1725,8 +1830,24 @@
             "I don't like",
             "non mi piace"
           ]
+        ],
+        "parole": [
+          {
+            "parola": "COMPLEMENTARE",
+            "indizio": "Frazione che con un'altra fa l'intero"
+          },
+          {
+            "parola": "SOGGETTO",
+            "indizio": "Chi fa l'azione nella frase"
+          }
         ]
+      },
+      "figurina": {
+        "nome": "Pinguino imperatore",
+        "emoji": "🐧",
+        "fatto": "Il papà tiene l'uovo sulle zampe per circa due mesi, al gelo, senza mangiare."
       }
     }
-  ]
+  ],
+  "album": "Animali da record"
 }

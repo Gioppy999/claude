@@ -31,8 +31,8 @@ button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px soli
 header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px}
 .brand h1{font-size:1.6rem;color:var(--leaf)}
-.tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px}
-.tabs button{border:0;background:none;padding:6px 14px;border-radius:999px;font-family:var(--display);font-weight:500;font-size:.95rem;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px}
+.tabs button{border:0;background:none;padding:6px 11px;border-radius:999px;font-family:var(--display);font-weight:500;font-size:.95rem;color:var(--muted)}
 .tabs button[aria-pressed="true"]{background:var(--leaf);color:var(--surface)}
 .daynav{display:flex;align-items:center;gap:8px}
 .daynav button{border:1px solid var(--line);background:var(--surface);border-radius:12px;width:44px;height:44px;font-size:1.3rem;flex:none}
@@ -90,7 +90,36 @@ label.chk{display:flex;gap:8px;align-items:center;font-weight:700}
 label.chk input{width:22px;height:22px;accent-color:var(--leaf)}
 .note{color:var(--muted);font-size:.85rem;text-align:center}
 .status{font-size:.8rem;color:var(--muted)}
-@media (prefers-reduced-motion:no-preference){.leaf-on{transition:fill .4s}}
+@media (prefers-reduced-motion:no-preference){.leaf-on{transition:fill .4s}.mcard{transition:background .2s,transform .2s}.figu{animation:pop .5s ease-out}}
+@keyframes pop{from{transform:scale(.6);opacity:.3}to{transform:scale(1);opacity:1}}
+.gioco{background:var(--sun-soft);border:2px solid var(--sun);border-radius:20px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.gioco.chiuso{background:var(--surface);border:2px dashed var(--line);color:var(--muted)}
+.fasi{display:flex;gap:6px;flex-wrap:wrap}
+.fasi span{font-size:.78rem;border-radius:999px;padding:3px 10px;background:var(--bg);color:var(--muted);font-weight:700}
+.fasi span.on{background:var(--sun);color:var(--ink)}
+.fasi span.ok{background:var(--leaf-soft);color:var(--leaf)}
+.memgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+@media (min-width:560px){.memgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.mcard{min-height:86px;border-radius:14px;border:2px solid var(--line);background:var(--leaf);color:var(--surface);font-family:var(--display);font-weight:600;font-size:.95rem;padding:6px;overflow-wrap:anywhere;line-height:1.25}
+.mcard.su{background:var(--surface);color:var(--ink);border-color:var(--sun)}
+.mcard.ok{background:var(--leaf-soft);color:var(--leaf);border-color:var(--leaf)}
+.parola{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;font-family:var(--display);font-size:1.6rem;font-weight:600}
+.parola span{min-width:1.3em;border-bottom:3px solid var(--ink);text-align:center}
+.tastiera{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.tastiera button{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 0;font-family:var(--display);font-weight:600}
+.tastiera button:disabled{opacity:.3}
+.tastiera button.si{background:var(--leaf-soft);color:var(--leaf);opacity:1}
+.vite{font-variant-numeric:tabular-nums;color:var(--muted)}
+.timer{font-family:var(--display);font-size:2.2rem;font-weight:600;font-variant-numeric:tabular-nums;color:var(--warn)}
+.figu{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;background:var(--surface);border:3px solid var(--sun);border-radius:22px;padding:18px}
+.figu .em{font-size:4rem;line-height:1}
+.album{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:560px){.album{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.album .fig{background:var(--surface);border:2px solid var(--sun);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center}
+.album .fig .em{font-size:2.6rem;line-height:1.1}
+.album .fig.no{border:2px dashed var(--line);color:var(--muted)}
+.album .fig .em.no{font-family:var(--display);color:var(--line)}
+.album .fig small{color:var(--muted)}
 </style>
 
 <div class="wrap">
@@ -101,6 +130,7 @@ label.chk input{width:22px;height:22px;accent-color:var(--leaf)}
     </div>
     <nav class="tabs" aria-label="Sezioni">
       <button id="tab-oggi" data-v="oggi" aria-pressed="true">Oggi</button>
+      <button id="tab-album" data-v="album" aria-pressed="false">Album</button>
       <button id="tab-cammino" data-v="cammino" aria-pressed="false">Il cammino</button>
       <button id="tab-grandi" data-v="grandi" aria-pressed="false">Grandi</button>
     </nav>
@@ -162,10 +192,115 @@ function vistaOggi(){
   const n=g.tappe.length, done=g.tappe.filter(t=>st(S.date,t.id).fatto).length, min=g.tappe.reduce((a,t)=>a+t.minuti,0);
   const frase = done===n ? "Tutte le tappe fatte. La piantina è fiorita!" : done===0 ? `${n} tappe, circa ${min} minuti. Una alla volta.` : `Hai fatto ${done} tappe su ${n}. Avanti con la prossima.`;
   wrap.append(el(`<section class="sprout">${pianta(n,done)}<div><p class="big">${frase}</p><p style="color:var(--muted)">Per ogni tappa: leggi la consegna, rispondi alla domanda, poi lavora sul quaderno.</p></div></section>`));
+  if(S.g&&S.g.date===S.date){ wrap.append(vistaGioco(g)); return wrap }
   const list=el(`<div class="list"></div>`);
   g.tappe.forEach(t=>list.append(cardTappa(t)));
   wrap.append(list);
+  if(g.gioco) wrap.append(cardGioco(g,done===n));
   return wrap;
+}
+
+/* ---------- il gioco del giorno ---------- */
+function mescola(a){a=[...a];for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function cardGioco(g,aperto){
+  const gs=(S.prog[S.date]||{}).gioco||{};
+  if(!aperto) return el(`<section class="gioco chiuso"><h3>Il gioco del giorno</h3><p style="margin:0">Si apre quando hai finito tutte le tappe. Dura 10–15 minuti e alla fine vinci una figurina.</p></section>`);
+  const c=el(`<section class="gioco"><h3>${gs.fatto?"Gioco fatto!":"Il gioco del giorno è aperto!"}</h3><p style="margin:0">${gs.fatto?"Hai vinto la figurina: "+esc(g.figurina.nome)+". Puoi rigiocare quando vuoi.":"Tre prove: Memory, Parola misteriosa e Sfida 60 secondi. Alla fine vinci una figurina per l'album."}</p></section>`);
+  const b=el(`<button class="btn">${gs.fatto?"Rigioca":"Gioca"}</button>`);
+  b.onclick=()=>{iniziaGioco(g);render();window.scrollTo(0,0)}; c.append(b); return c;
+}
+function iniziaGioco(g){
+  const carte=mescola(g.gioco.coppie.flatMap((p,k)=>[{t:p[0],k},{t:p[1],k}]));
+  S.g={date:S.date,fase:0,mem:{carte,su:[],ok:new Set(),mosse:0},par:{i:0,prese:new Set(),errori:0,errTot:0,svelata:false},gara:{punti:0,fine:0,q:null}};
+}
+function fasiBar(f){const nomi=["Memory","Parola misteriosa","Sfida 60 secondi","Figurina"];
+  return `<div class="fasi">${nomi.map((x,i)=>`<span class="${i<f?"ok":i===f?"on":""}">${x}</span>`).join("")}</div>`}
+function vistaGioco(g){
+  const G=S.g, w=el(`<section class="gioco" style="gap:14px"></section>`);
+  w.append(el(fasiBar(G.fase)));
+  if(G.fase===0){ // memory
+    const m=G.mem, tot=g.gioco.coppie.length;
+    w.append(el(`<div><h3>Memory</h3><p style="margin:.2em 0 0">Gira due carte alla volta e trova le coppie che vanno insieme. Mosse: ${m.mosse}</p></div>`));
+    const grid=el(`<div class="memgrid"></div>`);
+    m.carte.forEach((c,i)=>{const su=m.su.includes(i), ok=m.ok.has(c.k);
+      const x=el(`<button class="mcard ${ok?"ok":su?"su":""}" aria-label="${ok||su?esc(c.t):"Carta coperta"}">${ok||su?esc(c.t):"?"}</button>`);
+      x.onclick=()=>{ if(ok||su||m.su.length===2) return; m.su.push(i);
+        if(m.su.length===2){ m.mosse++; const [a,b]=m.su;
+          if(m.carte[a].k===m.carte[b].k){m.ok.add(m.carte[a].k);m.su=[]} else setTimeout(()=>{m.su=[];render()},1000) }
+        render() };
+      grid.append(x)});
+    w.append(grid);
+    if(m.ok.size===tot){ w.append(el(`<div class="msg ok">Tutte le coppie in ${m.mosse} mosse!</div>`)); const b=el(`<button class="btn">Avanti</button>`); b.onclick=()=>{G.fase=1;render()}; w.append(b) }
+  }
+  else if(G.fase===1){ // parola misteriosa
+    const P=G.par, item=g.gioco.parole[P.i], parola=item.parola.toUpperCase(), MAX=6;
+    const lettere=[...new Set(parola.replace(/[^A-Z]/g,""))], vinta=lettere.every(l=>P.prese.has(l)), persa=P.errori>=MAX;
+    w.append(el(`<div><h3>Parola misteriosa ${P.i+1} di ${g.gioco.parole.length}</h3><p style="margin:.2em 0 0"><strong>Indizio:</strong> ${esc(item.indizio)}</p></div>`));
+    w.append(el(`<div class="parola">${[...parola].map(ch=>`<span>${/[A-Z]/.test(ch)?(P.prese.has(ch)||persa?ch:"&nbsp;"):ch}</span>`).join("")}</div>`));
+    w.append(el(`<p class="vite" style="margin:0;text-align:center">Errori: ${P.errori} su ${MAX}</p>`));
+    if(vinta||persa){
+      w.append(el(`<div class="msg ${vinta?"ok":"warn"}">${vinta?"Trovata!":"Peccato! La parola era "+esc(parola)+"."}</div>`));
+      const b=el(`<button class="btn">Avanti</button>`);
+      b.onclick=()=>{ P.errTot+=P.errori; if(P.i+1<g.gioco.parole.length){P.i++;P.prese=new Set();P.errori=0} else {G.fase=2} render() };
+      w.append(b);
+    } else {
+      const k=el(`<div class="tastiera"></div>`);
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(l=>{const usata=P.prese.has(l); const x=el(`<button ${usata?"disabled":""} class="${usata&&parola.includes(l)?"si":""}">${l}</button>`);
+        x.onclick=()=>{P.prese.add(l); if(!parola.includes(l)) P.errori++; render()}; k.append(x)});
+      w.append(k);
+    }
+  }
+  else if(G.fase===2){ // sfida 60 secondi
+    const R=G.gara, coppie=g.gioco.coppie;
+    const record=Math.max(0,...Object.values(S.prog).map(d=>(d.gioco&&d.gioco.punti)||0));
+    if(!R.fine){
+      w.append(el(`<div><h3>Sfida 60 secondi</h3><p style="margin:.2em 0 0">Hai un minuto. Per ogni parola scegli quella che va insieme. Il tuo record: ${record} punti.</p></div>`));
+      const b=el(`<button class="btn">Via!</button>`); b.onclick=()=>{R.fine=Date.now()+60000;R.q=nuovaQ(coppie);render();
+        clearInterval(S.gtick); S.gtick=setInterval(()=>{const t=document.getElementById("timer"); const r=Math.max(0,Math.ceil((R.fine-Date.now())/1000)); if(t) t.textContent=r; if(r<=0){clearInterval(S.gtick);G.fase=3;finisciGioco(g)}},250)};
+      w.append(b);
+    } else {
+      w.append(el(`<div class="row" style="justify-content:space-between"><span class="timer" id="timer">${Math.max(0,Math.ceil((R.fine-Date.now())/1000))}</span><strong>Punti: ${R.punti}</strong></div>`));
+      w.append(el(`<div class="quizq">${esc(R.q.domanda)}</div>`));
+      const o=el(`<div class="opts"></div>`);
+      R.q.opzioni.forEach(op=>{const x=el(`<button>${esc(op)}</button>`); x.onclick=()=>{ if(op===R.q.giusta) R.punti++; R.q=nuovaQ(coppie,R.q.domanda); render() }; o.append(x)});
+      w.append(o);
+    }
+  }
+  else { // figurina
+    const f=g.figurina, R=G.gara;
+    w.append(el(`<h3>Hai vinto una figurina!</h3>`));
+    w.append(el(`<div class="figu"><div class="em">${f.emoji}</div><strong style="font-family:var(--display);font-size:1.3rem">${esc(f.nome)}</strong><p style="margin:0">${esc(f.fatto)}</p></div>`));
+    w.append(el(`<p style="margin:0">Memory in ${G.mem.mosse} mosse · Sfida: ${R.punti} punti.</p>`));
+    const r=el(`<div class="row"></div>`);
+    const a=el(`<button class="btn">Vai all'album</button>`); a.onclick=()=>{S.g=null;S.view="album";render()};
+    const c=el(`<button class="btn ghost">Chiudi</button>`); c.onclick=()=>{S.g=null;render()};
+    r.append(a,c); w.append(r);
+    return w;
+  }
+  const esci=el(`<button class="btn ghost">Esci dal gioco</button>`); esci.onclick=()=>{clearInterval(S.gtick);S.g=null;render()}; w.append(esci);
+  return w;
+}
+function nuovaQ(coppie,prima){
+  let p, giro=0; do{p=coppie[Math.floor(Math.random()*coppie.length)]; giro++}while(giro<10&&(p[0]===prima||p[1]===prima));
+  const dir=Math.random()<.5?0:1, domanda=p[dir], giusta=p[1-dir];
+  const altre=mescola(coppie.filter(x=>x!==p)).slice(0,2).map(x=>x[1-dir]);
+  return {domanda,giusta,opzioni:mescola([giusta,...altre])};
+}
+function finisciGioco(g){
+  const G=S.g, prima=(S.prog[G.date]||{}).gioco||{};
+  salva(G.date,"gioco",{fatto:true,mosse:G.mem.mosse,erroriParole:G.par.errTot,punti:Math.max(G.gara.punti,prima.punti||0),quando:new Date().toISOString()});
+}
+
+/* ---------- vista Album ---------- */
+function vistaAlbum(){
+  const w=el(`<div class="wrap" style="gap:14px"></div>`);
+  const giorni=S.piano.giorni.filter(g=>g.figurina), prese=giorni.filter(g=>((S.prog[g.data]||{}).gioco||{}).fatto);
+  w.append(el(`<div><h2>Album: ${esc(S.piano.album||"Figurine")}</h2><p style="color:var(--muted);margin:.3em 0 0">Hai ${prese.length} figurine su ${giorni.length}. Ne vinci una ogni giorno che finisci il gioco.</p></div>`));
+  const a=el(`<div class="album"></div>`);
+  giorni.forEach(g=>{const ok=((S.prog[g.data]||{}).gioco||{}).fatto, f=g.figurina;
+    a.append(ok? el(`<div class="fig"><div class="em">${f.emoji}</div><strong>${esc(f.nome)}</strong><small>${esc(f.fatto)}</small></div>`)
+              : el(`<div class="fig no"><div class="em no">?</div><strong>Da vincere</strong><small>${esc(bello(g.data))}</small></div>`))});
+  w.append(a); return w;
 }
 function cardTappa(t){
   const s=st(S.date,t.id), key=S.date+t.id, open=S.open===key, ui=S.ui[key]||(S.ui[key]={});
@@ -281,6 +416,8 @@ function vistaGrandi(){
   let tot=0,fatte=0,diff=0; for(let i=0;i<7;i++){const ds=addDays(lun,i),gg=S.byDate[ds]; if(!gg)continue; gg.tappe.forEach(t=>{tot++;const s=st(ds,t.id);if(s.fatto)fatte++;if(s.faccia==="difficile")diff++})}
   if(tot) w.append(el(`<div class="card"><strong>Questa settimana</strong><div class="stat"><span class="pill done">${fatte} su ${tot} tappe fatte</span><span class="pill">${diff} segnate difficili</span></div></div>`));
   if(!g){w.append(el(`<div class="empty"><p style="margin:0">Nessun compito in questo giorno.</p></div>`));return w}
+  const gs=(S.prog[S.date]||{}).gioco;
+  if(gs&&gs.fatto) w.append(el(`<div class="card"><strong>Gioco del giorno fatto</strong><div class="stat"><span class="pill">Memory: ${gs.mosse} mosse</span><span class="pill">Errori parole: ${gs.erroriParole||0}</span><span class="pill">Sfida: ${gs.punti} punti</span></div></div>`));
   g.tappe.forEach(t=>{
     const s=st(S.date,t.id);
     const c=el(`<div class="card" style="--mc:var(--m-${t.materia})"><div class="row"><span class="dot"></span><strong>${esc(t.titolo)}</strong><span class="pill ${s.fatto?"done":""}">${s.fatto?"Fatto":"Da fare"}</span></div></div>`);
@@ -308,7 +445,7 @@ function render(){
   document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.v===S.view)));
   const ae=document.activeElement; const keepId=ae&&ae.id&&ae.tagName==="TEXTAREA"?ae.id:null;
   if(keepId) return; // non ridisegnare mentre si scrive una nota
-  const v= S.view==="cammino"?vistaCammino(): S.view==="grandi"?vistaGrandi(): vistaOggi();
+  const v= S.view==="cammino"?vistaCammino(): S.view==="grandi"?vistaGrandi(): S.view==="album"?vistaAlbum(): vistaOggi();
   $view.replaceChildren(v);
   const p=document.getElementById("prev"),n=document.getElementById("next");
   if(p) p.onclick=()=>{S.date=addDays(S.date,-1);S.open=null;render()};
