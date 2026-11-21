@@ -209,14 +209,20 @@ function cardGioco(g,aperto){
   const b=el(`<button class="btn">${gs.fatto?"Rigioca":"Gioca"}</button>`);
   b.onclick=()=>{iniziaGioco(g);render();window.scrollTo(0,0)}; c.append(b); return c;
 }
-function iniziaGioco(g){
+function albumAperto(){ if(S.anteprima) return true; const oggi=iso(new Date()); return !!(((S.prog[oggi]||{}).gioco||{}).fatto) }
+function apriAnteprima(){
+  const g=S.byDate[S.date]&&S.byDate[S.date].gioco?S.byDate[S.date]:S.piano.giorni.find(x=>x.gioco);
+  if(!g) return; S.anteprima=true; S.date=g.data; S.view="oggi"; S.open=null; iniziaGioco(g,true); render(); window.scrollTo(0,0);
+}
+function iniziaGioco(g,demo){
   const carte=mescola(g.gioco.coppie.flatMap((p,k)=>[{t:p[0],k},{t:p[1],k}]));
-  S.g={date:S.date,fase:0,mem:{carte,su:[],ok:new Set(),mosse:0},par:{i:0,prese:new Set(),errori:0,errTot:0,svelata:false},gara:{punti:0,fine:0,q:null}};
+  S.g={demo:!!demo,date:S.date,fase:0,mem:{carte,su:[],ok:new Set(),mosse:0},par:{i:0,prese:new Set(),errori:0,errTot:0,svelata:false},gara:{punti:0,fine:0,q:null}};
 }
 function fasiBar(f){const nomi=["Memory","Parola misteriosa","Sfida 60 secondi","Figurina"];
   return `<div class="fasi">${nomi.map((x,i)=>`<span class="${i<f?"ok":i===f?"on":""}">${x}</span>`).join("")}</div>`}
 function vistaGioco(g){
   const G=S.g, w=el(`<section class="gioco" style="gap:14px"></section>`);
+  if(G.demo) w.append(el(`<div class="msg warn">Anteprima per i grandi: il gioco funziona davvero ma non salva niente e non conta per l'album.</div>`));
   w.append(el(fasiBar(G.fase)));
   if(G.fase===0){ // memory
     const m=G.mem, tot=g.gioco.coppie.length;
@@ -287,6 +293,7 @@ function nuovaQ(coppie,prima){
   return {domanda,giusta,opzioni:mescola([giusta,...altre])};
 }
 function finisciGioco(g){
+  if(S.g.demo){render();return}
   const G=S.g, prima=(S.prog[G.date]||{}).gioco||{};
   salva(G.date,"gioco",{fatto:true,mosse:G.mem.mosse,erroriParole:G.par.errTot,punti:Math.max(G.gara.punti,prima.punti||0),quando:new Date().toISOString()});
 }
@@ -294,6 +301,12 @@ function finisciGioco(g){
 /* ---------- vista Album ---------- */
 function vistaAlbum(){
   const w=el(`<div class="wrap" style="gap:14px"></div>`);
+  if(!albumAperto()){
+    const e=el(`<div class="empty"><h2>L'album è chiuso</h2><p style="margin:0">Si apre quando hai finito tutte le tappe e il gioco di oggi. Allora potrai guardare tutte le tue figurine.</p></div>`);
+    const b=el(`<button class="btn ghost">Vai ai compiti di oggi</button>`); b.onclick=()=>{S.view="oggi";S.date=iso(new Date());render()}; e.append(b);
+    w.append(e); return w;
+  }
+  if(S.anteprima) w.append(el(`<div class="msg warn">Anteprima per i grandi: lei vede l'album solo dopo aver finito il gioco del giorno.</div>`));
   const giorni=S.piano.giorni.filter(g=>g.figurina), prese=giorni.filter(g=>((S.prog[g.data]||{}).gioco||{}).fatto);
   w.append(el(`<div><h2>Album: ${esc(S.piano.album||"Figurine")}</h2><p style="color:var(--muted);margin:.3em 0 0">Hai ${prese.length} figurine su ${giorni.length}. Ne vinci una ogni giorno che finisci il gioco.</p></div>`));
   const a=el(`<div class="album"></div>`);
@@ -416,6 +429,8 @@ function vistaGrandi(){
   let tot=0,fatte=0,diff=0; for(let i=0;i<7;i++){const ds=addDays(lun,i),gg=S.byDate[ds]; if(!gg)continue; gg.tappe.forEach(t=>{tot++;const s=st(ds,t.id);if(s.fatto)fatte++;if(s.faccia==="difficile")diff++})}
   if(tot) w.append(el(`<div class="card"><strong>Questa settimana</strong><div class="stat"><span class="pill done">${fatte} su ${tot} tappe fatte</span><span class="pill">${diff} segnate difficili</span></div></div>`));
   if(!g){w.append(el(`<div class="empty"><p style="margin:0">Nessun compito in questo giorno.</p></div>`));return w}
+  const pv=el(`<div class="card"><strong>Anteprima</strong><p style="margin:0">Provate il gioco di questo giorno come lo vede lei, senza salvare niente. Da qui si vede anche l'album.</p></div>`);
+  const pb=el(`<button class="btn ghost">Prova il gioco del giorno</button>`); pb.onclick=apriAnteprima; pv.append(pb); w.append(pv);
   const gs=(S.prog[S.date]||{}).gioco;
   if(gs&&gs.fatto) w.append(el(`<div class="card"><strong>Gioco del giorno fatto</strong><div class="stat"><span class="pill">Memory: ${gs.mosse} mosse</span><span class="pill">Errori parole: ${gs.erroriParole||0}</span><span class="pill">Sfida: ${gs.punti} punti</span></div></div>`));
   g.tappe.forEach(t=>{
@@ -460,7 +475,7 @@ try{const v=localStorage.getItem("germoglio-view");if(v==="cammino")S.view=v}cat
   catch(e){ $view.replaceChildren(el(`<div class="empty"><p style="margin:0">Non riesco a caricare i compiti. Controlla la connessione e ricarica la pagina.</p></div>`)); return }
   S.piano.giorni.forEach(g=>S.byDate[g.data]=g);
   S.prog=loadLocal();
-  render();
+  if(location.hash==="#anteprima") apriAnteprima(); else render();
   try{
     const db = window.claude ? await window.claude.use("db") : null;
     if(db){
