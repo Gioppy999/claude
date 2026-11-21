@@ -12,12 +12,12 @@
       "periodo": "23–30 novembre",
       "titolo": "Settimana di partenza",
       "materie": {
-        "italiano": "Comprensione di brevi testi, ortografia (h, accenti, c'è/ce), nomi.",
-        "matematica": "Numeri fino alle centinaia di migliaia, operazioni in colonna, problemi, prime frazioni.",
-        "storia": "La linea del tempo (a.C. e d.C.), i Sumeri.",
-        "geografia": "Orientarsi: punti cardinali, pianta e scala.",
+        "italiano": "Comprensione di testi narrativi, ortografia, il nome, il riassunto.",
+        "matematica": "Numeri oltre il migliaio e valore posizionale, operazioni in colonna, problemi con dati inutili, prime frazioni.",
+        "storia": "La linea del tempo, i Sumeri e la scrittura.",
+        "geografia": "Orientamento: punti cardinali, pianta, riduzione in scala.",
         "scienze": "La materia e i suoi stati.",
-        "inglese": "Daily routine, numbers, family."
+        "inglese": "Daily routine, numbers, months, family."
       },
       "nota": "Serve anche a capire il suo livello: dalle faccine e dai controlli si regolano le settimane dopo."
     },
@@ -25,12 +25,12 @@
       "mese": "Dicembre",
       "periodo": "1–23 dicembre",
       "materie": {
-        "italiano": "Verbi: modo indicativo (tempi semplici). Aggettivi qualificativi e gradi. Testo narrativo: inizio, svolgimento, conclusione.",
-        "matematica": "Moltiplicazioni e divisioni per 10, 100, 1000. Divisioni con una cifra al divisore e prova. Problemi con due domande.",
-        "storia": "Babilonesi (Codice di Hammurabi) e Assiri.",
-        "geografia": "Il paesaggio di montagna: Alpi e Appennini.",
-        "scienze": "L'acqua e il suo ciclo. L'aria.",
-        "inglese": "Time, weather, days, food (I like / I don't like). Christmas words."
+        "italiano": "Verbo: modo indicativo, tempi semplici. Aggettivo qualificativo e gradi. Testo narrativo: introduzione, sviluppo, conclusione. Uso del dizionario: sinonimi e contrari.",
+        "matematica": "× e : per 10, 100, 1000. Divisioni con una cifra al divisore, prova. Problemi con più operazioni. Tavola pitagorica: multipli e divisori.",
+        "storia": "Babilonesi e il Codice di Hammurabi (confronto con le nostre leggi). Ittiti e Assiri.",
+        "geografia": "Strumenti: bussola, carte fisiche, politiche e tematiche. Il paesaggio di montagna: Alpi e Appennini.",
+        "scienze": "L'acqua elemento vitale e il suo ciclo. L'aria e gli esseri viventi.",
+        "inglese": "Telling the time, winter clothes, Christmas and festivities in English-speaking countries."
       }
     },
     {
@@ -45,36 +45,36 @@
       "mese": "Gennaio",
       "periodo": "7–31 gennaio",
       "materie": {
-        "italiano": "Verbi: tempi composti dell'indicativo, ausiliari essere e avere. Pronomi personali. Testo descrittivo (persone, luoghi).",
-        "matematica": "Divisioni con due cifre al divisore. Multipli e divisori. Criteri di divisibilità.",
-        "storia": "Gli Egizi: il Nilo, la società, la scrittura, le piramidi.",
-        "geografia": "Il paesaggio di collina e di pianura. La Pianura Padana.",
-        "scienze": "Il suolo. Il calore e la temperatura.",
-        "inglese": "Clothes, colours, there is / there are, parts of the house."
+        "italiano": "Verbo: tempi composti, ausiliari, coniugazioni. Articolo e preposizioni. Testo descrittivo oggettivo e soggettivo (persone, animali, ambienti).",
+        "matematica": "Divisioni con due cifre al divisore. Prova del nove. Numeri primi. Proprietà delle operazioni e calcolo mentale.",
+        "storia": "Gli Egizi: il Nilo, faraone e classi sociali, vita quotidiana, religione, scrittura e pittura.",
+        "geografia": "Collina e pianura. Paesaggio naturale e paesaggio antropico.",
+        "scienze": "Materiali e trasformazioni: semplici esperimenti da schematizzare.",
+        "inglese": "School subjects and favourite subjects, daily routine con le ore."
       }
     },
     {
       "mese": "Febbraio",
       "periodo": "1–28 febbraio",
       "materie": {
-        "italiano": "Frase minima: soggetto e predicato (verbale e nominale). Espansioni. Testo regolativo (istruzioni, ricette).",
-        "matematica": "Frazioni: proprie, improprie, apparenti, equivalenti. Frazione di un numero. Frazioni decimali.",
-        "storia": "Le civiltà dell'Indo e della Cina.",
-        "geografia": "Fiumi e laghi d'Italia.",
-        "scienze": "Gli esseri viventi: classificare. Le piante e la fotosintesi.",
-        "inglese": "Can / can't, sports and hobbies, present simple (I / you / he / she)."
+        "italiano": "Analisi logica: frase minima, soggetto sottinteso, predicato verbale e nominale, espansioni. Testo regolativo. La lettera.",
+        "matematica": "Frazioni: proprie, improprie, apparenti, equivalenti, frazione di un numero, confronto, addizioni e sottrazioni. Frazioni decimali.",
+        "storia": "Le civiltà dell'Indo e del Fiume Giallo. Mappe concettuali per confrontare le civiltà.",
+        "geografia": "Fiumi e laghi d'Italia. Leggere grafici.",
+        "scienze": "I vegetali: parti della pianta, fotosintesi, ciclo vitale.",
+        "inglese": "Writing a short letter: describe yourself to a friend."
       }
     },
     {
       "mese": "Marzo",
       "periodo": "1–24 marzo",
       "materie": {
-        "italiano": "Complemento oggetto e primi complementi indiretti. Testo poetico: rima, similitudine, metafora.",
-        "matematica": "Numeri decimali: leggere, scrivere, confrontare, addizioni e sottrazioni. Misure di lunghezza ed equivalenze.",
-        "storia": "Gli Ebrei e i Fenici.",
-        "geografia": "Mari e coste d'Italia. Le isole.",
-        "scienze": "Gli animali: vertebrati e invertebrati.",
-        "inglese": "Animals, body, have got / has got."
+        "italiano": "Complemento oggetto. Testo poetico: versi, strofe, rima baciata e alternata, similitudine, metafora, onomatopea; avvio alla parafrasi. Il diario.",
+        "matematica": "Numeri decimali: valore posizionale, confronto, operazioni, × e : per 10, 100, 1000. Misure: lunghezza, massa, capacità, tempo; equivalenze. L'euro.",
+        "storia": "Gli Ebrei e la pastorizia. I Fenici: il mare, i commerci, l'alfabeto.",
+        "geografia": "Mari, coste e isole. Il clima e le regioni climatiche.",
+        "scienze": "Gli animali: classificazione, vertebrati e invertebrati, ciclo vitale.",
+        "inglese": "Festivities and months; Easter."
       }
     },
     {
@@ -89,22 +89,22 @@
       "mese": "Aprile",
       "periodo": "31 marzo – 30 aprile",
       "materie": {
-        "italiano": "Modo congiuntivo e condizionale (riconoscerli). Il riassunto. Testo informativo.",
-        "matematica": "Moltiplicazioni e divisioni con i decimali. Misure di massa e capacità. Angoli e poligoni.",
-        "storia": "Cretesi e Micenei. Confronto tra le civiltà studiate.",
-        "geografia": "Il clima in Italia. Le attività economiche (primario, secondario, terziario).",
-        "scienze": "Ecosistemi, catene e reti alimentari.",
-        "inglese": "Shops and money, prepositions of place, present continuous (riconoscerlo)."
+        "italiano": "Verbo: congiuntivo, condizionale, imperativo, infinito. Avverbi di modo, tempo, luogo. Aggettivi possessivi, numerali, dimostrativi, indefiniti. La sintesi e la relazione.",
+        "matematica": "Geometria: angoli e misura, rette parallele e perpendicolari, triangoli e quadrilateri, perimetro, simmetrie, traslazioni e rotazioni. Piano cartesiano. Problemi di costo unitario e totale, peso lordo, netto e tara.",
+        "storia": "Cretesi e Micenei. Il mito. Confronto tra le civiltà di ieri e la vita di oggi.",
+        "geografia": "Regioni fisiche e regioni amministrative. I settori di produzione (primario, secondario, terziario).",
+        "scienze": "Ecosistema, catena alimentare, l'uomo e l'ambiente.",
+        "inglese": "Short stories: leggere e raccontare semplici storie."
       }
     },
     {
       "mese": "Maggio",
       "periodo": "1–31 maggio",
       "materie": {
-        "italiano": "Ripasso di grammatica e analisi. Scrittura di testi completi con revisione da sola.",
-        "matematica": "Perimetro dei poligoni. Prima idea di area. Statistica: tabelle e grafici. Probabilità (certo, possibile, impossibile).",
-        "storia": "Ripasso con linee del tempo e mappe.",
-        "geografia": "Ripasso dei paesaggi con la carta dell'Italia.",
+        "italiano": "Lessico: prefissi e suffissi, parole derivate e composte, omonimi, iperonimi e iponimi. Congiunzioni e connettivi. Rielaborazione creativa di testi.",
+        "matematica": "Area e figure equiestese (tangram), figure isoperimetriche. Numeri negativi (temperature). Numeri romani. Statistica: tabelle, grafici, media e frequenza. Probabilità.",
+        "storia": "Ripasso con linee del tempo e mappe. Storia del vostro territorio.",
+        "geografia": "Tutela dell'ambiente e del patrimonio. Ripasso con la carta d'Italia.",
         "scienze": "Ripasso con esperimenti semplici.",
         "inglese": "Ripasso: parlare di sé in 8–10 frasi."
       }

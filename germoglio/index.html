@@ -422,6 +422,14 @@ function vistaCammino(){
 /* ---------- vista Grandi ---------- */
 function vistaGrandi(){
   const w=el(`<div class="wrap grandi" style="gap:14px"></div>`);
+  if(!S.grandiOk){
+    const box=el(`<div class="empty"><h2>Questa è la sezione dei grandi</h2><p style="margin:0">Non è la tua! Qui ci sono le cose di mamma e papà. Torna ai tuoi compiti: ti aspettano.</p></div>`);
+    const back=el(`<button class="btn">Torna ai miei compiti</button>`); back.onclick=()=>{S.view="oggi";S.date=iso(new Date());render()};
+    box.append(back);
+    const f=el(`<form class="row" style="justify-content:center;margin-top:8px"><label for="pin" style="font-size:.85rem;color:var(--muted)">Codice dei grandi</label><input id="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" style="width:6em;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);text-align:center;letter-spacing:.3em"><button class="btn ghost" type="submit" style="padding:8px 14px">Entra</button></form>`);
+    f.onsubmit=e=>{e.preventDefault(); const v=f.querySelector("#pin").value.trim(); if(v==="2881"){S.grandiOk=true; document.activeElement&&document.activeElement.blur(); render()} else {f.querySelector("#pin").value=""; if(!box.querySelector(".pinerr")) box.append(el(`<p class="pinerr" style="margin:0;color:var(--warn);font-weight:700">Codice sbagliato.</p>`))}};
+    box.append(f); w.append(box); return w;
+  }
   const g=S.byDate[S.date];
   w.append(el(`<div class="daynav"><button id="prev" aria-label="Giorno prima">‹</button><div class="when"><div class="d">${esc(bello(S.date))}</div><div class="t">Controllo dei grandi</div></div><button id="next" aria-label="Giorno dopo">›</button></div>`));
   // riepilogo settimana
@@ -458,7 +466,7 @@ function vistaGrandi(){
 function render(){
   if(!S.piano) return;
   document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.v===S.view)));
-  const ae=document.activeElement; const keepId=ae&&ae.id&&ae.tagName==="TEXTAREA"?ae.id:null;
+  const ae=document.activeElement; const keepId=ae&&ae.id&&(ae.tagName==="TEXTAREA"||ae.id==="pin")?ae.id:null;
   if(keepId) return; // non ridisegnare mentre si scrive una nota
   const v= S.view==="cammino"?vistaCammino(): S.view==="grandi"?vistaGrandi(): S.view==="album"?vistaAlbum(): vistaOggi();
   $view.replaceChildren(v);
@@ -475,7 +483,8 @@ try{const v=localStorage.getItem("germoglio-view");if(v==="cammino")S.view=v}cat
   catch(e){ $view.replaceChildren(el(`<div class="empty"><p style="margin:0">Non riesco a caricare i compiti. Controlla la connessione e ricarica la pagina.</p></div>`)); return }
   S.piano.giorni.forEach(g=>S.byDate[g.data]=g);
   S.prog=loadLocal();
-  if(location.hash==="#anteprima") apriAnteprima(); else render();
+  if(location.hash==="#anteprima") S.view="grandi";
+  render();
   try{
     const db = window.claude ? await window.claude.use("db") : null;
     if(db){
