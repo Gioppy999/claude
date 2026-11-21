@@ -1,4 +1,4 @@
-<title>Germoglio</title>
+<title>Scuola Cheri</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
@@ -185,15 +185,34 @@ function cardTappa(t){
   if(t.testo) b.append(el(`<div class="testo">${md(t.testo)}</div>`));
   // 2. la domanda di controllo
   if(!ui.capito){
-    if(!ui.letto){const bt=el(`<button class="btn">Ho letto la consegna</button>`);bt.onclick=()=>{ui.letto=true;render()};b.append(bt);return c}
+    if(!ui.letto){
+      if(ui.sbagliata) b.append(el(`<div class="msg warn">Non è così. Rileggi la consegna con calma, parola per parola.</div>`));
+      const bt=el(`<button class="btn">Ho letto la consegna</button>`);
+      const resta=()=>Math.ceil(((ui.bloccoFino||0)-Date.now())/1000);
+      const aggiorna=()=>{const r=resta(); if(r>0){bt.disabled=true;bt.style.opacity=".55";bt.textContent="Rileggi… "+r}else{bt.disabled=false;bt.style.opacity="";bt.textContent="Ho letto la consegna";clearInterval(S.tick)}};
+      clearInterval(S.tick); aggiorna(); if(resta()>0) S.tick=setInterval(aggiorna,250);
+      bt.onclick=()=>{if(resta()>0)return; ui.letto=true; render()};
+      b.append(bt); return c;
+    }
+    // ordine delle risposte: cambia dopo ogni errore
+    const n=t.verifica.opzioni.length;
+    if(!ui.ordine) ui.ordine=[...Array(n).keys()];
     b.append(el(`<div class="step-label">2 · Hai capito cosa fare?</div>`));
     b.append(el(`<p style="margin:0;font-weight:700">${md(t.verifica.domanda)}</p>`));
     const o=el(`<div class="opts"></div>`);
-    t.verifica.opzioni.forEach((op,i)=>{const x=el(`<button>${md(op)}</button>`);if(ui.sbagliata===i)x.classList.add("wrong");
-      x.onclick=()=>{ if(i===t.verifica.giusta){ui.capito=true;ui.sbagliata=null;salva(S.date,t.id,{tentativi:(st(S.date,t.id).tentativi||0)+1,iniziata:new Date().toISOString()})}
-        else{ui.sbagliata=i;salva(S.date,t.id,{tentativi:(st(S.date,t.id).tentativi||0)+1})}};o.append(x)});
+    ui.ordine.forEach(i=>{const op=t.verifica.opzioni[i]; const x=el(`<button>${md(op)}</button>`);
+      x.onclick=()=>{ const tent=(st(S.date,t.id).tentativi||0)+1;
+        if(i===t.verifica.giusta){ui.capito=true;ui.sbagliata=false;salva(S.date,t.id,{tentativi:tent,iniziata:new Date().toISOString()})}
+        else{
+          ui.sbagliata=true; ui.letto=false; ui.bloccoFino=Date.now()+5000;
+          const prima=ui.ordine.join(); let nuovo;
+          do{nuovo=[...ui.ordine];for(let k=nuovo.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[nuovo[k],nuovo[j]]=[nuovo[j],nuovo[k]]}}
+          while(n>1&&(nuovo.join()===prima||nuovo.indexOf(t.verifica.giusta)===ui.ordine.indexOf(t.verifica.giusta)));
+          ui.ordine=nuovo;
+          salva(S.date,t.id,{tentativi:tent});
+        }};
+      o.append(x)});
     b.append(o);
-    if(ui.sbagliata!=null) b.append(el(`<div class="msg warn">Non è così. Torna su e rileggi la consegna con calma, parola per parola.</div>`));
     return c;
   }
   // 3. il lavoro
