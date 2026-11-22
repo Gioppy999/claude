@@ -233,12 +233,27 @@ function vistaAccount(){
   sw.onclick=()=>{S.accModo=modo==="entra"?"crea":"entra";render()}; box.append(sw);
   w.append(box); return w;
 }
+function formPassword(u){
+    const pw=el(`<div style="display:flex;flex-direction:column;gap:8px"><strong>Cambia password</strong><form style="display:flex;flex-direction:column;gap:8px">
+      <label for="pw-attuale">Password attuale</label><input id="pw-attuale" class="campo" type="password" autocomplete="current-password">
+      <label for="pw-nuova">Nuova password (almeno 6 caratteri)</label><input id="pw-nuova" class="campo" type="password" autocomplete="new-password">
+      <label for="pw-ripeti">Ripeti la nuova password</label><input id="pw-ripeti" class="campo" type="password" autocomplete="new-password">
+      <button class="btn" type="submit">Cambia password</button><p class="esito" style="margin:0;font-weight:700"></p></form></div>`);
+    const f=pw.querySelector("form"), out=pw.querySelector(".esito");
+    f.onsubmit=async e=>{e.preventDefault(); const [a,nu,ri]=["#pw-attuale","#pw-nuova","#pw-ripeti"].map(q=>f.querySelector(q).value);
+      out.style.color="var(--warn)"; if(nu!==ri){out.textContent="Le due nuove password non sono uguali.";return}
+      try{const r=await fetch("/api/account",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({azione:"cambia-password",utente:u,password:a,nuova:nu})});
+        const d=await r.json(); if(!r.ok) throw new Error(d.errore); f.reset(); out.style.color="var(--leaf)"; out.textContent="Password cambiata!"}
+      catch(err){out.textContent=err.message||"Connessione assente, riprova."}};
+    return pw;
+}
 function cardAccount(){
   const u=utenteSalvato(), c=el(`<div class="card"><strong>Account</strong></div>`);
   if(u){ c.append(el(`<p style="margin:0">Collegato come <strong>${esc(u)}</strong>. I progressi sono salvati sull'account.</p>`));
     const x=el(`<button class="btn ghost">Esci da questo dispositivo</button>`);
     x.onclick=()=>{ if(!S.confermaEsci){S.confermaEsci=true;x.textContent="Premi ancora per uscire";return}
-      try{["germoglio-key","germoglio-utente","germoglio-prog","germoglio-pending"].forEach(k=>localStorage.removeItem(k))}catch(e){} location.replace(location.pathname)};
+      try{["germoglio-key","germoglio-utente","germoglio-prog","germoglio-pending","germoglio-profilo"].forEach(k=>localStorage.removeItem(k))}catch(e){} location.replace(location.pathname)};
+    c.append(formPassword(u));
     c.append(x);
   } else { c.append(el(`<p style="margin:0">Questo dispositivo usa il link della famiglia. Create un account: i progressi già fatti passano sull'account e potrete entrare da qualsiasi dispositivo con nome utente e password.</p>`));
     c.append(formAccount("crea","Crea account con questi progressi",KEY)); }
@@ -300,21 +315,6 @@ function vistaProfilo(){
   w.append(el(`<section class="month"><h3>I tuoi numeri</h3><div class="numeri">
     <div><b>${n.tappe}</b>tappe fatte</div><div><b>${n.giorni}</b>giorni completi</div><div><b>${n.serie}</b>giorni di fila</div>
     <div><b>${n.fig}/${n.tot}</b>figurine</div><div><b>${n.record}</b>record della sfida</div><div><b style="font-size:1.2rem">${esc(n.mat)}</b>la materia più facile per te</div></div></section>`));
-  // password
-  if(u){
-    const pw=el(`<section class="month"><h3>Cambia password</h3><form style="display:flex;flex-direction:column;gap:8px">
-      <label for="pw-attuale">Password attuale</label><input id="pw-attuale" class="campo" type="password" autocomplete="current-password">
-      <label for="pw-nuova">Nuova password (almeno 6 caratteri)</label><input id="pw-nuova" class="campo" type="password" autocomplete="new-password">
-      <label for="pw-ripeti">Ripeti la nuova password</label><input id="pw-ripeti" class="campo" type="password" autocomplete="new-password">
-      <button class="btn" type="submit">Cambia password</button><p class="esito" style="margin:0;font-weight:700"></p></form></section>`);
-    const f=pw.querySelector("form"), out=pw.querySelector(".esito");
-    f.onsubmit=async e=>{e.preventDefault(); const [a,nu,ri]=["#pw-attuale","#pw-nuova","#pw-ripeti"].map(q=>f.querySelector(q).value);
-      out.style.color="var(--warn)"; if(nu!==ri){out.textContent="Le due nuove password non sono uguali.";return}
-      try{const r=await fetch("/api/account",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({azione:"cambia-password",utente:u,password:a,nuova:nu})});
-        const d=await r.json(); if(!r.ok) throw new Error(d.errore); f.reset(); out.style.color="var(--leaf)"; out.textContent="Password cambiata!"}
-      catch(err){out.textContent=err.message||"Connessione assente, riprova."}};
-    w.append(pw);
-  } else w.append(el(`<section class="month"><h3>Password</h3><p style="margin:0">Per avere una password serve un account. Chiedi a un grande di crearlo dalla sezione Grandi.</p></section>`));
   return w;
 }
 
