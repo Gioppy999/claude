@@ -322,6 +322,48 @@ function vistaProfilo(){
   return w;
 }
 
+
+/* ---------- promemoria (notifiche) ---------- */
+function b64ToU8(b){const p="=".repeat((4-b.length%4)%4),r=atob((b+p).replace(/-/g,"+").replace(/_/g,"/"));return Uint8Array.from(r,c=>c.charCodeAt(0))}
+function orePromemoria(){try{return JSON.parse(localStorage.getItem("germoglio-ore")||"null")||{ora1:"09:00",ora2:"16:00"}}catch(e){return {ora1:"09:00",ora2:"16:00"}}}
+async function iscrizione(){const reg=await navigator.serviceWorker.ready; return reg.pushManager.getSubscription()}
+async function inviaPush(azione,sub,extra){const r=await fetch("/api/push",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({azione,k:KEY,sub:sub.toJSON?sub.toJSON():sub,...extra})}); const d=await r.json().catch(()=>({})); if(!r.ok) throw new Error(d.errore||"Non riesco a contattare il server."); return d}
+function cardPromemoria(){
+  const c=el(`<div class="card"><strong>Promemoria sul telefono</strong><div class="pm-corpo"><p style="margin:0;color:var(--muted)">Controllo…</p></div></div>`);
+  const corpo=c.querySelector(".pm-corpo");
+  const msg=(t,ok)=>{let m=c.querySelector(".pm-msg"); if(!m){m=el(`<p class="pm-msg" style="margin:0;font-weight:700"></p>`);c.append(m)} m.style.color=ok?"var(--leaf)":"var(--warn)"; m.textContent=t};
+  if(!("serviceWorker" in navigator)||!("PushManager" in window)||!("Notification" in window)){
+    corpo.replaceChildren(el(`<p style="margin:0">Questo browser non può ricevere notifiche. Su iPhone bisogna prima aggiungere Germoglio alla schermata Home e aprirlo da lì.</p>`)); return c }
+  (async()=>{
+    const sub=await iscrizione().catch(()=>null);
+    if(!sub||Notification.permission!=="granted"){
+      corpo.replaceChildren(el(`<p style="margin:0">Una notifica la mattina con le tappe del giorno e una a metà pomeriggio con quelle che mancano. Solo nei giorni con i compiti.</p>`));
+      if(Notification.permission==="denied"){corpo.append(el(`<p style="margin:0;color:var(--warn);font-weight:700">Le notifiche sono bloccate per questo sito. Riattivale dalle impostazioni del browser (lucchetto accanto all'indirizzo → Notifiche → Consenti).</p>`));return}
+      const b=el(`<button class="btn">Attiva i promemoria su questo dispositivo</button>`);
+      b.onclick=async()=>{b.disabled=true; try{
+        if(await Notification.requestPermission()!=="granted") throw new Error("Permesso alle notifiche non dato.");
+        const {chiave}=await (await fetch("/api/push")).json();
+        const reg=await navigator.serviceWorker.ready;
+        const s=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64ToU8(chiave)});
+        await inviaPush("salva",s,orePromemoria()); render();
+      }catch(e){b.disabled=false; msg(e.message||"Non sono riuscito ad attivarli.")}};
+      corpo.append(b); return;
+    }
+    const o=orePromemoria(); const opz=[]; for(let h=7;h<=20;h++) for(const m of ["00","30"]) opz.push(String(h).padStart(2,"0")+":"+m);
+    const sel=(id,v)=>`<select id="${id}" class="campo" style="width:auto">${opz.map(x=>`<option ${x===v?"selected":""}>${x}</option>`).join("")}</select>`;
+    const f=el(`<form style="display:flex;flex-direction:column;gap:8px"><p style="margin:0;color:var(--leaf);font-weight:700">Attivi su questo dispositivo.</p>
+      <label class="row" for="pm-ora1">Primo promemoria (tappe del giorno) ${sel("pm-ora1",o.ora1)}</label>
+      <label class="row" for="pm-ora2">Secondo promemoria (cosa manca) ${sel("pm-ora2",o.ora2)}</label>
+      <div class="row"><button class="btn" type="submit">Salva gli orari</button><button class="btn ghost" type="button" data-a="prova">Manda una prova</button><button class="btn ghost" type="button" data-a="togli">Disattiva</button></div></form>`);
+    f.onsubmit=async e=>{e.preventDefault(); const ore={ora1:f.querySelector("#pm-ora1").value,ora2:f.querySelector("#pm-ora2").value};
+      try{await inviaPush("salva",sub,ore); localStorage.setItem("germoglio-ore",JSON.stringify(ore)); msg("Orari salvati.",true)}catch(err){msg(err.message)}};
+    f.querySelector('[data-a="prova"]').onclick=async()=>{try{await inviaPush("prova",sub); msg("Prova inviata: dovrebbe arrivare tra qualche secondo.",true)}catch(err){msg(err.message)}};
+    f.querySelector('[data-a="togli"]').onclick=async()=>{try{await inviaPush("togli",sub); await sub.unsubscribe(); render()}catch(err){msg(err.message)}};
+    corpo.replaceChildren(f);
+  })();
+  return c;
+}
+
 /* ---------- vista Oggi ---------- */
 function prossimoGiornoConCompiti(from,dir){
   const ds=Object.keys(S.byDate).sort();
@@ -593,6 +635,7 @@ function vistaGrandi(){
   let tot=0,fatte=0,diff=0; for(let i=0;i<7;i++){const ds=addDays(lun,i),gg=S.byDate[ds]; if(!gg)continue; gg.tappe.forEach(t=>{tot++;const s=st(ds,t.id);if(s.fatto)fatte++;if(s.faccia==="difficile")diff++})}
   if(tot) w.append(el(`<div class="card"><strong>Questa settimana</strong><div class="stat"><span class="pill done">${fatte} su ${tot} tappe fatte</span><span class="pill">${diff} segnate difficili</span></div></div>`));
   w.append(cardAccount());
+  if(KEY) w.append(cardPromemoria());
   if(!g){w.append(el(`<div class="empty"><p style="margin:0">Nessun compito in questo giorno.</p></div>`));return w}
   const pv=el(`<div class="card"><strong>Anteprima</strong><p style="margin:0">Provate il gioco di questo giorno come lo vede lei, senza salvare niente. Da qui si vede anche l'album.</p></div>`);
   const pb=el(`<button class="btn ghost">Prova il gioco del giorno</button>`); pb.onclick=apriAnteprima; pv.append(pb); w.append(pv);
@@ -623,7 +666,7 @@ function vistaGrandi(){
 function render(){
   if(!S.piano) return;
   document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.v===S.view)));
-  const ae=document.activeElement; const keepId=ae&&ae.id&&(ae.tagName==="TEXTAREA"||ae.tagName==="INPUT")?ae.id:null;
+  const ae=document.activeElement; const keepId=ae&&ae.id&&(ae.tagName==="TEXTAREA"||ae.tagName==="INPUT"||ae.tagName==="SELECT")?ae.id:null;
   if(keepId) return; // non ridisegnare mentre si scrive una nota
   if(!KEY){ document.querySelector(".tabs").hidden=true; $view.replaceChildren(vistaAccount()); return }
   const v= S.view==="cammino"?vistaCammino(): S.view==="grandi"?vistaGrandi(): S.view==="album"?vistaAlbum(): S.view==="profilo"?vistaProfilo(): vistaOggi();
