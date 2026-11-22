@@ -30,6 +30,16 @@ export default async (req) => {
     if (!ok) { await pausa(800); return json({ errore: "Nome utente o password sbagliati." }, 401) }
     return json({ k: a.k, utente });
   }
+  if (b.azione === "cambia-password") {
+    const nuova = String(b.nuova || "");
+    if (nuova.length < 6 || nuova.length > 100) return json({ errore: "La nuova password deve avere almeno 6 caratteri." }, 400);
+    const a = await store.get(utente, { type: "json" });
+    const ok = a && timingSafeEqual(Buffer.from(hash(password, a.salt), "hex"), Buffer.from(a.hash, "hex"));
+    if (!ok) { await pausa(800); return json({ errore: "La password attuale non è giusta." }, 401) }
+    const salt = randomBytes(16).toString("hex");
+    await store.setJSON(utente, { ...a, salt, hash: hash(nuova, salt), cambiata: new Date().toISOString() });
+    return json({ ok: true });
+  }
   return json({ errore: "azione non valida" }, 400);
 };
 

@@ -126,6 +126,18 @@ label.chk input{width:22px;height:22px;accent-color:var(--leaf)}
 .album .fig.no{border:2px dashed var(--line);color:var(--muted)}
 .album .fig .em.no{font-family:var(--display);color:var(--line)}
 .album .fig small{color:var(--muted)}
+
+.avatar{border-radius:50%;background:var(--leaf-soft);color:var(--leaf);display:inline-flex;align-items:center;justify-content:center;overflow:hidden;font-family:var(--display);font-weight:600;flex:none}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.prof-top{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.emojis{display:flex;gap:6px;flex-wrap:wrap}
+.emojis button{font-size:1.6rem;width:48px;height:48px;border-radius:12px;border:2px solid var(--line);background:var(--surface)}
+.emojis button[aria-pressed="true"]{border-color:var(--leaf);background:var(--leaf-soft)}
+.numeri{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:560px){.numeri{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.numeri div{background:var(--bg);border-radius:14px;padding:12px}
+.numeri b{display:block;font-family:var(--display);font-size:1.7rem;font-variant-numeric:tabular-nums;color:var(--leaf)}
+.campo{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);width:100%}
 </style>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
 </head>
@@ -136,9 +148,11 @@ label.chk input{width:22px;height:22px;accent-color:var(--leaf)}
     <div class="brand">
       <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V15" stroke="var(--leaf)" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M17 17C17 10 12 6 5 6c0 7 5 11 12 11z" fill="var(--leaf)"/><path d="M17 14c0-6 4-10 11-10 0 6-4 10-11 10z" fill="var(--sun)"/></svg>
       <h1>Germoglio</h1>
+      <span id="mini-avatar"></span>
     </div>
     <nav class="tabs" aria-label="Sezioni">
       <button id="tab-oggi" data-v="oggi" aria-pressed="true">Oggi</button>
+      <button id="tab-profilo" data-v="profilo" aria-pressed="false">Profilo</button>
       <button id="tab-album" data-v="album" aria-pressed="false">Album</button>
       <button id="tab-cammino" data-v="cammino" aria-pressed="false">Il cammino</button>
       <button id="tab-grandi" data-v="grandi" aria-pressed="false">Grandi</button>
@@ -227,6 +241,79 @@ function cardAccount(){
   return c;
 }
 
+
+/* ---------- profilo ---------- */
+S.profilo={};
+async function caricaProfilo(){ if(!KEY) return; try{const r=await fetch(`/api/profilo?k=${KEY}`,{cache:"no-store"}); if(r.ok){S.profilo=await r.json(); try{localStorage.setItem("germoglio-profilo",JSON.stringify(S.profilo))}catch(e){}}}catch(e){} }
+try{S.profilo=JSON.parse(localStorage.getItem("germoglio-profilo")||"{}")}catch(e){}
+async function salvaProfilo(patch,msgEl){
+  S.profilo={...S.profilo,...patch}; try{localStorage.setItem("germoglio-profilo",JSON.stringify(S.profilo))}catch(e){}
+  document.activeElement&&document.activeElement.blur&&document.activeElement.blur(); render();
+  try{const r=await fetch(`/api/profilo?k=${KEY}`,{method:"PUT",headers:{"content-type":"application/json"},body:JSON.stringify(S.profilo)}); const d=await r.json(); if(!r.ok) throw new Error(d.errore); $status.textContent=""}
+  catch(e){$status.textContent=(e&&e.message)||"Non sono riuscito a salvare il profilo: riprova con la connessione."}
+}
+function avatarHtml(size){
+  const P=S.profilo||{}, st=`width:${size}px;height:${size}px;font-size:${Math.round(size*.5)}px`;
+  if(P.foto) return `<span class="avatar" style="${st}"><img src="${P.foto}" alt="Foto del profilo"></span>`;
+  if(P.avatar) return `<span class="avatar" style="${st}">${esc(P.avatar)}</span>`;
+  const n=(P.nome||utenteSalvato()||"?").trim(); return `<span class="avatar" style="${st}">${esc(n.charAt(0).toUpperCase()||"?")}</span>`;
+}
+function riduciFoto(file){return new Promise((ok,ko)=>{const img=new Image(),url=URL.createObjectURL(file);
+  img.onload=()=>{const N=256,c=document.createElement("canvas");c.width=N;c.height=N;const x=c.getContext("2d");const m=Math.min(img.width,img.height);
+    x.drawImage(img,(img.width-m)/2,(img.height-m)/2,m,m,0,0,N,N);URL.revokeObjectURL(url);ok(c.toDataURL("image/jpeg",.82))};
+  img.onerror=()=>ko(new Error("Questa foto non si apre: prova con un'altra."));img.src=url})}
+function numeri(){
+  const oggi=iso(new Date()); let tappe=0,giorni=0,fig=0,record=0; const facili={};
+  S.piano.giorni.forEach(g=>{const d=S.prog[g.data]||{}; let tutte=true;
+    g.tappe.forEach(t=>{const x=d[t.id]||{}; if(x.fatto){tappe++; if(x.faccia==="facile") facili[t.materia]=(facili[t.materia]||0)+1} else tutte=false});
+    if(tutte&&g.tappe.length) giorni++; if(d.gioco&&d.gioco.fatto){fig++; record=Math.max(record,d.gioco.punti||0)}});
+  let serie=0; const passati=S.piano.giorni.map(g=>g.data).filter(d=>d<=oggi).sort().reverse();
+  for(const ds of passati){const g=S.byDate[ds],d=S.prog[ds]||{}; const tutte=g.tappe.every(t=>(d[t.id]||{}).fatto); if(tutte) serie++; else if(ds===oggi) continue; else break}
+  const mat=Object.entries(facili).sort((a,b)=>b[1]-a[1])[0];
+  return {tappe,giorni,fig,tot:S.piano.giorni.filter(g=>g.figurina).length,record,serie,mat:mat?MAT[mat[0]]:"—"};
+}
+function vistaProfilo(){
+  const w=el(`<div class="wrap" style="gap:14px"></div>`), P=S.profilo||{}, u=utenteSalvato();
+  const top=el(`<section class="month"><div class="prof-top">${avatarHtml(96)}<div><h2>${esc(P.nome||"Il tuo profilo")}</h2><p style="margin:.2em 0 0;color:var(--muted)">${u?"Nome utente: "+esc(u):"Account non ancora creato"}</p></div></div></section>`);
+  // foto
+  const fr=el(`<div class="row"></div>`);
+  const fi=el(`<input type="file" id="foto-file" accept="image/*" hidden>`);
+  const fb=el(`<button class="btn">Cambia foto</button>`); fb.onclick=()=>fi.click();
+  fi.onchange=async()=>{const f=fi.files[0]; if(!f) return; try{const d=await riduciFoto(f); salvaProfilo({foto:d,avatar:""})}catch(e){$status.textContent=e.message} fi.value=""};
+  fr.append(fb,fi);
+  if(P.foto){const tb=el(`<button class="btn ghost">Togli la foto</button>`); tb.onclick=()=>salvaProfilo({foto:""}); fr.append(tb)}
+  top.append(fr);
+  top.append(el(`<p style="margin:0;font-weight:700">Oppure scegli un animale</p>`));
+  const em=el(`<div class="emojis"></div>`);
+  ["🦊","🐼","🦄","🐬","🐱","🐶","🦁","🐢","🦉","🐝"].forEach(a=>{const b=el(`<button aria-pressed="${!P.foto&&P.avatar===a}" aria-label="Avatar ${a}">${a}</button>`); b.onclick=()=>salvaProfilo({avatar:a,foto:""}); em.append(b)});
+  top.append(em); w.append(top);
+  // nome
+  const nm=el(`<section class="month"><h3>Il tuo nome</h3><form class="row" style="flex-wrap:nowrap"><input id="prof-nome" class="campo" maxlength="30" placeholder="Come ti chiami?"><button class="btn" type="submit">Salva</button></form></section>`);
+  nm.querySelector("input").value=P.nome||""; nm.querySelector("form").onsubmit=e=>{e.preventDefault(); salvaProfilo({nome:nm.querySelector("input").value.trim()})};
+  w.append(nm);
+  // numeri
+  const n=numeri();
+  w.append(el(`<section class="month"><h3>I tuoi numeri</h3><div class="numeri">
+    <div><b>${n.tappe}</b>tappe fatte</div><div><b>${n.giorni}</b>giorni completi</div><div><b>${n.serie}</b>giorni di fila</div>
+    <div><b>${n.fig}/${n.tot}</b>figurine</div><div><b>${n.record}</b>record della sfida</div><div><b style="font-size:1.2rem">${esc(n.mat)}</b>la materia più facile per te</div></div></section>`));
+  // password
+  if(u){
+    const pw=el(`<section class="month"><h3>Cambia password</h3><form style="display:flex;flex-direction:column;gap:8px">
+      <label for="pw-attuale">Password attuale</label><input id="pw-attuale" class="campo" type="password" autocomplete="current-password">
+      <label for="pw-nuova">Nuova password (almeno 6 caratteri)</label><input id="pw-nuova" class="campo" type="password" autocomplete="new-password">
+      <label for="pw-ripeti">Ripeti la nuova password</label><input id="pw-ripeti" class="campo" type="password" autocomplete="new-password">
+      <button class="btn" type="submit">Cambia password</button><p class="esito" style="margin:0;font-weight:700"></p></form></section>`);
+    const f=pw.querySelector("form"), out=pw.querySelector(".esito");
+    f.onsubmit=async e=>{e.preventDefault(); const [a,nu,ri]=["#pw-attuale","#pw-nuova","#pw-ripeti"].map(q=>f.querySelector(q).value);
+      out.style.color="var(--warn)"; if(nu!==ri){out.textContent="Le due nuove password non sono uguali.";return}
+      try{const r=await fetch("/api/account",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({azione:"cambia-password",utente:u,password:a,nuova:nu})});
+        const d=await r.json(); if(!r.ok) throw new Error(d.errore); f.reset(); out.style.color="var(--leaf)"; out.textContent="Password cambiata!"}
+      catch(err){out.textContent=err.message||"Connessione assente, riprova."}};
+    w.append(pw);
+  } else w.append(el(`<section class="month"><h3>Password</h3><p style="margin:0">Per avere una password serve un account. Chiedi a un grande di crearlo dalla sezione Grandi.</p></section>`));
+  return w;
+}
+
 /* ---------- vista Oggi ---------- */
 function prossimoGiornoConCompiti(from,dir){
   const ds=Object.keys(S.byDate).sort();
@@ -252,7 +339,7 @@ function vistaOggi(){
   }
   const n=g.tappe.length, done=g.tappe.filter(t=>st(S.date,t.id).fatto).length, min=g.tappe.reduce((a,t)=>a+t.minuti,0);
   const frase = done===n ? "Tutte le tappe fatte. La piantina è fiorita!" : done===0 ? `${n} tappe, circa ${min} minuti. Una alla volta.` : `Hai fatto ${done} tappe su ${n}. Avanti con la prossima.`;
-  wrap.append(el(`<section class="sprout">${pianta(n,done)}<div><p class="big">${frase}</p><p style="color:var(--muted)">Per ogni tappa: leggi la consegna, rispondi alla domanda, poi lavora sul quaderno.</p></div></section>`));
+  wrap.append(el(`<section class="sprout">${pianta(n,done)}<div><p class="big">${S.profilo&&S.profilo.nome?"Ciao "+esc(S.profilo.nome)+"! ":""}${frase}</p><p style="color:var(--muted)">Per ogni tappa: leggi la consegna, rispondi alla domanda, poi lavora sul quaderno.</p></div></section>`));
   if(S.g&&S.g.date===S.date){ wrap.append(vistaGioco(g)); return wrap }
   const list=el(`<div class="list"></div>`);
   g.tappe.forEach(t=>list.append(cardTappa(t)));
@@ -531,7 +618,8 @@ function render(){
   const ae=document.activeElement; const keepId=ae&&ae.id&&(ae.tagName==="TEXTAREA"||ae.tagName==="INPUT")?ae.id:null;
   if(keepId) return; // non ridisegnare mentre si scrive una nota
   if(!KEY){ document.querySelector(".tabs").hidden=true; $view.replaceChildren(vistaAccount()); return }
-  const v= S.view==="cammino"?vistaCammino(): S.view==="grandi"?vistaGrandi(): S.view==="album"?vistaAlbum(): vistaOggi();
+  const v= S.view==="cammino"?vistaCammino(): S.view==="grandi"?vistaGrandi(): S.view==="album"?vistaAlbum(): S.view==="profilo"?vistaProfilo(): vistaOggi();
+  const ma=document.getElementById("mini-avatar"); if(ma) ma.innerHTML=(S.profilo&&(S.profilo.foto||S.profilo.avatar||S.profilo.nome))?avatarHtml(34):"";
   $view.replaceChildren(v);
   const p=document.getElementById("prev"),n=document.getElementById("next");
   if(p) p.onclick=()=>{S.date=addDays(S.date,-1);S.open=null;render()};
@@ -549,7 +637,7 @@ try{const v=localStorage.getItem("germoglio-view");if(v==="cammino")S.view=v}cat
   if(location.hash==="#anteprima") S.view="grandi";
   render();
   if(!KEY) return;
-  await sincronizza();
+  await Promise.all([sincronizza(),caricaProfilo()]); render();
   setInterval(()=>{ if(document.visibilityState==="visible") sincronizza() },30000);
   document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==="visible") sincronizza() });
 })();
