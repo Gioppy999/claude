@@ -35,7 +35,12 @@ h1,h2,h3{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0;l
 button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
 header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+header.top .tabs{order:3;flex-basis:100%;justify-content:center}
+@media (min-width:640px){header.top .tabs{order:0;flex-basis:auto}}
+.btn-profilo{order:2;width:44px;height:44px;border-radius:50%;border:2px solid var(--line);background:var(--surface);padding:0;display:inline-flex;align-items:center;justify-content:center;overflow:hidden;color:var(--leaf)}
+.btn-profilo[aria-pressed="true"]{border-color:var(--leaf);box-shadow:0 0 0 3px var(--leaf-soft)}
+.btn-profilo .avatar{width:100%!important;height:100%!important}
 .brand h1{font-size:1.6rem;color:var(--leaf)}
 .tabs{display:flex;flex-wrap:wrap;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px}
 .tabs button{border:0;background:none;padding:6px 11px;border-radius:999px;font-family:var(--display);font-weight:500;font-size:.95rem;color:var(--muted)}
@@ -148,11 +153,10 @@ label.chk input{width:22px;height:22px;accent-color:var(--leaf)}
     <div class="brand">
       <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V15" stroke="var(--leaf)" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M17 17C17 10 12 6 5 6c0 7 5 11 12 11z" fill="var(--leaf)"/><path d="M17 14c0-6 4-10 11-10 0 6-4 10-11 10z" fill="var(--sun)"/></svg>
       <h1>Germoglio</h1>
-      <span id="mini-avatar"></span>
     </div>
+    <button id="btn-profilo" class="btn-profilo" aria-label="Il mio profilo"></button>
     <nav class="tabs" aria-label="Sezioni">
       <button id="tab-oggi" data-v="oggi" aria-pressed="true">Oggi</button>
-      <button id="tab-profilo" data-v="profilo" aria-pressed="false">Profilo</button>
       <button id="tab-album" data-v="album" aria-pressed="false">Album</button>
       <button id="tab-cammino" data-v="cammino" aria-pressed="false">Il cammino</button>
       <button id="tab-grandi" data-v="grandi" aria-pressed="false">Grandi</button>
@@ -619,12 +623,15 @@ function render(){
   if(keepId) return; // non ridisegnare mentre si scrive una nota
   if(!KEY){ document.querySelector(".tabs").hidden=true; $view.replaceChildren(vistaAccount()); return }
   const v= S.view==="cammino"?vistaCammino(): S.view==="grandi"?vistaGrandi(): S.view==="album"?vistaAlbum(): S.view==="profilo"?vistaProfilo(): vistaOggi();
-  const ma=document.getElementById("mini-avatar"); if(ma) ma.innerHTML=(S.profilo&&(S.profilo.foto||S.profilo.avatar||S.profilo.nome))?avatarHtml(34):"";
+  const bp=document.getElementById("btn-profilo"); if(bp){ const P=S.profilo||{};
+    bp.innerHTML=(P.foto||P.avatar)?avatarHtml(40):`<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="currentColor"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="currentColor"/></svg>`;
+    bp.setAttribute("aria-pressed",String(S.view==="profilo")); bp.hidden=!KEY; }
   $view.replaceChildren(v);
   const p=document.getElementById("prev"),n=document.getElementById("next");
   if(p) p.onclick=()=>{S.date=addDays(S.date,-1);S.open=null;render()};
   if(n) n.onclick=()=>{S.date=addDays(S.date,1);S.open=null;render()};
 }
+document.getElementById("btn-profilo").onclick=()=>{S.view=S.view==="profilo"?"oggi":"profilo";S.g=null;render();window.scrollTo(0,0)};
 document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{S.view=b.dataset.v;try{localStorage.setItem("germoglio-view",S.view)}catch(e){}render()});
 try{const v=localStorage.getItem("germoglio-view");if(v==="cammino")S.view=v}catch(e){}
 
