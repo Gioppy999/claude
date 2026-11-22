@@ -1,0 +1,1853 @@
+{
+  "giorniCompiti": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "nota": "Giorni con i compiti: da lunedì a giovedì. Settimane dettagliate: dal 23 novembre al 3 dicembre 2026. Le settimane successive si aggiungono una alla volta.",
+  "programma": [
+    {
+      "mese": "Novembre",
+      "periodo": "23–30 novembre",
+      "titolo": "Settimana di partenza",
+      "materie": {
+        "italiano": "Comprensione di testi narrativi, ortografia, il nome, il riassunto.",
+        "matematica": "Numeri oltre il migliaio e valore posizionale, operazioni in colonna, problemi con dati inutili, prime frazioni.",
+        "storia": "La linea del tempo, i Sumeri e la scrittura.",
+        "geografia": "Orientamento: punti cardinali, pianta, riduzione in scala.",
+        "scienze": "La materia e i suoi stati.",
+        "inglese": "Daily routine, numbers, months, family."
+      },
+      "nota": "Serve anche a capire il suo livello: dalle faccine e dai controlli si regolano le settimane dopo."
+    },
+    {
+      "mese": "Dicembre",
+      "periodo": "1–23 dicembre",
+      "materie": {
+        "italiano": "Verbo: modo indicativo, tempi semplici. Aggettivo qualificativo e gradi. Testo narrativo: introduzione, sviluppo, conclusione. Uso del dizionario: sinonimi e contrari.",
+        "matematica": "× e : per 10, 100, 1000. Divisioni con una cifra al divisore, prova. Problemi con più operazioni. Tavola pitagorica: multipli e divisori.",
+        "storia": "Babilonesi e il Codice di Hammurabi (confronto con le nostre leggi). Ittiti e Assiri.",
+        "geografia": "Strumenti: bussola, carte fisiche, politiche e tematiche. Il paesaggio di montagna: Alpi e Appennini.",
+        "scienze": "L'acqua elemento vitale e il suo ciclo. L'aria e gli esseri viventi.",
+        "inglese": "Telling the time, winter clothes, Christmas and festivities in English-speaking countries."
+      }
+    },
+    {
+      "mese": "Vacanze di Natale",
+      "periodo": "24 dicembre – 6 gennaio",
+      "materie": {
+        "lettura": "Solo lettura libera: un libro scelto da lei, 15 minuti al giorno quando capita."
+      },
+      "nota": "Date da confermare con voi."
+    },
+    {
+      "mese": "Gennaio",
+      "periodo": "7–31 gennaio",
+      "materie": {
+        "italiano": "Verbo: tempi composti, ausiliari, coniugazioni. Articolo e preposizioni. Testo descrittivo oggettivo e soggettivo (persone, animali, ambienti).",
+        "matematica": "Divisioni con due cifre al divisore. Prova del nove. Numeri primi. Proprietà delle operazioni e calcolo mentale.",
+        "storia": "Gli Egizi: il Nilo, faraone e classi sociali, vita quotidiana, religione, scrittura e pittura.",
+        "geografia": "Collina e pianura. Paesaggio naturale e paesaggio antropico.",
+        "scienze": "Materiali e trasformazioni: semplici esperimenti da schematizzare.",
+        "inglese": "School subjects and favourite subjects, daily routine con le ore."
+      }
+    },
+    {
+      "mese": "Febbraio",
+      "periodo": "1–28 febbraio",
+      "materie": {
+        "italiano": "Analisi logica: frase minima, soggetto sottinteso, predicato verbale e nominale, espansioni. Testo regolativo. La lettera.",
+        "matematica": "Frazioni: proprie, improprie, apparenti, equivalenti, frazione di un numero, confronto, addizioni e sottrazioni. Frazioni decimali.",
+        "storia": "Le civiltà dell'Indo e del Fiume Giallo. Mappe concettuali per confrontare le civiltà.",
+        "geografia": "Fiumi e laghi d'Italia. Leggere grafici.",
+        "scienze": "I vegetali: parti della pianta, fotosintesi, ciclo vitale.",
+        "inglese": "Writing a short letter: describe yourself to a friend."
+      }
+    },
+    {
+      "mese": "Marzo",
+      "periodo": "1–24 marzo",
+      "materie": {
+        "italiano": "Complemento oggetto. Testo poetico: versi, strofe, rima baciata e alternata, similitudine, metafora, onomatopea; avvio alla parafrasi. Il diario.",
+        "matematica": "Numeri decimali: valore posizionale, confronto, operazioni, × e : per 10, 100, 1000. Misure: lunghezza, massa, capacità, tempo; equivalenze. L'euro.",
+        "storia": "Gli Ebrei e la pastorizia. I Fenici: il mare, i commerci, l'alfabeto.",
+        "geografia": "Mari, coste e isole. Il clima e le regioni climatiche.",
+        "scienze": "Gli animali: classificazione, vertebrati e invertebrati, ciclo vitale.",
+        "inglese": "Festivities and months; Easter."
+      }
+    },
+    {
+      "mese": "Vacanze di Pasqua",
+      "periodo": "25–30 marzo (Pasqua 28 marzo 2027)",
+      "materie": {
+        "lettura": "Solo lettura libera."
+      },
+      "nota": "Date da confermare con voi."
+    },
+    {
+      "mese": "Aprile",
+      "periodo": "31 marzo – 30 aprile",
+      "materie": {
+        "italiano": "Verbo: congiuntivo, condizionale, imperativo, infinito. Avverbi di modo, tempo, luogo. Aggettivi possessivi, numerali, dimostrativi, indefiniti. La sintesi e la relazione.",
+        "matematica": "Geometria: angoli e misura, rette parallele e perpendicolari, triangoli e quadrilateri, perimetro, simmetrie, traslazioni e rotazioni. Piano cartesiano. Problemi di costo unitario e totale, peso lordo, netto e tara.",
+        "storia": "Cretesi e Micenei. Il mito. Confronto tra le civiltà di ieri e la vita di oggi.",
+        "geografia": "Regioni fisiche e regioni amministrative. I settori di produzione (primario, secondario, terziario).",
+        "scienze": "Ecosistema, catena alimentare, l'uomo e l'ambiente.",
+        "inglese": "Short stories: leggere e raccontare semplici storie."
+      }
+    },
+    {
+      "mese": "Maggio",
+      "periodo": "1–31 maggio",
+      "materie": {
+        "italiano": "Lessico: prefissi e suffissi, parole derivate e composte, omonimi, iperonimi e iponimi. Congiunzioni e connettivi. Rielaborazione creativa di testi.",
+        "matematica": "Area e figure equiestese (tangram), figure isoperimetriche. Numeri negativi (temperature). Numeri romani. Statistica: tabelle, grafici, media e frequenza. Probabilità.",
+        "storia": "Ripasso con linee del tempo e mappe. Storia del vostro territorio.",
+        "geografia": "Tutela dell'ambiente e del patrimonio. Ripasso con la carta d'Italia.",
+        "scienze": "Ripasso con esperimenti semplici.",
+        "inglese": "Ripasso: parlare di sé in 8–10 frasi."
+      }
+    },
+    {
+      "mese": "Giugno",
+      "periodo": "1 giugno – esame",
+      "materie": {
+        "tutte": "Prove simili all'esame di idoneità: un testo da scrivere, una comprensione, una prova di matematica, domande orali di storia, geografia, scienze e inglese."
+      },
+      "nota": "La data e il tipo di prove si chiedono alla scuola dove farà l'esame, così le ultime settimane si preparano su quelle."
+    }
+  ],
+  "giorni": [
+    {
+      "data": "2026-11-23",
+      "tema": "Settimana di partenza",
+      "tappe": [
+        {
+          "id": "a",
+          "materia": "matematica",
+          "titolo": "I grandi numeri",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Sul quaderno scrivi in cifre i 5 numeri qui sotto. Poi scomponi ogni numero come nell'esempio. Esempio: 45.302 = 4 dak + 5 uk + 3 h + 0 da + 2 u",
+          "verifica": {
+            "domanda": "Cosa ti chiede di fare questa consegna?",
+            "opzioni": [
+              "Leggere i numeri ad alta voce",
+              "Scrivere i numeri in cifre e poi scomporli",
+              "Sommare tutti i numeri tra loro"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "trecentoquarantamilaseicentocinque",
+            "novantottomilasettanta",
+            "centoduemilaundici",
+            "settecentomilasette",
+            "cinquantamilacinquecento"
+          ],
+          "aiuto": "Ogni gruppo di tre cifre, partendo da destra, è separato da un punto. Dove non c'è niente scrivi 0.",
+          "soluzioni": "340.605 = 3 hk + 4 dak + 0 uk + 6 h + 0 da + 5 u · 98.070 = 9 dak + 8 uk + 0 h + 7 da + 0 u · 102.011 = 1 hk + 0 dak + 2 uk + 0 h + 1 da + 1 u · 700.007 = 7 hk + 0 dak + 0 uk + 0 h + 0 da + 7 u · 50.500 = 5 dak + 0 uk + 5 h + 0 da + 0 u"
+        },
+        {
+          "id": "b",
+          "materia": "italiano",
+          "titolo": "Leggi e rispondi",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Leggi il racconto due volte. Poi sul quaderno rispondi alle domande con frasi complete: ogni risposta deve iniziare ripetendo le parole della domanda.",
+          "verifica": {
+            "domanda": "Come devi scrivere le risposte?",
+            "opzioni": [
+              "Con una sola parola",
+              "Con frasi complete",
+              "Con un disegno"
+            ],
+            "giusta": 1
+          },
+          "testo": "Quella mattina il giardino era coperto di brina. Marta uscì con la sciarpa rossa per dare da mangiare alle galline, ma vicino alla legnaia sentì un fruscio. Si chinò piano: tra le foglie secche c'era un riccio, tutto arrotolato. «Dovresti dormire, a quest'ora» gli disse sottovoce. Il riccio non si mosse. Marta corse in casa a chiamare il nonno, che sapeva tutto sugli animali. Il nonno guardò il riccio e sorrise: «Sta cercando un posto riparato per il letargo. Aiutiamolo». Insieme prepararono una cassetta di legno con dentro paglia e foglie, e la misero sotto la tettoia. Il giorno dopo la cassetta era vuota, ma le foglie erano tutte schiacciate in un angolo, come un piccolo nido.",
+          "passi": [
+            "In quale stagione si svolge il racconto? Da quale parola lo capisci?",
+            "Dove trova il riccio Marta?",
+            "Perché Marta chiama proprio il nonno?",
+            "Che cosa preparano Marta e il nonno?",
+            "Secondo te, perché il giorno dopo le foglie sono schiacciate in un angolo?"
+          ],
+          "aiuto": "Per ogni domanda torna nel testo e cerca la frase che risponde. Puoi sottolinearla con il dito.",
+          "soluzioni": "1. Autunno/inizio inverno: brina, foglie secche, letargo. 2. Vicino alla legnaia, tra le foglie secche. 3. Perché sapeva tutto sugli animali. 4. Una cassetta di legno con paglia e foglie, sotto la tettoia. 5. Risposta personale: il riccio ci ha dormito o ci ha fatto il nido, poi è andato via."
+        },
+        {
+          "id": "c",
+          "materia": "matematica",
+          "titolo": "Lampo: tabelline",
+          "minuti": 5,
+          "tipo": "quiz",
+          "consegna": "Rispondi più veloce che puoi. Se sbagli, riprova.",
+          "domande": [
+            {
+              "q": "7 × 8",
+              "o": [
+                "54",
+                "56",
+                "63"
+              ],
+              "g": 1
+            },
+            {
+              "q": "6 × 9",
+              "o": [
+                "54",
+                "48",
+                "56"
+              ],
+              "g": 0
+            },
+            {
+              "q": "8 × 8",
+              "o": [
+                "72",
+                "56",
+                "64"
+              ],
+              "g": 2
+            },
+            {
+              "q": "9 × 7",
+              "o": [
+                "63",
+                "72",
+                "56"
+              ],
+              "g": 0
+            },
+            {
+              "q": "12 × 4",
+              "o": [
+                "44",
+                "48",
+                "52"
+              ],
+              "g": 1
+            },
+            {
+              "q": "6 × 7",
+              "o": [
+                "36",
+                "48",
+                "42"
+              ],
+              "g": 2
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "materia": "storia",
+          "titolo": "La linea del tempo",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Disegna sul quaderno una linea lunga tutta la pagina. Al centro segna l'anno 1 (la nascita di Cristo). A sinistra scrivi a.C. (avanti Cristo), a destra d.C. (dopo Cristo). Poi metti sulla linea i 4 fatti qui sotto, nell'ordine giusto.",
+          "verifica": {
+            "domanda": "Dove vanno gli anni avanti Cristo?",
+            "opzioni": [
+              "A sinistra dell'anno 1",
+              "A destra dell'anno 1",
+              "Non vanno sulla linea"
+            ],
+            "giusta": 0
+          },
+          "passi": [
+            "Circa 3200 a.C.: i Sumeri inventano la scrittura",
+            "Circa 2560 a.C.: gli Egizi costruiscono la piramide di Cheope",
+            "Anno 1: nascita di Cristo",
+            "L'anno in cui sei nata tu",
+            "Domanda finale: è passato più tempo tra la scrittura e la piramide, o tra la nascita di Cristo e oggi?"
+          ],
+          "aiuto": "Negli anni avanti Cristo i numeri più grandi sono più lontani dall'anno 1, quindi più a sinistra.",
+          "soluzioni": "Ordine: scrittura (3200 a.C.), piramide (2560 a.C.), anno 1, nascita di lei. Tra scrittura e piramide circa 640 anni; tra la nascita di Cristo e oggi circa 2026 anni, quindi molto di più."
+        },
+        {
+          "id": "e",
+          "materia": "inglese",
+          "titolo": "My day",
+          "minuti": 10,
+          "tipo": "quaderno",
+          "consegna": "Write 5 sentences about your day, one for each verb below. Use this model: I wake up at 7 o'clock.",
+          "verifica": {
+            "domanda": "Quante frasi devi scrivere?",
+            "opzioni": [
+              "3",
+              "5",
+              "10"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "wake up",
+            "have breakfast",
+            "go to school (o: start school)",
+            "have lunch",
+            "go to bed"
+          ],
+          "aiuto": "Scrivi sempre I + verbo + at + l'ora. Per esempio: I have lunch at 1 o'clock.",
+          "soluzioni": "Frasi con il modello I + verbo + at + ora o'clock. Controllare che ci sia 'at' e l'ora."
+        }
+      ],
+      "gioco": {
+        "tipo": "memory",
+        "coppie": [
+          [
+            "340.605",
+            "trecentoquarantamilaseicentocinque"
+          ],
+          [
+            "anno 1",
+            "nascita di Cristo"
+          ],
+          [
+            "3200 a.C.",
+            "nasce la scrittura"
+          ],
+          [
+            "I wake up",
+            "mi sveglio"
+          ],
+          [
+            "go to bed",
+            "andare a letto"
+          ],
+          [
+            "7 × 8",
+            "56"
+          ]
+        ],
+        "parole": [
+          {
+            "parola": "SCRITTURA",
+            "indizio": "L'hanno inventata i Sumeri"
+          },
+          {
+            "parola": "PIRAMIDE",
+            "indizio": "L'hanno costruita gli Egizi"
+          }
+        ]
+      },
+      "figurina": {
+        "nome": "Riccio",
+        "emoji": "🦔",
+        "fatto": "Quando va in letargo il suo cuore rallenta tantissimo: da circa 190 a circa 20 battiti al minuto."
+      }
+    },
+    {
+      "data": "2026-11-24",
+      "tema": "Settimana di partenza",
+      "tappe": [
+        {
+          "id": "a",
+          "materia": "italiano",
+          "titolo": "Caccia agli errori",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "In ogni frase c'è UN errore di ortografia. Ricopia sul quaderno le frasi corrette e sottolinea la parola che hai corretto.",
+          "verifica": {
+            "domanda": "Quanti errori ci sono in ogni frase?",
+            "opzioni": [
+              "Nessuno",
+              "Uno",
+              "Tanti"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "Luca a un cane bianco e nero.",
+            "Ce un gatto sul tetto.",
+            "La mamma e andata al mercato.",
+            "Ho comprato un cuaderno nuovo.",
+            "Dammi quel libro, lo voglio leggere perche è bello.",
+            "Ho visto i miei amici e li ho salutato con la mano.",
+            "Oggi o mangiato la pasta al pomodoro.",
+            "Gli ucelli volano nel cielo."
+          ],
+          "aiuto": "Controlla: ha/a, c'è, è con l'accento, qu/cu, perché, o/ho, doppie.",
+          "soluzioni": "1. ha · 2. C'è · 3. è · 4. quaderno · 5. perché · 6. li ho salutati · 7. ho · 8. uccelli"
+        },
+        {
+          "id": "b",
+          "materia": "matematica",
+          "titolo": "Operazioni in colonna",
+          "minuti": 20,
+          "tipo": "quaderno",
+          "consegna": "Esegui in colonna sul quaderno. Per ogni sottrazione fai anche la prova con l'addizione.",
+          "verifica": {
+            "domanda": "Per quali operazioni devi fare la prova?",
+            "opzioni": [
+              "Per tutte",
+              "Solo per le sottrazioni",
+              "Per nessuna"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "4.586 + 3.947",
+            "12.308 + 9.795",
+            "7.003 − 2.458",
+            "15.240 − 8.367",
+            "348 × 26",
+            "507 × 43"
+          ],
+          "aiuto": "Incolonna bene: unità sotto unità. Nella sottrazione, se la cifra sopra è più piccola, chiedi il prestito.",
+          "soluzioni": "8.533 · 22.103 · 4.545 · 6.873 · 9.048 · 21.801"
+        },
+        {
+          "id": "c",
+          "materia": "italiano",
+          "titolo": "Lampo: che parola è?",
+          "minuti": 5,
+          "tipo": "quiz",
+          "consegna": "Scegli che tipo di parola è quella in grassetto.",
+          "domande": [
+            {
+              "q": "Il **gatto** dorme.",
+              "o": [
+                "nome",
+                "verbo",
+                "aggettivo"
+              ],
+              "g": 0
+            },
+            {
+              "q": "Il gatto **dorme**.",
+              "o": [
+                "nome",
+                "verbo",
+                "aggettivo"
+              ],
+              "g": 1
+            },
+            {
+              "q": "Una casa **grande**.",
+              "o": [
+                "nome",
+                "verbo",
+                "aggettivo"
+              ],
+              "g": 2
+            },
+            {
+              "q": "**Corriamo** al parco.",
+              "o": [
+                "nome",
+                "verbo",
+                "aggettivo"
+              ],
+              "g": 1
+            },
+            {
+              "q": "La **felicità** è contagiosa.",
+              "o": [
+                "nome",
+                "verbo",
+                "aggettivo"
+              ],
+              "g": 0
+            },
+            {
+              "q": "Un cielo **azzurro**.",
+              "o": [
+                "nome",
+                "verbo",
+                "aggettivo"
+              ],
+              "g": 2
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "materia": "geografia",
+          "titolo": "La pianta della mia camera",
+          "minuti": 20,
+          "tipo": "quaderno",
+          "consegna": "Disegna sul quaderno la pianta della tua camera, cioè come la vedrebbe un uccellino dal soffitto. Usa la scala: 1 quadretto del quaderno = 50 cm. Poi rispondi alle domande.",
+          "verifica": {
+            "domanda": "Da dove si guarda la camera in una pianta?",
+            "opzioni": [
+              "Da davanti",
+              "Dall'alto",
+              "Da sotto il letto"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "Misura con i passi o con un metro quanto è lunga e larga la camera.",
+            "Disegna i muri con la scala (1 quadretto = 50 cm, quindi 2 quadretti = 1 metro).",
+            "Disegna letto, armadio, scrivania e finestra come rettangoli visti dall'alto.",
+            "Guarda da che parte sorge il sole la mattina: lì c'è l'Est. Scrivi N, S, E, O ai lati del foglio.",
+            "Domanda: se la camera è lunga 4 metri, quanti quadretti disegni?"
+          ],
+          "aiuto": "Ogni metro vale 2 quadretti. Il sole sorge a Est e tramonta a Ovest.",
+          "soluzioni": "4 metri = 8 quadretti. Controllare che i mobili siano visti dall'alto (rettangoli) e che i punti cardinali siano coerenti."
+        },
+        {
+          "id": "e",
+          "materia": "lettura",
+          "titolo": "Lettura libera",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Leggi per 15 minuti un libro che ti piace. Poi sul quaderno scrivi 3 righe: il titolo, cosa è successo nelle pagine che hai letto, una parola nuova che hai trovato.",
+          "verifica": {
+            "domanda": "Quante cose devi scrivere dopo la lettura?",
+            "opzioni": [
+              "Niente",
+              "3 cose",
+              "Tutta la storia"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "Titolo del libro",
+            "Cosa è successo (2 frasi)",
+            "Una parola nuova e cosa vuol dire"
+          ],
+          "aiuto": "Se non sai cosa vuol dire la parola nuova, prova a capirla dalla frase; poi chiedi o guarda il dizionario.",
+          "soluzioni": "Risposta personale."
+        }
+      ],
+      "gioco": {
+        "tipo": "memory",
+        "coppie": [
+          [
+            "ha",
+            "verbo avere"
+          ],
+          [
+            "4.586 + 3.947",
+            "8.533"
+          ],
+          [
+            "felicità",
+            "nome"
+          ],
+          [
+            "azzurro",
+            "aggettivo"
+          ],
+          [
+            "1 quadretto",
+            "50 cm"
+          ],
+          [
+            "il sole sorge",
+            "a Est"
+          ]
+        ],
+        "parole": [
+          {
+            "parola": "ACCENTO",
+            "indizio": "Ce l'ha la è del verbo essere"
+          },
+          {
+            "parola": "PIANTA",
+            "indizio": "Il disegno di una stanza vista dall'alto"
+          }
+        ]
+      },
+      "figurina": {
+        "nome": "Ghepardo",
+        "emoji": "🐆",
+        "fatto": "È l'animale di terra più veloce: in uno scatto breve supera i 100 km all'ora."
+      }
+    },
+    {
+      "data": "2026-11-25",
+      "tema": "Settimana di partenza",
+      "tappe": [
+        {
+          "id": "a",
+          "materia": "matematica",
+          "titolo": "Problemi da detective",
+          "minuti": 20,
+          "tipo": "quaderno",
+          "consegna": "Per ogni problema scrivi sul quaderno: DATI, DOMANDA, OPERAZIONE, RISPOSTA. Attenzione: in un problema c'è un dato che non serve. Cerchialo.",
+          "verifica": {
+            "domanda": "Che cosa c'è di speciale in uno dei problemi?",
+            "opzioni": [
+              "Manca la domanda",
+              "C'è un dato che non serve",
+              "È già risolto"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "Problema 1. In una biblioteca ci sono 8 scaffali. Su ogni scaffale ci sono 125 libri. Quanti libri ci sono in tutto?",
+            "Problema 2. Giulia ha 9 anni e ha risparmiato 84 euro. Compra un gioco da 37 euro e un libro da 15 euro. Quanti euro le restano?"
+          ],
+          "aiuto": "Nel problema 2, l'età di Giulia serve per sapere quanti soldi ha? Per il resto fai prima la spesa totale, poi la sottrazione.",
+          "soluzioni": "1. 125 × 8 = 1.000 libri. 2. Dato inutile: 9 anni. 37 + 15 = 52; 84 − 52 = 32 euro."
+        },
+        {
+          "id": "b",
+          "materia": "italiano",
+          "titolo": "Che nome è?",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Disegna sul quaderno una tabella con 3 righe: COMUNE o PROPRIO, CONCRETO o ASTRATTO, INDIVIDUALE o COLLETTIVO. Per ognuno dei 9 nomi scrivi le sue tre caratteristiche.",
+          "verifica": {
+            "domanda": "Quante caratteristiche devi scrivere per ogni nome?",
+            "opzioni": [
+              "Una",
+              "Due",
+              "Tre"
+            ],
+            "giusta": 2
+          },
+          "passi": [
+            "gregge",
+            "Roma",
+            "paura",
+            "tavolo",
+            "orchestra",
+            "amicizia",
+            "Marta",
+            "flotta",
+            "matita"
+          ],
+          "aiuto": "Concreto = lo puoi toccare o vedere. Astratto = è un sentimento o un'idea. Collettivo = è un gruppo di tante cose o animali.",
+          "soluzioni": "gregge: comune, concreto, collettivo · Roma: proprio, concreto, individuale · paura: comune, astratto, individuale · tavolo: comune, concreto, individuale · orchestra: comune, concreto, collettivo · amicizia: comune, astratto, individuale · Marta: proprio, concreto, individuale · flotta: comune, concreto, collettivo · matita: comune, concreto, individuale"
+        },
+        {
+          "id": "c",
+          "materia": "inglese",
+          "titolo": "Lampo: numbers and months",
+          "minuti": 5,
+          "tipo": "quiz",
+          "consegna": "Choose the right answer.",
+          "domande": [
+            {
+              "q": "How do you write 15?",
+              "o": [
+                "fifty",
+                "fifteen",
+                "five"
+              ],
+              "g": 1
+            },
+            {
+              "q": "How do you write 40?",
+              "o": [
+                "forty",
+                "fourteen",
+                "four"
+              ],
+              "g": 0
+            },
+            {
+              "q": "Which month comes after March?",
+              "o": [
+                "May",
+                "February",
+                "April"
+              ],
+              "g": 2
+            },
+            {
+              "q": "Christmas is in…",
+              "o": [
+                "December",
+                "November",
+                "January"
+              ],
+              "g": 0
+            },
+            {
+              "q": "How do you write 72?",
+              "o": [
+                "twenty-seven",
+                "seventy-two",
+                "seventy-seven"
+              ],
+              "g": 1
+            },
+            {
+              "q": "The first month of the year is…",
+              "o": [
+                "June",
+                "January",
+                "July"
+              ],
+              "g": 1
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "materia": "scienze",
+          "titolo": "Solido, liquido o gassoso?",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Fai sul quaderno 3 colonne: SOLIDO, LIQUIDO, GASSOSO. Metti ogni elemento nella colonna giusta. Poi rispondi alla domanda finale con 2 o 3 frasi.",
+          "verifica": {
+            "domanda": "Quante colonne devi fare?",
+            "opzioni": [
+              "2",
+              "3",
+              "9"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "sasso, latte, vapore dell'acqua che bolle, olio, ghiaccio, aria nel palloncino, sabbia, succo di frutta, fumo della candela",
+            "Domanda: dove va l'acqua di una pozzanghera quando c'è il sole? Come si chiama questo fenomeno?"
+          ],
+          "aiuto": "Un solido ha una forma sua. Un liquido prende la forma del contenitore. Un gas si sparge dappertutto.",
+          "soluzioni": "Solidi: sasso, ghiaccio, sabbia. Liquidi: latte, olio, succo. Gassosi: vapore, aria, fumo (il fumo contiene anche particelle solide, va bene come gassoso). L'acqua diventa vapore e sale nell'aria: evaporazione."
+        },
+        {
+          "id": "e",
+          "materia": "italiano",
+          "titolo": "Descrivo un oggetto",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Scegli un oggetto che hai in casa e descrivilo sul quaderno in almeno 6 righe, usando i 5 sensi. Non scrivere il nome dell'oggetto: alla fine un grande deve indovinare cos'è.",
+          "verifica": {
+            "domanda": "Cosa NON devi scrivere?",
+            "opzioni": [
+              "Il colore dell'oggetto",
+              "Il nome dell'oggetto",
+              "A cosa serve"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "Com'è fatto (forma, colore, grandezza)?",
+            "Com'è al tatto?",
+            "Ha un odore o fa un suono?",
+            "A cosa serve e chi lo usa?",
+            "Perché l'hai scelto?"
+          ],
+          "aiuto": "Per ogni senso scrivi almeno una frase. Usa aggettivi precisi: liscio, ruvido, morbido, lucido…",
+          "soluzioni": "Controllare: almeno 6 righe, uso di più sensi, nome dell'oggetto mai scritto."
+        }
+      ],
+      "gioco": {
+        "tipo": "memory",
+        "coppie": [
+          [
+            "gregge",
+            "nome collettivo"
+          ],
+          [
+            "paura",
+            "nome astratto"
+          ],
+          [
+            "Roma",
+            "nome proprio"
+          ],
+          [
+            "ghiaccio",
+            "solido"
+          ],
+          [
+            "vapore",
+            "gassoso"
+          ],
+          [
+            "seventy-two",
+            "72"
+          ]
+        ],
+        "parole": [
+          {
+            "parola": "EVAPORAZIONE",
+            "indizio": "Quello che succede alla pozzanghera col sole"
+          },
+          {
+            "parola": "COLLETTIVO",
+            "indizio": "Un nome che indica un gruppo, come gregge"
+          }
+        ]
+      },
+      "figurina": {
+        "nome": "Balenottera azzurra",
+        "emoji": "🐋",
+        "fatto": "È l'animale più grande mai vissuto sulla Terra: può superare i 25 metri, più di un autobus e mezzo."
+      }
+    },
+    {
+      "data": "2026-11-26",
+      "tema": "Settimana di partenza",
+      "tappe": [
+        {
+          "id": "a",
+          "materia": "matematica",
+          "titolo": "Prime frazioni",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Prima parte: disegna 3 rettangoli di 4 quadretti × 2 quadretti e colora 1/2, 3/8 e 5/8. Seconda parte: calcola le frazioni di numero qui sotto.",
+          "verifica": {
+            "domanda": "Quante parti ha l'esercizio?",
+            "opzioni": [
+              "Una",
+              "Due",
+              "Quattro"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "1/4 di 20",
+            "1/3 di 27",
+            "3/4 di 20",
+            "2/5 di 35",
+            "Quale frazione è più grande: 3/8 o 5/8? Perché?"
+          ],
+          "aiuto": "Per trovare 3/4 di 20: prima dividi 20 per 4, poi moltiplichi per 3.",
+          "soluzioni": "Rettangolo da 8 quadretti: 1/2 = 4 quadretti, 3/8 = 3, 5/8 = 5. 1/4 di 20 = 5 · 1/3 di 27 = 9 · 3/4 di 20 = 15 · 2/5 di 35 = 14 · 5/8 è più grande: stesse parti, ne prendo di più."
+        },
+        {
+          "id": "b",
+          "materia": "italiano",
+          "titolo": "Il riassunto in 4 frasi",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Leggi il testo. Dividilo in 4 parti (inizio, problema, soluzione, fine). Poi scrivi sul quaderno il riassunto: UNA frase per ogni parte, quindi 4 frasi in tutto.",
+          "verifica": {
+            "domanda": "Quante frasi deve avere il riassunto?",
+            "opzioni": [
+              "4",
+              "Quante ne vuoi",
+              "Una sola"
+            ],
+            "giusta": 0
+          },
+          "testo": "Pietro aveva costruito un aquilone di carta blu insieme alla sorella Anna. La domenica andarono sulla collina dietro casa, dove tirava un bel vento. L'aquilone salì in alto, ma a un tratto il filo si spezzò e l'aquilone volò via, fino a incastrarsi tra i rami di una quercia. Pietro voleva arrampicarsi, ma Anna disse che era pericoloso. Allora chiamarono il signor Bruno, il vicino, che arrivò con una scala lunga e lo recuperò. A casa riattaccarono il filo con un nodo doppio. La domenica dopo l'aquilone volò di nuovo, più in alto di prima.",
+          "aiuto": "Chiediti: chi sono i personaggi e dove sono? Cosa va storto? Come lo risolvono? Come finisce?",
+          "soluzioni": "Esempio: Pietro e Anna vanno sulla collina a far volare l'aquilone. Il filo si spezza e l'aquilone si incastra su una quercia. Il vicino Bruno lo recupera con una scala. Lo aggiustano e la domenica dopo vola più in alto."
+        },
+        {
+          "id": "c",
+          "materia": "matematica",
+          "titolo": "Lampo: divisioni",
+          "minuti": 5,
+          "tipo": "quiz",
+          "consegna": "Rispondi più veloce che puoi.",
+          "domande": [
+            {
+              "q": "56 : 8",
+              "o": [
+                "6",
+                "7",
+                "8"
+              ],
+              "g": 1
+            },
+            {
+              "q": "81 : 9",
+              "o": [
+                "9",
+                "8",
+                "7"
+              ],
+              "g": 0
+            },
+            {
+              "q": "42 : 6",
+              "o": [
+                "6",
+                "8",
+                "7"
+              ],
+              "g": 2
+            },
+            {
+              "q": "72 : 8",
+              "o": [
+                "9",
+                "8",
+                "6"
+              ],
+              "g": 0
+            },
+            {
+              "q": "63 : 7",
+              "o": [
+                "7",
+                "9",
+                "8"
+              ],
+              "g": 1
+            },
+            {
+              "q": "100 : 4",
+              "o": [
+                "20",
+                "40",
+                "25"
+              ],
+              "g": 2
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "materia": "storia",
+          "titolo": "I Sumeri",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Leggi il testo. Rispondi sul quaderno alle domande, poi disegna una tavoletta di argilla con 3 segni inventati da te in stile cuneiforme (a forma di cuneo, cioè di piccolo triangolo allungato).",
+          "verifica": {
+            "domanda": "Cosa devi fare dopo le domande?",
+            "opzioni": [
+              "Niente",
+              "Disegnare una tavoletta con 3 segni",
+              "Scrivere un riassunto"
+            ],
+            "giusta": 1
+          },
+          "testo": "Circa 5000 anni fa, in Mesopotamia, la terra tra i fiumi Tigri ed Eufrate, vivevano i Sumeri. Costruirono canali per portare l'acqua dei fiumi nei campi e così coltivavano orzo e grano. Vivevano in città-stato: ogni città aveva il suo re e il suo tempio, la ziggurat, una torre a gradoni. Per contare i raccolti e ricordare gli scambi, i Sumeri inventarono la scrittura: incidevano segni a forma di cuneo su tavolette di argilla fresca con una cannuccia appuntita. Per questo si chiama scrittura cuneiforme. Inventarono anche la ruota.",
+          "passi": [
+            "Che cosa vuol dire Mesopotamia? Quali sono i due fiumi?",
+            "A cosa servivano i canali?",
+            "Che cos'era la ziggurat?",
+            "Perché i Sumeri hanno inventato la scrittura?"
+          ],
+          "aiuto": "Mesopotamia è una parola greca: meso = in mezzo, potamos = fiume.",
+          "soluzioni": "1. Terra tra i fiumi: Tigri ed Eufrate. 2. Portare l'acqua nei campi (irrigazione). 3. Torre-tempio a gradoni. 4. Per contare i raccolti e ricordare gli scambi."
+        },
+        {
+          "id": "e",
+          "materia": "inglese",
+          "titolo": "My family",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Draw your family on your notebook. Under the drawing write one sentence for each person, like the model: This is my mum. She has got long brown hair.",
+          "verifica": {
+            "domanda": "Cosa devi scrivere sotto il disegno?",
+            "opzioni": [
+              "Una frase per ogni persona",
+              "Solo i nomi",
+              "Niente, solo disegnare"
+            ],
+            "giusta": 0
+          },
+          "passi": [
+            "mum / dad",
+            "brother / sister (se ci sono)",
+            "grandma / grandpa",
+            "Words: long, short, curly, straight, blond, brown, black, blue eyes, green eyes"
+          ],
+          "aiuto": "Per un maschio usa He has got…, per una femmina She has got…",
+          "soluzioni": "Controllare This is my… e He/She has got…"
+        }
+      ],
+      "gioco": {
+        "tipo": "memory",
+        "coppie": [
+          [
+            "3/4 di 20",
+            "15"
+          ],
+          [
+            "1/3 di 27",
+            "9"
+          ],
+          [
+            "Mesopotamia",
+            "terra tra i fiumi"
+          ],
+          [
+            "ziggurat",
+            "torre-tempio a gradoni"
+          ],
+          [
+            "cuneiforme",
+            "scrittura dei Sumeri"
+          ],
+          [
+            "She has got",
+            "lei ha"
+          ]
+        ],
+        "parole": [
+          {
+            "parola": "MESOPOTAMIA",
+            "indizio": "La terra tra il Tigri e l'Eufrate"
+          },
+          {
+            "parola": "FRAZIONE",
+            "indizio": "Una parte di un intero, come 3/4"
+          }
+        ]
+      },
+      "figurina": {
+        "nome": "Ape",
+        "emoji": "🐝",
+        "fatto": "Per avvisare le compagne dove sono i fiori fa una danza a forma di otto."
+      }
+    },
+    {
+      "data": "2026-11-30",
+      "tema": "Verbi e grandi numeri",
+      "tappe": [
+        {
+          "id": "a",
+          "materia": "matematica",
+          "titolo": "× e : per 10, 100, 1000",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Leggi la regola. Poi scrivi sul quaderno le operazioni con il risultato. Non serve metterle in colonna.",
+          "verifica": {
+            "domanda": "Devi fare le operazioni in colonna?",
+            "opzioni": [
+              "Sì, tutte",
+              "No, scrivi solo il risultato",
+              "Solo le divisioni"
+            ],
+            "giusta": 1
+          },
+          "testo": "Regola: per moltiplicare per 10, 100 o 1000 aggiungi a destra 1, 2 o 3 zeri. Per dividere un numero che finisce con degli zeri per 10, 100 o 1000, togli 1, 2 o 3 zeri.",
+          "passi": [
+            "36 × 10",
+            "47 × 100",
+            "8 × 1000",
+            "250 × 100",
+            "5.400 : 10",
+            "73.000 : 1000",
+            "6.900 : 100",
+            "Inventa tu 2 operazioni e risolvile"
+          ],
+          "aiuto": "Ogni volta che moltiplichi per 10 il numero diventa 10 volte più grande: le cifre si spostano di un posto a sinistra.",
+          "soluzioni": "360 · 4.700 · 8.000 · 25.000 · 540 · 73 · 69"
+        },
+        {
+          "id": "b",
+          "materia": "italiano",
+          "titolo": "Ieri, oggi, domani",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Ricopia le frasi sul quaderno e sottolinea il verbo. Accanto scrivi se è PASSATO, PRESENTE o FUTURO. Poi riscrivi le frasi 1 e 2 al futuro.",
+          "verifica": {
+            "domanda": "Quali frasi devi riscrivere al futuro?",
+            "opzioni": [
+              "Tutte",
+              "La 1 e la 2",
+              "Nessuna"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "Oggi Sara gioca a pallavolo.",
+            "Ieri ho letto un fumetto.",
+            "Domani andremo dalla nonna.",
+            "Il cane abbaiava al postino.",
+            "Voi partirete per il mare.",
+            "Noi mangiamo le castagne."
+          ],
+          "aiuto": "Prova a mettere davanti alla frase ieri, oggi o domani: quale suona giusto?",
+          "soluzioni": "1. gioca, presente → giocherà · 2. ho letto, passato → leggerò · 3. andremo, futuro · 4. abbaiava, passato · 5. partirete, futuro · 6. mangiamo, presente"
+        },
+        {
+          "id": "c",
+          "materia": "matematica",
+          "titolo": "Lampo: tabelline del 7, 8, 9",
+          "minuti": 5,
+          "tipo": "quiz",
+          "consegna": "Rispondi più veloce che puoi.",
+          "domande": [
+            {
+              "q": "8 × 7",
+              "o": [
+                "56",
+                "54",
+                "64"
+              ],
+              "g": 0
+            },
+            {
+              "q": "9 × 9",
+              "o": [
+                "72",
+                "81",
+                "99"
+              ],
+              "g": 1
+            },
+            {
+              "q": "7 × 7",
+              "o": [
+                "42",
+                "47",
+                "49"
+              ],
+              "g": 2
+            },
+            {
+              "q": "8 × 9",
+              "o": [
+                "72",
+                "63",
+                "81"
+              ],
+              "g": 0
+            },
+            {
+              "q": "9 × 6",
+              "o": [
+                "45",
+                "54",
+                "56"
+              ],
+              "g": 1
+            },
+            {
+              "q": "7 × 4",
+              "o": [
+                "24",
+                "32",
+                "28"
+              ],
+              "g": 2
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "materia": "geografia",
+          "titolo": "Le montagne d'Italia",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Leggi il testo. Rispondi alle domande sul quaderno. Se hai un atlante o la cartina sul libro, cerca le Alpi e gli Appennini e ripassali con il dito.",
+          "verifica": {
+            "domanda": "Dove devi scrivere le risposte?",
+            "opzioni": [
+              "Sul quaderno",
+              "Sull'atlante",
+              "Non serve scriverle"
+            ],
+            "giusta": 0
+          },
+          "testo": "In Italia ci sono due grandi catene di montagne. Le Alpi chiudono l'Italia a nord, come un arco, e la separano da Francia, Svizzera, Austria e Slovenia. Sono montagne giovani, alte e appuntite: il Monte Bianco, 4808 metri, è la cima più alta. Gli Appennini attraversano tutta la penisola, da nord a sud, come una spina dorsale. Sono più antichi e più bassi: la cima più alta è il Corno Grande, nel Gran Sasso, 2912 metri. Le montagne più antiche sono più basse e arrotondate perché il vento, la pioggia e il ghiaccio le hanno consumate per milioni di anni.",
+          "passi": [
+            "Dove si trovano le Alpi e dove gli Appennini?",
+            "Qual è la cima più alta delle Alpi? Quanto è alta?",
+            "Quanti metri di differenza ci sono tra il Monte Bianco e il Corno Grande?",
+            "Perché gli Appennini sono più bassi delle Alpi?"
+          ],
+          "aiuto": "Per la domanda 3 fai una sottrazione: 4808 − 2912.",
+          "soluzioni": "1. Alpi a nord, ad arco; Appennini lungo tutta la penisola. 2. Monte Bianco, 4808 m. 3. 1896 m. 4. Sono più antichi, consumati da vento, pioggia e ghiaccio."
+        },
+        {
+          "id": "e",
+          "materia": "inglese",
+          "titolo": "What time is it?",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Disegna 4 orologi sul quaderno con le ore qui sotto. Sotto ogni orologio scrivi l'ora in inglese, come nel modello: It's half past three.",
+          "verifica": {
+            "domanda": "Quanti orologi devi disegnare?",
+            "opzioni": [
+              "2",
+              "4",
+              "6"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "3:00 → It's three o'clock",
+            "7:30",
+            "10:15",
+            "5:45",
+            "12:00"
+          ],
+          "aiuto": "o'clock = ora esatta · half past = e mezza · quarter past = e un quarto · quarter to = meno un quarto.",
+          "soluzioni": "7:30 It's half past seven · 10:15 It's quarter past ten · 5:45 It's quarter to six · 12:00 It's twelve o'clock"
+        }
+      ],
+      "gioco": {
+        "tipo": "memory",
+        "coppie": [
+          [
+            "47 × 100",
+            "4.700"
+          ],
+          [
+            "73.000 : 1000",
+            "73"
+          ],
+          [
+            "andremo",
+            "futuro"
+          ],
+          [
+            "abbaiava",
+            "passato"
+          ],
+          [
+            "Monte Bianco",
+            "4808 metri"
+          ],
+          [
+            "half past seven",
+            "7:30"
+          ]
+        ],
+        "parole": [
+          {
+            "parola": "APPENNINI",
+            "indizio": "Montagne lungo tutta la penisola"
+          },
+          {
+            "parola": "FUTURO",
+            "indizio": "Il tempo di «andremo»"
+          }
+        ]
+      },
+      "figurina": {
+        "nome": "Aquila reale",
+        "emoji": "🦅",
+        "fatto": "Vive anche sulle Alpi e ha una vista così acuta da vedere una lepre da lontanissimo."
+      }
+    },
+    {
+      "data": "2026-12-01",
+      "tema": "Verbi e grandi numeri",
+      "tappe": [
+        {
+          "id": "a",
+          "materia": "italiano",
+          "titolo": "Le api: testo informativo",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Leggi il testo. Dai un titolo a ogni paragrafo (sono 3). Poi rispondi alle domande sul quaderno con frasi complete.",
+          "verifica": {
+            "domanda": "Prima delle domande, cosa devi fare?",
+            "opzioni": [
+              "Disegnare un'ape",
+              "Dare un titolo a ogni paragrafo",
+              "Copiare il testo"
+            ],
+            "giusta": 1
+          },
+          "testo": "In un alveare vivono fino a 50.000 api, ma ognuna ha un compito preciso. C'è una sola regina, che depone le uova. I fuchi sono i maschi. Tutte le altre sono operaie.\n\nLe operaie fanno lavori diversi a seconda dell'età. Le più giovani puliscono le cellette e nutrono le larve. Poi costruiscono i favi con la cera. Le più anziane escono a cercare il nettare dei fiori.\n\nQuando un'ape trova un prato fiorito, torna all'alveare e fa una danza: muovendosi in cerchio e a otto indica alle compagne la direzione e la distanza dei fiori.",
+          "passi": [
+            "Chi depone le uova nell'alveare?",
+            "Cosa fanno le operaie più giovani?",
+            "A cosa serve la danza delle api?"
+          ],
+          "aiuto": "Un paragrafo finisce dove c'è lo spazio vuoto. Il titolo dice di cosa parla quel pezzo.",
+          "soluzioni": "Titoli possibili: Chi vive nell'alveare · I lavori delle operaie · La danza delle api. 1. La regina. 2. Puliscono le cellette e nutrono le larve. 3. A indicare alle compagne direzione e distanza dei fiori."
+        },
+        {
+          "id": "b",
+          "materia": "matematica",
+          "titolo": "Divisioni con la prova",
+          "minuti": 20,
+          "tipo": "quaderno",
+          "consegna": "Esegui le divisioni in colonna sul quaderno. Per ognuna fai la prova: quoziente × divisore + resto = dividendo.",
+          "verifica": {
+            "domanda": "Come si fa la prova della divisione?",
+            "opzioni": [
+              "Quoziente × divisore + resto",
+              "Dividendo − divisore",
+              "Non si fa"
+            ],
+            "giusta": 0
+          },
+          "passi": [
+            "846 : 3",
+            "945 : 5",
+            "1.236 : 4",
+            "758 : 6",
+            "2.519 : 7"
+          ],
+          "aiuto": "Parti da sinistra: prendi la prima cifra; se è più piccola del divisore, prendine due.",
+          "soluzioni": "282 · 189 · 309 · 126 resto 2 · 359 resto 6"
+        },
+        {
+          "id": "c",
+          "materia": "italiano",
+          "titolo": "Lampo: ortografia",
+          "minuti": 5,
+          "tipo": "quiz",
+          "consegna": "Scegli la parola scritta bene.",
+          "domande": [
+            {
+              "q": "Quale è giusta?",
+              "o": [
+                "squola",
+                "scuola",
+                "scuolla"
+              ],
+              "g": 1
+            },
+            {
+              "q": "Quale è giusta?",
+              "o": [
+                "acqua",
+                "aqua",
+                "accua"
+              ],
+              "g": 0
+            },
+            {
+              "q": "«Mio fratello ___ fame»",
+              "o": [
+                "a",
+                "ha",
+                "à"
+              ],
+              "g": 1
+            },
+            {
+              "q": "Quale è giusta?",
+              "o": [
+                "cuore",
+                "quore",
+                "qquore"
+              ],
+              "g": 0
+            },
+            {
+              "q": "«___ un regalo per te»",
+              "o": [
+                "C'è",
+                "Ce",
+                "Cè"
+              ],
+              "g": 0
+            },
+            {
+              "q": "Quale è giusta?",
+              "o": [
+                "famiglia",
+                "familia",
+                "fammiglia"
+              ],
+              "g": 0
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "materia": "scienze",
+          "titolo": "Il viaggio dell'acqua",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Disegna sul quaderno il ciclo dell'acqua con le frecce: mare, sole, nuvole, pioggia, fiume che torna al mare. Scrivi accanto a ogni freccia una delle 4 parole qui sotto.",
+          "verifica": {
+            "domanda": "Cosa scrivi accanto alle frecce?",
+            "opzioni": [
+              "Le 4 parole dell'esercizio",
+              "I nomi dei mari",
+              "Niente"
+            ],
+            "giusta": 0
+          },
+          "passi": [
+            "EVAPORAZIONE: il sole scalda l'acqua e diventa vapore",
+            "CONDENSAZIONE: in alto il vapore si raffredda e forma le nuvole",
+            "PRECIPITAZIONE: pioggia, neve o grandine",
+            "SCORRIMENTO: l'acqua torna al mare con i fiumi o sotto terra",
+            "Domanda: perché si chiama ciclo?"
+          ],
+          "aiuto": "Ciclo vuol dire che finisce dove è cominciato e ricomincia.",
+          "soluzioni": "Ordine: evaporazione → condensazione → precipitazione → scorrimento. È un ciclo perché l'acqua torna al punto di partenza e tutto ricomincia."
+        },
+        {
+          "id": "e",
+          "materia": "lettura",
+          "titolo": "Lettura libera",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Leggi per 15 minuti. Poi sul quaderno scrivi: il titolo, il personaggio che ti piace di più e perché (2 frasi).",
+          "verifica": {
+            "domanda": "Di quale personaggio devi scrivere?",
+            "opzioni": [
+              "Di quello che ti piace di più",
+              "Di tutti",
+              "Di nessuno"
+            ],
+            "giusta": 0
+          },
+          "passi": [
+            "Titolo",
+            "Il personaggio che preferisci",
+            "Perché ti piace (2 frasi)"
+          ],
+          "aiuto": "Pensa a cosa fa o dice il personaggio che ti ha colpito.",
+          "soluzioni": "Risposta personale."
+        }
+      ],
+      "gioco": {
+        "tipo": "memory",
+        "coppie": [
+          [
+            "la regina",
+            "depone le uova"
+          ],
+          [
+            "846 : 3",
+            "282"
+          ],
+          [
+            "evaporazione",
+            "l'acqua diventa vapore"
+          ],
+          [
+            "condensazione",
+            "nascono le nuvole"
+          ],
+          [
+            "precipitazione",
+            "pioggia o neve"
+          ],
+          [
+            "acqua",
+            "si scrive con cq"
+          ]
+        ],
+        "parole": [
+          {
+            "parola": "ALVEARE",
+            "indizio": "La casa delle api"
+          },
+          {
+            "parola": "CONDENSAZIONE",
+            "indizio": "Il vapore che diventa nuvola"
+          }
+        ]
+      },
+      "figurina": {
+        "nome": "Polpo",
+        "emoji": "🐙",
+        "fatto": "Ha tre cuori, il sangue blu e può cambiare colore in un attimo."
+      }
+    },
+    {
+      "data": "2026-12-02",
+      "tema": "Verbi e grandi numeri",
+      "tappe": [
+        {
+          "id": "a",
+          "materia": "matematica",
+          "titolo": "Problemi con due domande",
+          "minuti": 20,
+          "tipo": "quaderno",
+          "consegna": "Questi problemi hanno DUE domande. Rispondi prima alla prima, poi usa quel risultato per la seconda. Scrivi DATI, OPERAZIONI e le DUE risposte.",
+          "verifica": {
+            "domanda": "Quante risposte deve avere ogni problema?",
+            "opzioni": [
+              "Una",
+              "Due",
+              "Nessuna"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "Problema 1. Un fioraio prepara 6 mazzi da 12 rose ciascuno. Quante rose usa? Se ne aveva 100, quante gliene rimangono?",
+            "Problema 2. Un pullman ha 54 posti. Partono 3 pullman pieni per la gita. Quanti bambini partono? Se ogni bambino paga 8 euro, quanto si incassa in tutto?"
+          ],
+          "aiuto": "Il risultato della prima domanda diventa un dato per la seconda.",
+          "soluzioni": "1. 6 × 12 = 72 rose; 100 − 72 = 28. 2. 54 × 3 = 162 bambini; 162 × 8 = 1.296 euro."
+        },
+        {
+          "id": "b",
+          "materia": "italiano",
+          "titolo": "Aggettivi: più, meno, molto",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Leggi gli esempi. Poi completa sul quaderno ogni frase con l'aggettivo tra parentesi al grado giusto.",
+          "verifica": {
+            "domanda": "Cosa devi cambiare nelle frasi?",
+            "opzioni": [
+              "Il nome",
+              "Il grado dell'aggettivo",
+              "Il verbo"
+            ],
+            "giusta": 1
+          },
+          "testo": "Positivo: Il gatto è veloce. · Comparativo: Il gatto è più veloce del cane. · Superlativo: Il ghepardo è velocissimo (oppure: il più veloce di tutti).",
+          "passi": [
+            "La giraffa è ___ dell'elefante. (alto)",
+            "Questo gelato è ___! (buono, superlativo)",
+            "Il mio zaino è ___ del tuo. (pesante, meno)",
+            "Oggi il mare è ___. (calmo, superlativo)",
+            "Luca è ___ di Paolo. (simpatico, uguale: tanto… quanto)"
+          ],
+          "aiuto": "Superlativo: aggiungi -issimo/-issima oppure usa molto. Comparativo: più… di, meno… di, tanto… quanto.",
+          "soluzioni": "più alta · buonissimo · meno pesante · calmissimo · tanto simpatico quanto Paolo"
+        },
+        {
+          "id": "c",
+          "materia": "inglese",
+          "titolo": "Lampo: days and weather",
+          "minuti": 5,
+          "tipo": "quiz",
+          "consegna": "Choose the right answer.",
+          "domande": [
+            {
+              "q": "The day after Monday is…",
+              "o": [
+                "Thursday",
+                "Tuesday",
+                "Sunday"
+              ],
+              "g": 1
+            },
+            {
+              "q": "«Piove» in English is…",
+              "o": [
+                "It's sunny",
+                "It's raining",
+                "It's windy"
+              ],
+              "g": 1
+            },
+            {
+              "q": "«C'è vento» in English is…",
+              "o": [
+                "It's windy",
+                "It's cold",
+                "It's snowing"
+              ],
+              "g": 0
+            },
+            {
+              "q": "The last day of the week is…",
+              "o": [
+                "Saturday",
+                "Friday",
+                "Sunday"
+              ],
+              "g": 2
+            },
+            {
+              "q": "«Fa freddo» in English is…",
+              "o": [
+                "It's hot",
+                "It's cold",
+                "It's cloudy"
+              ],
+              "g": 1
+            },
+            {
+              "q": "Which day comes before Friday?",
+              "o": [
+                "Thursday",
+                "Saturday",
+                "Wednesday"
+              ],
+              "g": 0
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "materia": "storia",
+          "titolo": "Hammurabi e le leggi scritte",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Leggi il testo e rispondi alle domande. Poi scrivi 3 regole per la tua casa, come se fossi Hammurabi.",
+          "verifica": {
+            "domanda": "Cosa devi scrivere alla fine?",
+            "opzioni": [
+              "3 regole per la tua casa",
+              "Un riassunto",
+              "Il nome di 3 re"
+            ],
+            "giusta": 0
+          },
+          "testo": "Circa 3800 anni fa, la città di Babilonia diventò la più importante della Mesopotamia. Il suo re più famoso fu Hammurabi. Hammurabi fece incidere le leggi del suo regno su una grande stele di pietra nera, alta più di 2 metri, e la fece mettere in un luogo dove tutti potevano vederla. Così ognuno poteva conoscere le regole e le punizioni, che erano uguali in tutto il regno. È una delle prime raccolte di leggi scritte della storia e oggi si trova al museo del Louvre, a Parigi.",
+          "passi": [
+            "Chi era Hammurabi?",
+            "Su cosa fece scrivere le leggi?",
+            "Perché era importante che le leggi fossero scritte e visibili a tutti?"
+          ],
+          "aiuto": "Pensa: se le regole non sono scritte, chi decide cosa è giusto?",
+          "soluzioni": "1. Il re più famoso di Babilonia. 2. Su una stele di pietra nera. 3. Così tutti le conoscevano ed erano uguali per tutti."
+        },
+        {
+          "id": "e",
+          "materia": "italiano",
+          "titolo": "Continua la storia",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Leggi l'inizio. Sul quaderno scrivi come continua e come finisce, in almeno 8 righe. La storia deve avere un problema e una soluzione.",
+          "verifica": {
+            "domanda": "Cosa deve esserci nella tua storia?",
+            "opzioni": [
+              "Un problema e una soluzione",
+              "Solo una descrizione",
+              "Un dialogo in inglese"
+            ],
+            "giusta": 0
+          },
+          "testo": "Quando Elena aprì la vecchia scatola di latta trovata in soffitta, dentro c'era una chiave d'ottone e un biglietto che diceva: «Per chi ha il coraggio di cercare».",
+          "aiuto": "Chiediti: cosa apre la chiave? Chi ha scritto il biglietto? Cosa va storto? Come lo risolve Elena?",
+          "soluzioni": "Controllare: almeno 8 righe, un problema chiaro, una soluzione, una fine. Segnare 2–3 errori di ortografia al massimo, non tutti."
+        }
+      ],
+      "gioco": {
+        "tipo": "memory",
+        "coppie": [
+          [
+            "più alta",
+            "comparativo"
+          ],
+          [
+            "buonissimo",
+            "superlativo"
+          ],
+          [
+            "Hammurabi",
+            "re di Babilonia"
+          ],
+          [
+            "stele",
+            "pietra con le leggi"
+          ],
+          [
+            "It's raining",
+            "piove"
+          ],
+          [
+            "54 × 3",
+            "162"
+          ]
+        ],
+        "parole": [
+          {
+            "parola": "HAMMURABI",
+            "indizio": "Il re delle leggi scritte"
+          },
+          {
+            "parola": "SUPERLATIVO",
+            "indizio": "Il grado di «buonissimo»"
+          }
+        ]
+      },
+      "figurina": {
+        "nome": "Camaleonte",
+        "emoji": "🦎",
+        "fatto": "Muove gli occhi uno indipendente dall'altro: può guardare avanti e indietro insieme."
+      }
+    },
+    {
+      "data": "2026-12-03",
+      "tema": "Verbi e grandi numeri",
+      "tappe": [
+        {
+          "id": "a",
+          "materia": "matematica",
+          "titolo": "Frazioni complementari",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Due frazioni sono complementari quando insieme fanno l'intero (per esempio 3/8 e 5/8). Per ogni frazione scrivi sul quaderno la sua complementare e disegnale.",
+          "verifica": {
+            "domanda": "Quando due frazioni sono complementari?",
+            "opzioni": [
+              "Quando sono uguali",
+              "Quando insieme fanno l'intero",
+              "Quando hanno lo stesso numeratore"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "1/4",
+            "2/5",
+            "7/10",
+            "5/6",
+            "Problema: una torta è divisa in 8 fette. Ne mangiano 5. Che frazione è rimasta?"
+          ],
+          "aiuto": "Il denominatore resta uguale. Il numeratore è quello che manca per arrivare al denominatore.",
+          "soluzioni": "3/4 · 3/5 · 3/10 · 1/6 · rimane 3/8"
+        },
+        {
+          "id": "b",
+          "materia": "italiano",
+          "titolo": "Soggetto e predicato",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Ricopia le frasi. Sottolinea in ROSSO il soggetto (chi fa l'azione) e in BLU il predicato (il verbo).",
+          "verifica": {
+            "domanda": "Di che colore sottolinei il soggetto?",
+            "opzioni": [
+              "Blu",
+              "Rosso",
+              "Verde"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "La gatta dorme sul divano.",
+            "I bambini giocano in cortile.",
+            "Domani partirà il nonno.",
+            "Nel bosco cantano gli uccelli.",
+            "Sofia e Marco disegnano un castello.",
+            "Ho mangiato una mela. (attenzione: il soggetto non è scritto!)"
+          ],
+          "aiuto": "Trova prima il verbo, poi chiedi: chi è che…? La risposta è il soggetto. Il soggetto può stare anche dopo il verbo.",
+          "soluzioni": "1. La gatta / dorme · 2. I bambini / giocano · 3. il nonno / partirà · 4. gli uccelli / cantano · 5. Sofia e Marco / disegnano · 6. (io) sottinteso / ho mangiato"
+        },
+        {
+          "id": "c",
+          "materia": "matematica",
+          "titolo": "Lampo: calcolo a mente",
+          "minuti": 5,
+          "tipo": "quiz",
+          "consegna": "Calcola a mente, senza scrivere.",
+          "domande": [
+            {
+              "q": "250 + 250",
+              "o": [
+                "400",
+                "500",
+                "550"
+              ],
+              "g": 1
+            },
+            {
+              "q": "1.000 − 350",
+              "o": [
+                "650",
+                "750",
+                "550"
+              ],
+              "g": 0
+            },
+            {
+              "q": "25 × 4",
+              "o": [
+                "90",
+                "125",
+                "100"
+              ],
+              "g": 2
+            },
+            {
+              "q": "480 : 10",
+              "o": [
+                "48",
+                "4.800",
+                "408"
+              ],
+              "g": 0
+            },
+            {
+              "q": "99 + 99",
+              "o": [
+                "188",
+                "198",
+                "199"
+              ],
+              "g": 1
+            },
+            {
+              "q": "La metà di 360",
+              "o": [
+                "160",
+                "190",
+                "180"
+              ],
+              "g": 2
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "materia": "scienze",
+          "titolo": "L'aria c'è anche se non si vede",
+          "minuti": 15,
+          "tipo": "quaderno",
+          "consegna": "Fai l'esperimento con un grande in cucina. Poi scrivi sul quaderno: MATERIALE, COSA HO FATTO, COSA HO OSSERVATO, PERCHÉ.",
+          "verifica": {
+            "domanda": "Con chi devi fare l'esperimento?",
+            "opzioni": [
+              "Da sola",
+              "Con un grande",
+              "Non serve farlo"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "Materiale: un bicchiere, un fazzoletto di carta, una bacinella piena d'acqua.",
+            "Spingi il fazzoletto in fondo al bicchiere asciutto, così che resti fermo.",
+            "Capovolgi il bicchiere e spingilo dritto fino in fondo alla bacinella. Non inclinarlo!",
+            "Tiralo fuori dritto e tocca il fazzoletto. È bagnato o asciutto?",
+            "Perché l'acqua non è entrata nel bicchiere?"
+          ],
+          "aiuto": "Dentro al bicchiere, anche se sembra vuoto, c'era qualcosa che occupava lo spazio.",
+          "soluzioni": "Il fazzoletto resta asciutto: l'aria dentro al bicchiere occupa lo spazio e non lascia entrare l'acqua. L'aria è materia e occupa spazio."
+        },
+        {
+          "id": "e",
+          "materia": "inglese",
+          "titolo": "I like, I don't like",
+          "minuti": 10,
+          "tipo": "quaderno",
+          "consegna": "Write 6 sentences about food: 3 with I like and 3 with I don't like. Then draw the food next to each sentence.",
+          "verifica": {
+            "domanda": "Quante frasi con I don't like devi scrivere?",
+            "opzioni": [
+              "1",
+              "3",
+              "6"
+            ],
+            "giusta": 1
+          },
+          "passi": [
+            "Words: pizza, pasta, apples, bananas, milk, cheese, carrots, chocolate, fish, eggs",
+            "Model: I like pizza. I don't like fish."
+          ],
+          "aiuto": "don't = do not. Si scrive con l'apostrofo tra la n e la t.",
+          "soluzioni": "Controllare I like… / I don't like… con apostrofo corretto."
+        }
+      ],
+      "gioco": {
+        "tipo": "memory",
+        "coppie": [
+          [
+            "2/5",
+            "complementare: 3/5"
+          ],
+          [
+            "mangio 5 fette su 8",
+            "restano 3/8"
+          ],
+          [
+            "La gatta dorme",
+            "soggetto: la gatta"
+          ],
+          [
+            "Ho mangiato",
+            "soggetto: io (sottinteso)"
+          ],
+          [
+            "l'aria",
+            "occupa spazio"
+          ],
+          [
+            "I don't like",
+            "non mi piace"
+          ]
+        ],
+        "parole": [
+          {
+            "parola": "COMPLEMENTARE",
+            "indizio": "Frazione che con un'altra fa l'intero"
+          },
+          {
+            "parola": "SOGGETTO",
+            "indizio": "Chi fa l'azione nella frase"
+          }
+        ]
+      },
+      "figurina": {
+        "nome": "Pinguino imperatore",
+        "emoji": "🐧",
+        "fatto": "Il papà tiene l'uovo sulle zampe per circa due mesi, al gelo, senza mangiare."
+      }
+    }
+  ],
+  "album": "Animali da record"
+}

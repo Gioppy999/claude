@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2F8A55">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 34 34%22%3E%3Cpath d=%22M17 31V15%22 stroke=%22%232F8A55%22 stroke-width=%223%22/%3E%3Cpath d=%22M17 17C17 10 12 6 5 6c0 7 5 11 12 11z%22 fill=%22%232F8A55%22/%3E%3Cpath d=%22M17 14c0-6 4-10 11-10 0 6-4 10-11 10z%22 fill=%22%23E9A93A%22/%3E%3C/svg%3E">
+<title>Scuola Cheri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: una colonna stretta come un quaderno; in cima la piantina del giorno, sotto le tappe una dopo l'altra. */
+:root{
+  --bg:#F2F6F1; --surface:#FFFFFF; --ink:#1E2B23; --muted:#5D6E63; --line:#D5E0D7;
+  --leaf:#2F8A55; --leaf-soft:#DDEFE3; --sun:#E9A93A; --sun-soft:#FBEFD6; --warn:#C2523C; --warn-soft:#F8E1DB;
+  --m-italiano:#C2523C; --m-matematica:#2F6FB3; --m-storia:#9A6A1F; --m-geografia:#16857F; --m-scienze:#2F8A55; --m-inglese:#7A4FB0; --m-lettura:#B04F7E;
+  --display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121A15; --surface:#1B261F; --ink:#E6EFE8; --muted:#9DB1A3; --line:#2D3D33;
+  --leaf:#5CC487; --leaf-soft:#1F3A2A; --sun:#F0BC5E; --sun-soft:#3A2F1A; --warn:#EB8A75; --warn-soft:#3D231D;
+  --m-italiano:#EB8A75; --m-matematica:#7DB2EE; --m-storia:#D7A65A; --m-geografia:#4FC6BE; --m-scienze:#5CC487; --m-inglese:#B996E6; --m-lettura:#E58DB6;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121A15; --surface:#1B261F; --ink:#E6EFE8; --muted:#9DB1A3; --line:#2D3D33;
+  --leaf:#5CC487; --leaf-soft:#1F3A2A; --sun:#F0BC5E; --sun-soft:#3A2F1A; --warn:#EB8A75; --warn-soft:#3D231D;
+  --m-italiano:#EB8A75; --m-matematica:#7DB2EE; --m-storia:#D7A65A; --m-geografia:#4FC6BE; --m-scienze:#5CC487; --m-inglese:#B996E6; --m-lettura:#E58DB6;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 48px}
+.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0;line-height:1.2}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px}
+.brand h1{font-size:1.6rem;color:var(--leaf)}
+.tabs{display:flex;flex-wrap:wrap;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px}
+.tabs button{border:0;background:none;padding:6px 11px;border-radius:999px;font-family:var(--display);font-weight:500;font-size:.95rem;color:var(--muted)}
+.tabs button[aria-pressed="true"]{background:var(--leaf);color:var(--surface)}
+.daynav{display:flex;align-items:center;gap:8px}
+.daynav button{border:1px solid var(--line);background:var(--surface);border-radius:12px;width:44px;height:44px;font-size:1.3rem;flex:none}
+.daynav .when{flex:1;min-width:0;text-align:center}
+.when .d{font-family:var(--display);font-size:1.35rem;font-weight:600}
+.when .t{color:var(--muted);font-size:.9rem}
+.sprout{display:flex;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:14px 18px}
+.sprout svg{flex:none}
+.sprout p{margin:0}
+.sprout .big{font-family:var(--display);font-size:1.15rem;font-weight:600}
+.list{display:flex;flex-direction:column;gap:12px}
+.tappa{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.tappa>button.head{width:100%;display:flex;align-items:center;gap:12px;padding:14px 16px;border:0;background:none;text-align:left}
+.dot{width:14px;height:14px;border-radius:50%;flex:none;background:var(--mc)}
+.head .h{flex:1;min-width:0}
+.head .mat{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mc);font-weight:700}
+.head .ti{font-family:var(--display);font-size:1.15rem;font-weight:600}
+.pill{font-size:.8rem;border-radius:999px;padding:3px 10px;white-space:nowrap;background:var(--bg);color:var(--muted);font-variant-numeric:tabular-nums}
+.pill.done{background:var(--leaf-soft);color:var(--leaf);font-weight:700}
+.body{padding:0 16px 18px;display:flex;flex-direction:column;gap:14px}
+.step-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.consegna{background:var(--sun-soft);border-radius:14px;padding:14px 16px;font-size:1.05rem}
+.consegna strong{display:block;font-family:var(--display);font-weight:600;margin-bottom:4px}
+.testo{border-left:4px solid var(--mc);padding:4px 0 4px 14px;white-space:pre-line}
+.passi{margin:0;padding-left:1.6em;display:flex;flex-direction:column;gap:6px}
+.btn{border:0;border-radius:14px;padding:12px 18px;font-family:var(--display);font-weight:600;font-size:1.05rem;background:var(--leaf);color:var(--surface);align-self:flex-start}
+.btn.ghost{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opts button{border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:10px 14px;text-align:left}
+.opts button.wrong{border-color:var(--warn);background:var(--warn-soft)}
+.opts button.right{border-color:var(--leaf);background:var(--leaf-soft)}
+.msg{border-radius:12px;padding:10px 14px;font-weight:700}
+.msg.warn{background:var(--warn-soft);color:var(--warn)}
+.msg.ok{background:var(--leaf-soft);color:var(--leaf)}
+.aiuto{background:var(--bg);border-radius:12px;padding:10px 14px;font-style:italic}
+.faces{display:flex;gap:8px;flex-wrap:wrap}
+.faces button{border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:10px 14px;font-family:var(--display);font-weight:500}
+.quizq{font-family:var(--display);font-size:1.5rem;font-weight:600}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:18px;padding:22px;text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center}
+.month{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.month header{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.month .per{color:var(--muted);font-size:.9rem}
+.month dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}
+.month dt{font-weight:700;color:var(--mc);font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;padding-top:3px}
+.month dd{margin:0;min-width:0}
+.month .nota{color:var(--muted);font-style:italic;margin:0}
+.month.now{border-color:var(--leaf);box-shadow:0 0 0 2px var(--leaf-soft)}
+@media (max-width:480px){.month dl{grid-template-columns:1fr}.month dd{margin-bottom:6px}}
+.grandi .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.grandi .stat{display:flex;gap:8px;flex-wrap:wrap}
+.sol{background:var(--bg);border-radius:12px;padding:10px 14px;font-size:.95rem}
+textarea{width:100%;min-height:60px;border:1px solid var(--line);border-radius:12px;padding:10px;font:inherit;font-size:.95rem;background:var(--bg);color:var(--ink)}
+label.chk{display:flex;gap:8px;align-items:center;font-weight:700}
+label.chk input{width:22px;height:22px;accent-color:var(--leaf)}
+.note{color:var(--muted);font-size:.85rem;text-align:center}
+.status{font-size:.8rem;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.leaf-on{transition:fill .4s}.mcard{transition:background .2s,transform .2s}.figu{animation:pop .5s ease-out}}
+@keyframes pop{from{transform:scale(.6);opacity:.3}to{transform:scale(1);opacity:1}}
+.gioco{background:var(--sun-soft);border:2px solid var(--sun);border-radius:20px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.gioco.chiuso{background:var(--surface);border:2px dashed var(--line);color:var(--muted)}
+.fasi{display:flex;gap:6px;flex-wrap:wrap}
+.fasi span{font-size:.78rem;border-radius:999px;padding:3px 10px;background:var(--bg);color:var(--muted);font-weight:700}
+.fasi span.on{background:var(--sun);color:var(--ink)}
+.fasi span.ok{background:var(--leaf-soft);color:var(--leaf)}
+.memgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+@media (min-width:560px){.memgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.mcard{min-height:86px;border-radius:14px;border:2px solid var(--line);background:var(--leaf);color:var(--surface);font-family:var(--display);font-weight:600;font-size:.95rem;padding:6px;overflow-wrap:anywhere;line-height:1.25}
+.mcard.su{background:var(--surface);color:var(--ink);border-color:var(--sun)}
+.mcard.ok{background:var(--leaf-soft);color:var(--leaf);border-color:var(--leaf)}
+.parola{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;font-family:var(--display);font-size:1.6rem;font-weight:600}
+.parola span{min-width:1.3em;border-bottom:3px solid var(--ink);text-align:center}
+.tastiera{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.tastiera button{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 0;font-family:var(--display);font-weight:600}
+.tastiera button:disabled{opacity:.3}
+.tastiera button.si{background:var(--leaf-soft);color:var(--leaf);opacity:1}
+.vite{font-variant-numeric:tabular-nums;color:var(--muted)}
+.timer{font-family:var(--display);font-size:2.2rem;font-weight:600;font-variant-numeric:tabular-nums;color:var(--warn)}
+.figu{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;background:var(--surface);border:3px solid var(--sun);border-radius:22px;padding:18px}
+.figu .em{font-size:4rem;line-height:1}
+.album{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:560px){.album{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.album .fig{background:var(--surface);border:2px solid var(--sun);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center}
+.album .fig .em{font-size:2.6rem;line-height:1.1}
+.album .fig.no{border:2px dashed var(--line);color:var(--muted)}
+.album .fig .em.no{font-family:var(--display);color:var(--line)}
+.album .fig small{color:var(--muted)}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V15" stroke="var(--leaf)" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M17 17C17 10 12 6 5 6c0 7 5 11 12 11z" fill="var(--leaf)"/><path d="M17 14c0-6 4-10 11-10 0 6-4 10-11 10z" fill="var(--sun)"/></svg>
+      <h1>Germoglio</h1>
+    </div>
+    <nav class="tabs" aria-label="Sezioni">
+      <button id="tab-oggi" data-v="oggi" aria-pressed="true">Oggi</button>
+      <button id="tab-album" data-v="album" aria-pressed="false">Album</button>
+      <button id="tab-cammino" data-v="cammino" aria-pressed="false">Il cammino</button>
+      <button id="tab-grandi" data-v="grandi" aria-pressed="false">Grandi</button>
+    </nav>
+  </header>
+  <main id="view"></main>
+  <p class="status" id="status"></p>
+</div>
+
+<script>
+const MAT = {italiano:"Italiano",matematica:"Matematica",storia:"Storia",geografia:"Geografia",scienze:"Scienze",inglese:"Inglese",lettura:"Lettura",tutte:"Tutte"};
+const FACCE = {facile:"Facile",giusto:"Giusto",difficile:"Difficile"};
+const GIORNI = ["domenica","lunedì","martedì","mercoledì","giovedì","venerdì","sabato"];
+const MESI = ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+const S = { piano:null, byDate:{}, prog:{}, view:"oggi", date:iso(new Date()), open:null, ui:{}, db:null };
+
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function parse(s){const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)}
+function addDays(s,n){const d=parse(s);d.setDate(d.getDate()+n);return iso(d)}
+function bello(s){const d=parse(s);return GIORNI[d.getDay()]+" "+d.getDate()+" "+MESI[d.getMonth()]}
+function esc(t){return String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function md(t){return esc(t).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")}
+function el(h){const t=document.createElement("template");t.innerHTML=h.trim();return t.content.firstElementChild}
+const $view=document.getElementById("view"), $status=document.getElementById("status");
+
+/* ---------- salvataggio: server della famiglia, con copia su questo dispositivo ---------- */
+const KEY=(()=>{try{const u=new URL(location.href);const k=u.searchParams.get("k");if(k&&/^[A-Za-z0-9_-]{16,64}$/.test(k)){localStorage.setItem("germoglio-key",k);return k}return localStorage.getItem("germoglio-key")}catch(e){return null}})();
+function loadLocal(){try{return JSON.parse(localStorage.getItem("germoglio-prog")||"{}")}catch(e){return {}}}
+function saveLocal(){try{localStorage.setItem("germoglio-prog",JSON.stringify(S.prog));localStorage.setItem("germoglio-pending",JSON.stringify([...S.pending]))}catch(e){}}
+S.pending=new Set((()=>{try{return JSON.parse(localStorage.getItem("germoglio-pending")||"[]")}catch(e){return []}})());
+async function invia(data){
+  if(!KEY) return false;
+  try{const r=await fetch(`/api/progressi?k=${KEY}&d=${data}`,{method:"PUT",headers:{"content-type":"application/json"},body:JSON.stringify(S.prog[data]||{})});
+    if(!r.ok) throw 0; S.pending.delete(data); saveLocal(); return true}
+  catch(e){S.pending.add(data); saveLocal(); $status.textContent="Salvato su questo dispositivo: lo mando appena torna la connessione."; return false}
+}
+async function sincronizza(){
+  if(!KEY) return;
+  for(const d of [...S.pending]) await invia(d);
+  try{const r=await fetch(`/api/progressi?k=${KEY}`,{cache:"no-store"}); if(!r.ok) throw 0;
+    const remoto=await r.json(); for(const d of S.pending) remoto[d]=S.prog[d];
+    S.prog=remoto; saveLocal(); if(!S.pending.size) $status.textContent=""; render()}
+  catch(e){$status.textContent="Senza connessione: salvo su questo dispositivo."}
+}
+async function salva(data,id,patch){
+  const day={...(S.prog[data]||{})}; day[id]={...(day[id]||{}),...patch}; S.prog[data]=day;
+  S.pending.add(data); saveLocal(); render(); invia(data);
+}
+function st(data,id){return (S.prog[data]||{})[id]||{}}
+
+/* ---------- vista Oggi ---------- */
+function prossimoGiornoConCompiti(from,dir){
+  const ds=Object.keys(S.byDate).sort();
+  return dir>0? ds.find(d=>d>from) : ds.reverse().find(d=>d<from);
+}
+function pianta(n,done){
+  // stelo con una foglia per tappa; le foglie fatte si colorano
+  const h=40+n*22, leaves=[];
+  for(let i=0;i<n;i++){const y=h-24-i*22, left=i%2===0;
+    const p=left?`M40 ${y}c-4-10-14-14-24-12 2 10 12 14 24 12z`:`M40 ${y}c4-10 14-14 24-12-2 10-12 14-24 12z`;
+    leaves.push(`<path class="leaf-on" d="${p}" fill="${i<done?"var(--leaf)":"var(--line)"}"/>`)}
+  const fiore = done===n&&n>0 ? `<circle cx="40" cy="12" r="9" fill="var(--sun)"/><circle cx="40" cy="12" r="4" fill="var(--surface)"/>` : "";
+  return `<svg width="80" height="${h}" viewBox="0 0 80 ${h}" aria-hidden="true"><path d="M40 ${h-4}V16" stroke="var(--leaf)" stroke-width="3" stroke-linecap="round"/>${leaves.join("")}${fiore}<rect x="22" y="${h-8}" width="36" height="8" rx="3" fill="var(--sun)"/></svg>`;
+}
+function vistaOggi(){
+  const g=S.byDate[S.date], wrap=el(`<div class="wrap" style="gap:16px"></div>`);
+  wrap.append(el(`<div class="daynav"><button id="prev" aria-label="Giorno prima">‹</button><div class="when"><div class="d">${esc(bello(S.date))}</div><div class="t">${g?esc(g.tema||""):"&nbsp;"}</div></div><button id="next" aria-label="Giorno dopo">›</button></div>`));
+  if(!g){
+    const nx=prossimoGiornoConCompiti(S.date,1);
+    const e=el(`<div class="empty"><h2>Oggi niente compiti</h2><p style="margin:0">${nx?"I prossimi compiti sono per "+esc(bello(nx))+".":"Le prossime tappe arrivano presto."}</p></div>`);
+    if(nx){const b=el(`<button class="btn ghost">Guarda ${esc(bello(nx))}</button>`);b.onclick=()=>{S.date=nx;S.open=null;render()};e.append(b)}
+    wrap.append(e); return wrap;
+  }
+  const n=g.tappe.length, done=g.tappe.filter(t=>st(S.date,t.id).fatto).length, min=g.tappe.reduce((a,t)=>a+t.minuti,0);
+  const frase = done===n ? "Tutte le tappe fatte. La piantina è fiorita!" : done===0 ? `${n} tappe, circa ${min} minuti. Una alla volta.` : `Hai fatto ${done} tappe su ${n}. Avanti con la prossima.`;
+  wrap.append(el(`<section class="sprout">${pianta(n,done)}<div><p class="big">${frase}</p><p style="color:var(--muted)">Per ogni tappa: leggi la consegna, rispondi alla domanda, poi lavora sul quaderno.</p></div></section>`));
+  if(S.g&&S.g.date===S.date){ wrap.append(vistaGioco(g)); return wrap }
+  const list=el(`<div class="list"></div>`);
+  g.tappe.forEach(t=>list.append(cardTappa(t)));
+  wrap.append(list);
+  if(g.gioco) wrap.append(cardGioco(g,done===n));
+  return wrap;
+}
+
+/* ---------- il gioco del giorno ---------- */
+function mescola(a){a=[...a];for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function cardGioco(g,aperto){
+  const gs=(S.prog[S.date]||{}).gioco||{};
+  if(!aperto) return el(`<section class="gioco chiuso"><h3>Il gioco del giorno</h3><p style="margin:0">Si apre quando hai finito tutte le tappe. Dura 10–15 minuti e alla fine vinci una figurina.</p></section>`);
+  const c=el(`<section class="gioco"><h3>${gs.fatto?"Gioco fatto!":"Il gioco del giorno è aperto!"}</h3><p style="margin:0">${gs.fatto?"Hai vinto la figurina: "+esc(g.figurina.nome)+". Puoi rigiocare quando vuoi.":"Tre prove: Memory, Parola misteriosa e Sfida 60 secondi. Alla fine vinci una figurina per l'album."}</p></section>`);
+  const b=el(`<button class="btn">${gs.fatto?"Rigioca":"Gioca"}</button>`);
+  b.onclick=()=>{iniziaGioco(g);render();window.scrollTo(0,0)}; c.append(b); return c;
+}
+function albumAperto(){ if(S.anteprima) return true; const oggi=iso(new Date()); return !!(((S.prog[oggi]||{}).gioco||{}).fatto) }
+function apriAnteprima(){
+  const g=S.byDate[S.date]&&S.byDate[S.date].gioco?S.byDate[S.date]:S.piano.giorni.find(x=>x.gioco);
+  if(!g) return; S.anteprima=true; S.date=g.data; S.view="oggi"; S.open=null; iniziaGioco(g,true); render(); window.scrollTo(0,0);
+}
+function iniziaGioco(g,demo){
+  const carte=mescola(g.gioco.coppie.flatMap((p,k)=>[{t:p[0],k},{t:p[1],k}]));
+  S.g={demo:!!demo,date:S.date,fase:0,mem:{carte,su:[],ok:new Set(),mosse:0},par:{i:0,prese:new Set(),errori:0,errTot:0,svelata:false},gara:{punti:0,fine:0,q:null}};
+}
+function fasiBar(f){const nomi=["Memory","Parola misteriosa","Sfida 60 secondi","Figurina"];
+  return `<div class="fasi">${nomi.map((x,i)=>`<span class="${i<f?"ok":i===f?"on":""}">${x}</span>`).join("")}</div>`}
+function vistaGioco(g){
+  const G=S.g, w=el(`<section class="gioco" style="gap:14px"></section>`);
+  if(G.demo) w.append(el(`<div class="msg warn">Anteprima per i grandi: il gioco funziona davvero ma non salva niente e non conta per l'album.</div>`));
+  w.append(el(fasiBar(G.fase)));
+  if(G.fase===0){ // memory
+    const m=G.mem, tot=g.gioco.coppie.length;
+    w.append(el(`<div><h3>Memory</h3><p style="margin:.2em 0 0">Gira due carte alla volta e trova le coppie che vanno insieme. Mosse: ${m.mosse}</p></div>`));
+    const grid=el(`<div class="memgrid"></div>`);
+    m.carte.forEach((c,i)=>{const su=m.su.includes(i), ok=m.ok.has(c.k);
+      const x=el(`<button class="mcard ${ok?"ok":su?"su":""}" aria-label="${ok||su?esc(c.t):"Carta coperta"}">${ok||su?esc(c.t):"?"}</button>`);
+      x.onclick=()=>{ if(ok||su||m.su.length===2) return; m.su.push(i);
+        if(m.su.length===2){ m.mosse++; const [a,b]=m.su;
+          if(m.carte[a].k===m.carte[b].k){m.ok.add(m.carte[a].k);m.su=[]} else setTimeout(()=>{m.su=[];render()},1000) }
+        render() };
+      grid.append(x)});
+    w.append(grid);
+    if(m.ok.size===tot){ w.append(el(`<div class="msg ok">Tutte le coppie in ${m.mosse} mosse!</div>`)); const b=el(`<button class="btn">Avanti</button>`); b.onclick=()=>{G.fase=1;render()}; w.append(b) }
+  }
+  else if(G.fase===1){ // parola misteriosa
+    const P=G.par, item=g.gioco.parole[P.i], parola=item.parola.toUpperCase(), MAX=6;
+    const lettere=[...new Set(parola.replace(/[^A-Z]/g,""))], vinta=lettere.every(l=>P.prese.has(l)), persa=P.errori>=MAX;
+    w.append(el(`<div><h3>Parola misteriosa ${P.i+1} di ${g.gioco.parole.length}</h3><p style="margin:.2em 0 0"><strong>Indizio:</strong> ${esc(item.indizio)}</p></div>`));
+    w.append(el(`<div class="parola">${[...parola].map(ch=>`<span>${/[A-Z]/.test(ch)?(P.prese.has(ch)||persa?ch:"&nbsp;"):ch}</span>`).join("")}</div>`));
+    w.append(el(`<p class="vite" style="margin:0;text-align:center">Errori: ${P.errori} su ${MAX}</p>`));
+    if(vinta||persa){
+      w.append(el(`<div class="msg ${vinta?"ok":"warn"}">${vinta?"Trovata!":"Peccato! La parola era "+esc(parola)+"."}</div>`));
+      const b=el(`<button class="btn">Avanti</button>`);
+      b.onclick=()=>{ P.errTot+=P.errori; if(P.i+1<g.gioco.parole.length){P.i++;P.prese=new Set();P.errori=0} else {G.fase=2} render() };
+      w.append(b);
+    } else {
+      const k=el(`<div class="tastiera"></div>`);
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(l=>{const usata=P.prese.has(l); const x=el(`<button ${usata?"disabled":""} class="${usata&&parola.includes(l)?"si":""}">${l}</button>`);
+        x.onclick=()=>{P.prese.add(l); if(!parola.includes(l)) P.errori++; render()}; k.append(x)});
+      w.append(k);
+    }
+  }
+  else if(G.fase===2){ // sfida 60 secondi
+    const R=G.gara, coppie=g.gioco.coppie;
+    const record=Math.max(0,...Object.values(S.prog).map(d=>(d.gioco&&d.gioco.punti)||0));
+    if(!R.fine){
+      w.append(el(`<div><h3>Sfida 60 secondi</h3><p style="margin:.2em 0 0">Hai un minuto. Per ogni parola scegli quella che va insieme. Il tuo record: ${record} punti.</p></div>`));
+      const b=el(`<button class="btn">Via!</button>`); b.onclick=()=>{R.fine=Date.now()+60000;R.q=nuovaQ(coppie);render();
+        clearInterval(S.gtick); S.gtick=setInterval(()=>{const t=document.getElementById("timer"); const r=Math.max(0,Math.ceil((R.fine-Date.now())/1000)); if(t) t.textContent=r; if(r<=0){clearInterval(S.gtick);G.fase=3;finisciGioco(g)}},250)};
+      w.append(b);
+    } else {
+      w.append(el(`<div class="row" style="justify-content:space-between"><span class="timer" id="timer">${Math.max(0,Math.ceil((R.fine-Date.now())/1000))}</span><strong>Punti: ${R.punti}</strong></div>`));
+      w.append(el(`<div class="quizq">${esc(R.q.domanda)}</div>`));
+      const o=el(`<div class="opts"></div>`);
+      R.q.opzioni.forEach(op=>{const x=el(`<button>${esc(op)}</button>`); x.onclick=()=>{ if(op===R.q.giusta) R.punti++; R.q=nuovaQ(coppie,R.q.domanda); render() }; o.append(x)});
+      w.append(o);
+    }
+  }
+  else { // figurina
+    const f=g.figurina, R=G.gara;
+    w.append(el(`<h3>Hai vinto una figurina!</h3>`));
+    w.append(el(`<div class="figu"><div class="em">${f.emoji}</div><strong style="font-family:var(--display);font-size:1.3rem">${esc(f.nome)}</strong><p style="margin:0">${esc(f.fatto)}</p></div>`));
+    w.append(el(`<p style="margin:0">Memory in ${G.mem.mosse} mosse · Sfida: ${R.punti} punti.</p>`));
+    const r=el(`<div class="row"></div>`);
+    const a=el(`<button class="btn">Vai all'album</button>`); a.onclick=()=>{S.g=null;S.view="album";render()};
+    const c=el(`<button class="btn ghost">Chiudi</button>`); c.onclick=()=>{S.g=null;render()};
+    r.append(a,c); w.append(r);
+    return w;
+  }
+  const esci=el(`<button class="btn ghost">Esci dal gioco</button>`); esci.onclick=()=>{clearInterval(S.gtick);S.g=null;render()}; w.append(esci);
+  return w;
+}
+function nuovaQ(coppie,prima){
+  let p, giro=0; do{p=coppie[Math.floor(Math.random()*coppie.length)]; giro++}while(giro<10&&(p[0]===prima||p[1]===prima));
+  const dir=Math.random()<.5?0:1, domanda=p[dir], giusta=p[1-dir];
+  const altre=mescola(coppie.filter(x=>x!==p)).slice(0,2).map(x=>x[1-dir]);
+  return {domanda,giusta,opzioni:mescola([giusta,...altre])};
+}
+function finisciGioco(g){
+  if(S.g.demo){render();return}
+  const G=S.g, prima=(S.prog[G.date]||{}).gioco||{};
+  salva(G.date,"gioco",{fatto:true,mosse:G.mem.mosse,erroriParole:G.par.errTot,punti:Math.max(G.gara.punti,prima.punti||0),quando:new Date().toISOString()});
+}
+
+/* ---------- vista Album ---------- */
+function vistaAlbum(){
+  const w=el(`<div class="wrap" style="gap:14px"></div>`);
+  if(!albumAperto()){
+    const e=el(`<div class="empty"><h2>L'album è chiuso</h2><p style="margin:0">Si apre quando hai finito tutte le tappe e il gioco di oggi. Allora potrai guardare tutte le tue figurine.</p></div>`);
+    const b=el(`<button class="btn ghost">Vai ai compiti di oggi</button>`); b.onclick=()=>{S.view="oggi";S.date=iso(new Date());render()}; e.append(b);
+    w.append(e); return w;
+  }
+  if(S.anteprima) w.append(el(`<div class="msg warn">Anteprima per i grandi: lei vede l'album solo dopo aver finito il gioco del giorno.</div>`));
+  const giorni=S.piano.giorni.filter(g=>g.figurina), prese=giorni.filter(g=>((S.prog[g.data]||{}).gioco||{}).fatto);
+  w.append(el(`<div><h2>Album: ${esc(S.piano.album||"Figurine")}</h2><p style="color:var(--muted);margin:.3em 0 0">Hai ${prese.length} figurine su ${giorni.length}. Ne vinci una ogni giorno che finisci il gioco.</p></div>`));
+  const a=el(`<div class="album"></div>`);
+  giorni.forEach(g=>{const ok=((S.prog[g.data]||{}).gioco||{}).fatto, f=g.figurina;
+    a.append(ok? el(`<div class="fig"><div class="em">${f.emoji}</div><strong>${esc(f.nome)}</strong><small>${esc(f.fatto)}</small></div>`)
+              : el(`<div class="fig no"><div class="em no">?</div><strong>Da vincere</strong><small>${esc(bello(g.data))}</small></div>`))});
+  w.append(a); return w;
+}
+function cardTappa(t){
+  const s=st(S.date,t.id), key=S.date+t.id, open=S.open===key, ui=S.ui[key]||(S.ui[key]={});
+  const c=el(`<article class="tappa" style="--mc:var(--m-${t.materia})"><button class="head" aria-expanded="${open}"><span class="dot"></span><span class="h"><div class="mat">${MAT[t.materia]}</div><div class="ti">${esc(t.titolo)}</div></span><span class="pill ${s.fatto?"done":""}">${s.fatto?"Fatto":t.minuti+" min"}</span></button></article>`);
+  c.querySelector(".head").onclick=()=>{S.open=open?null:key;render()};
+  if(!open) return c;
+  const b=el(`<div class="body"></div>`); c.append(b);
+  if(s.fatto){
+    b.append(el(`<div class="msg ok">Tappa fatta! Ti è sembrata: ${FACCE[s.faccia]||"—"}.</div>`));
+    if(t.tipo!=="quiz") mostraLavoro(b,t,ui,true);
+    return c;
+  }
+  if(t.tipo==="quiz") return quiz(c,b,t,ui);
+  // 1. la consegna
+  b.append(el(`<div class="step-label">1 · Leggi la consegna</div>`));
+  b.append(el(`<div class="consegna"><strong>Consegna</strong>${md(t.consegna)}</div>`));
+  if(t.testo) b.append(el(`<div class="testo">${md(t.testo)}</div>`));
+  // 2. la domanda di controllo
+  if(!ui.capito){
+    if(!ui.letto){
+      if(ui.sbagliata) b.append(el(`<div class="msg warn">Non è così. Rileggi la consegna con calma, parola per parola.</div>`));
+      const bt=el(`<button class="btn">Ho letto la consegna</button>`);
+      const resta=()=>Math.ceil(((ui.bloccoFino||0)-Date.now())/1000);
+      const aggiorna=()=>{const r=resta(); if(r>0){bt.disabled=true;bt.style.opacity=".55";bt.textContent="Rileggi… "+r}else{bt.disabled=false;bt.style.opacity="";bt.textContent="Ho letto la consegna";clearInterval(S.tick)}};
+      clearInterval(S.tick); aggiorna(); if(resta()>0) S.tick=setInterval(aggiorna,250);
+      bt.onclick=()=>{if(resta()>0)return; ui.letto=true; render()};
+      b.append(bt); return c;
+    }
+    // ordine delle risposte: cambia dopo ogni errore
+    const n=t.verifica.opzioni.length;
+    if(!ui.ordine) ui.ordine=[...Array(n).keys()];
+    b.append(el(`<div class="step-label">2 · Hai capito cosa fare?</div>`));
+    b.append(el(`<p style="margin:0;font-weight:700">${md(t.verifica.domanda)}</p>`));
+    const o=el(`<div class="opts"></div>`);
+    ui.ordine.forEach(i=>{const op=t.verifica.opzioni[i]; const x=el(`<button>${md(op)}</button>`);
+      x.onclick=()=>{ const tent=(st(S.date,t.id).tentativi||0)+1;
+        if(i===t.verifica.giusta){ui.capito=true;ui.sbagliata=false;salva(S.date,t.id,{tentativi:tent,iniziata:new Date().toISOString()})}
+        else{
+          ui.sbagliata=true; ui.letto=false; ui.bloccoFino=Date.now()+5000;
+          const prima=ui.ordine.join(); let nuovo;
+          do{nuovo=[...ui.ordine];for(let k=nuovo.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[nuovo[k],nuovo[j]]=[nuovo[j],nuovo[k]]}}
+          while(n>1&&(nuovo.join()===prima||nuovo.indexOf(t.verifica.giusta)===ui.ordine.indexOf(t.verifica.giusta)));
+          ui.ordine=nuovo;
+          salva(S.date,t.id,{tentativi:tent});
+        }};
+      o.append(x)});
+    b.append(o);
+    return c;
+  }
+  // 3. il lavoro
+  mostraLavoro(b,t,ui,false);
+  b.append(el(`<div class="step-label">4 · Hai finito? Com'è andata?</div>`));
+  const f=el(`<div class="faces"></div>`);
+  Object.entries(FACCE).forEach(([k,v])=>{const x=el(`<button>${v}</button>`);x.onclick=()=>{S.open=null;salva(S.date,t.id,{fatto:true,faccia:k,finita:new Date().toISOString()})};f.append(x)});
+  b.append(f);
+  return c;
+}
+function mostraLavoro(b,t,ui,rivedi){
+  if(!rivedi) b.append(el(`<div class="msg ok">Giusto! Ora al lavoro sul quaderno.</div>`));
+  if(rivedi){b.append(el(`<div class="consegna"><strong>Consegna</strong>${md(t.consegna)}</div>`)); if(t.testo) b.append(el(`<div class="testo">${md(t.testo)}</div>`))}
+  if(t.passi&&t.passi.length){ if(!rivedi) b.append(el(`<div class="step-label">3 · Sul quaderno</div>`));
+    const ol=el(`<ol class="passi"></ol>`); t.passi.forEach(p=>ol.append(el(`<li>${md(p)}</li>`))); b.append(ol)}
+  if(t.aiuto&&!rivedi){
+    if(ui.aiuto) b.append(el(`<div class="aiuto">${md(t.aiuto)}</div>`));
+    else{const a=el(`<button class="btn ghost">Non ho capito: dammi un aiuto</button>`);a.onclick=()=>{ui.aiuto=true;salva(S.date,t.id,{aiuto:true})};b.append(a)}
+  }
+}
+function quiz(c,b,t,ui){
+  ui.i=ui.i||0; ui.err=ui.err||0;
+  if(ui.i===0&&!ui.via){b.append(el(`<div class="consegna"><strong>Consegna</strong>${md(t.consegna)}</div>`));
+    const bt=el(`<button class="btn">Via!</button>`);bt.onclick=()=>{ui.via=true;render()};b.append(bt);return c}
+  if(ui.i>=t.domande.length){
+    b.append(el(`<div class="msg ok">Finito! ${ui.err===0?"Nessun errore.":"Errori: "+ui.err+"."}</div>`));
+    b.append(el(`<div class="step-label">Com'è andata?</div>`));
+    const f=el(`<div class="faces"></div>`);
+    Object.entries(FACCE).forEach(([k,v])=>{const x=el(`<button>${v}</button>`);x.onclick=()=>{S.open=null;salva(S.date,t.id,{fatto:true,faccia:k,errori:ui.err,finita:new Date().toISOString()})};f.append(x)});
+    b.append(f); return c;
+  }
+  const d=t.domande[ui.i];
+  b.append(el(`<div class="step-label">Domanda ${ui.i+1} di ${t.domande.length}</div>`));
+  b.append(el(`<div class="quizq">${md(d.q)}</div>`));
+  const o=el(`<div class="opts"></div>`);
+  d.o.forEach((op,i)=>{const x=el(`<button>${md(op)}</button>`); if(ui.sb===i)x.classList.add("wrong");
+    x.onclick=()=>{ if(i===d.g){ui.i++;ui.sb=null}else{ui.sb=i;ui.err++} render()}; o.append(x)});
+  b.append(o);
+  if(ui.sb!=null) b.append(el(`<div class="msg warn">Quasi. Riprova!</div>`));
+  return c;
+}
+
+/* ---------- vista Il cammino ---------- */
+function vistaCammino(){
+  const w=el(`<div class="wrap" style="gap:14px"></div>`);
+  w.append(el(`<div><h2>Il cammino fino a giugno</h2><p style="color:var(--muted);margin:.3em 0 0">Cosa si impara mese per mese, seguendo il programma ministeriale di quarta. Le tappe dei singoli giorni arrivano una settimana alla volta.</p></div>`));
+  const mese=MESI[parse(S.date).getMonth()];
+  S.piano.programma.forEach(m=>{
+    const now=m.mese.toLowerCase()===mese;
+    const x=el(`<section class="month ${now?"now":""}"><header><h3>${esc(m.mese)}${m.titolo?" · "+esc(m.titolo):""}</h3><span class="per">${esc(m.periodo)}</span></header><dl></dl></section>`);
+    const dl=x.querySelector("dl");
+    Object.entries(m.materie).forEach(([k,v])=>{dl.append(el(`<dt style="--mc:var(--m-${k},var(--muted))">${MAT[k]||k}</dt>`));dl.append(el(`<dd>${esc(v)}</dd>`))});
+    if(m.nota) x.append(el(`<p class="nota">${esc(m.nota)}</p>`));
+    w.append(x);
+  });
+  return w;
+}
+
+/* ---------- vista Grandi ---------- */
+function vistaGrandi(){
+  const w=el(`<div class="wrap grandi" style="gap:14px"></div>`);
+  if(!S.grandiOk){
+    const box=el(`<div class="empty"><h2>Questa è la sezione dei grandi</h2><p style="margin:0">Non è la tua! Qui ci sono le cose di mamma e papà. Torna ai tuoi compiti: ti aspettano.</p></div>`);
+    const back=el(`<button class="btn">Torna ai miei compiti</button>`); back.onclick=()=>{S.view="oggi";S.date=iso(new Date());render()};
+    box.append(back);
+    const f=el(`<form class="row" style="justify-content:center;margin-top:8px"><label for="pin" style="font-size:.85rem;color:var(--muted)">Codice dei grandi</label><input id="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" style="width:6em;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);text-align:center;letter-spacing:.3em"><button class="btn ghost" type="submit" style="padding:8px 14px">Entra</button></form>`);
+    f.onsubmit=e=>{e.preventDefault(); const v=f.querySelector("#pin").value.trim(); if(v==="2881"){S.grandiOk=true; document.activeElement&&document.activeElement.blur(); render()} else {f.querySelector("#pin").value=""; if(!box.querySelector(".pinerr")) box.append(el(`<p class="pinerr" style="margin:0;color:var(--warn);font-weight:700">Codice sbagliato.</p>`))}};
+    box.append(f); w.append(box); return w;
+  }
+  const g=S.byDate[S.date];
+  w.append(el(`<div class="daynav"><button id="prev" aria-label="Giorno prima">‹</button><div class="when"><div class="d">${esc(bello(S.date))}</div><div class="t">Controllo dei grandi</div></div><button id="next" aria-label="Giorno dopo">›</button></div>`));
+  // riepilogo settimana
+  const d0=parse(S.date); const lun=addDays(S.date,-((d0.getDay()+6)%7));
+  let tot=0,fatte=0,diff=0; for(let i=0;i<7;i++){const ds=addDays(lun,i),gg=S.byDate[ds]; if(!gg)continue; gg.tappe.forEach(t=>{tot++;const s=st(ds,t.id);if(s.fatto)fatte++;if(s.faccia==="difficile")diff++})}
+  if(tot) w.append(el(`<div class="card"><strong>Questa settimana</strong><div class="stat"><span class="pill done">${fatte} su ${tot} tappe fatte</span><span class="pill">${diff} segnate difficili</span></div></div>`));
+  if(!g){w.append(el(`<div class="empty"><p style="margin:0">Nessun compito in questo giorno.</p></div>`));return w}
+  const pv=el(`<div class="card"><strong>Anteprima</strong><p style="margin:0">Provate il gioco di questo giorno come lo vede lei, senza salvare niente. Da qui si vede anche l'album.</p></div>`);
+  const pb=el(`<button class="btn ghost">Prova il gioco del giorno</button>`); pb.onclick=apriAnteprima; pv.append(pb); w.append(pv);
+  const gs=(S.prog[S.date]||{}).gioco;
+  if(gs&&gs.fatto) w.append(el(`<div class="card"><strong>Gioco del giorno fatto</strong><div class="stat"><span class="pill">Memory: ${gs.mosse} mosse</span><span class="pill">Errori parole: ${gs.erroriParole||0}</span><span class="pill">Sfida: ${gs.punti} punti</span></div></div>`));
+  g.tappe.forEach(t=>{
+    const s=st(S.date,t.id);
+    const c=el(`<div class="card" style="--mc:var(--m-${t.materia})"><div class="row"><span class="dot"></span><strong>${esc(t.titolo)}</strong><span class="pill ${s.fatto?"done":""}">${s.fatto?"Fatto":"Da fare"}</span></div></div>`);
+    const info=[];
+    if(s.faccia) info.push(`Per lei: ${FACCE[s.faccia]}`);
+    if(t.tipo!=="quiz"&&s.tentativi) info.push(s.tentativi===1?"Consegna capita al primo colpo":`Consegna capita al tentativo ${s.tentativi}`);
+    if(t.tipo==="quiz"&&s.fatto) info.push(`Errori nel quiz: ${s.errori||0}`);
+    if(s.aiuto) info.push("Ha chiesto l'aiuto");
+    if(info.length) c.append(el(`<div class="stat">${info.map(i=>`<span class="pill">${esc(i)}</span>`).join("")}</div>`));
+    if(t.soluzioni) c.append(el(`<details><summary>Soluzioni</summary><div class="sol">${md(t.soluzioni)}</div></details>`));
+    const chk=el(`<label class="chk"><input type="checkbox" id="chk-${S.date}-${t.id}" ${s.controllato?"checked":""}> Controllato sul quaderno</label>`);
+    chk.querySelector("input").onchange=e=>salva(S.date,t.id,{controllato:e.target.checked});
+    c.append(chk);
+    const ta=el(`<textarea id="nota-${S.date}-${t.id}" placeholder="Nota per lei o per l'altro genitore (facoltativa)"></textarea>`);
+    ta.value=s.nota||""; ta.onchange=e=>salva(S.date,t.id,{nota:e.target.value});
+    c.append(ta);
+    w.append(c);
+  });
+  return w;
+}
+
+/* ---------- render ---------- */
+function render(){
+  if(!S.piano) return;
+  document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.v===S.view)));
+  const ae=document.activeElement; const keepId=ae&&ae.id&&(ae.tagName==="TEXTAREA"||ae.id==="pin")?ae.id:null;
+  if(keepId) return; // non ridisegnare mentre si scrive una nota
+  const v= S.view==="cammino"?vistaCammino(): S.view==="grandi"?vistaGrandi(): S.view==="album"?vistaAlbum(): vistaOggi();
+  $view.replaceChildren(v);
+  const p=document.getElementById("prev"),n=document.getElementById("next");
+  if(p) p.onclick=()=>{S.date=addDays(S.date,-1);S.open=null;render()};
+  if(n) n.onclick=()=>{S.date=addDays(S.date,1);S.open=null;render()};
+}
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{S.view=b.dataset.v;try{localStorage.setItem("germoglio-view",S.view)}catch(e){}render()});
+try{const v=localStorage.getItem("germoglio-view");if(v==="cammino")S.view=v}catch(e){}
+
+(async function start(){
+  $view.replaceChildren(el(`<p class="note">Sto preparando le tappe…</p>`));
+  try{ S.piano=await (await fetch("piano.json",{cache:"no-store"})).json() }
+  catch(e){ $view.replaceChildren(el(`<div class="empty"><p style="margin:0">Non riesco a caricare i compiti. Controlla la connessione e ricarica la pagina.</p></div>`)); return }
+  S.piano.giorni.forEach(g=>S.byDate[g.data]=g);
+  S.prog=loadLocal();
+  if(location.hash==="#anteprima") S.view="grandi";
+  render();
+  if(!KEY){ $status.textContent="Questo dispositivo non è collegato: aprite il link completo che vi ho dato, con il codice della famiglia."; return }
+  await sincronizza();
+  setInterval(()=>{ if(document.visibilityState==="visible") sincronizza() },30000);
+  document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==="visible") sincronizza() });
+})();
+</script>
+
+</body>
+</html>
