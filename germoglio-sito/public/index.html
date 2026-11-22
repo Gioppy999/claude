@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#2F8A55">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Germoglio">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 34 34%22%3E%3Cpath d=%22M17 31V15%22 stroke=%22%232F8A55%22 stroke-width=%223%22/%3E%3Cpath d=%22M17 17C17 10 12 6 5 6c0 7 5 11 12 11z%22 fill=%22%232F8A55%22/%3E%3Cpath d=%22M17 14c0-6 4-10 11-10 0 6-4 10-11 10z%22 fill=%22%23E9A93A%22/%3E%3C/svg%3E">
 <title>Scuola Cheri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -648,6 +652,7 @@ try{const v=localStorage.getItem("germoglio-view");if(v==="cammino")S.view=v}cat
   setInterval(()=>{ if(document.visibilityState==="visible") sincronizza() },30000);
   document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==="visible") sincronizza() });
 })();
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}))}
 </script>
 
 </body>
