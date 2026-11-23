@@ -1,0 +1,737 @@
+{
+"about": {
+"ipa": "əˈbaʊt",
+"legge": "abàut",
+"it": "circa, riguardo a"
+},
+"after": {
+"ipa": "ˈɑːftə",
+"legge": "àafte",
+"it": "dopo"
+},
+"and": {
+"ipa": "ænd",
+"legge": "end",
+"it": "e"
+},
+"answer": {
+"ipa": "ˈɑːnsə",
+"legge": "àanse",
+"it": "risposta"
+},
+"apples": {
+"ipa": "ˈæpəlz",
+"legge": "èpols",
+"it": "mele"
+},
+"april": {
+"ipa": "ˈeɪprəl",
+"legge": "éiprol",
+"it": "aprile"
+},
+"at": {
+"ipa": "æt",
+"legge": "et",
+"it": "a, alle (ore)"
+},
+"bananas": {
+"ipa": "bəˈnɑːnəz",
+"legge": "banàanas",
+"it": "banane"
+},
+"bed": {
+"ipa": "bed",
+"legge": "bed",
+"it": "letto"
+},
+"before": {
+"ipa": "bɪˈfɔː",
+"legge": "bifóo",
+"it": "prima"
+},
+"below": {
+"ipa": "bɪˈləʊ",
+"legge": "bilóu",
+"it": "sotto"
+},
+"black": {
+"ipa": "blæk",
+"legge": "blek",
+"it": "nero"
+},
+"blond": {
+"ipa": "blɒnd",
+"legge": "blond",
+"it": "biondo"
+},
+"blue": {
+"ipa": "bluː",
+"legge": "bluu",
+"it": "azzurro, blu"
+},
+"breakfast": {
+"ipa": "ˈbrekfəst",
+"legge": "brékfast",
+"it": "colazione"
+},
+"brother": {
+"ipa": "ˈbrʌðə",
+"legge": "bràdhe",
+"it": "fratello"
+},
+"brown": {
+"ipa": "braʊn",
+"legge": "bràun",
+"it": "marrone, castano"
+},
+"carrots": {
+"ipa": "ˈkærəts",
+"legge": "kèrots",
+"it": "carote"
+},
+"cheese": {
+"ipa": "tʃiːz",
+"legge": "ciiz",
+"it": "formaggio"
+},
+"chocolate": {
+"ipa": "ˈtʃɒklət",
+"legge": "ciòklet",
+"it": "cioccolato"
+},
+"choose": {
+"ipa": "tʃuːz",
+"legge": "ciuuz",
+"it": "scegli"
+},
+"christmas": {
+"ipa": "ˈkrɪsməs",
+"legge": "krìsmas",
+"it": "Natale"
+},
+"cloudy": {
+"ipa": "ˈklaʊdi",
+"legge": "klàudi",
+"it": "nuvoloso"
+},
+"cold": {
+"ipa": "kəʊld",
+"legge": "kóuld",
+"it": "freddo"
+},
+"curly": {
+"ipa": "ˈkɜːli",
+"legge": "kéeli",
+"it": "ricci"
+},
+"dad": {
+"ipa": "dæd",
+"legge": "ded",
+"it": "papà"
+},
+"day": {
+"ipa": "deɪ",
+"legge": "déi",
+"it": "giorno"
+},
+"days": {
+"ipa": "deɪz",
+"legge": "déiz",
+"it": "giorni"
+},
+"december": {
+"ipa": "dɪˈsembə",
+"legge": "disémbe",
+"it": "dicembre"
+},
+"do": {
+"ipa": "duː",
+"legge": "duu",
+"it": "fare (aiuta a fare le domande)"
+},
+"don't": {
+"ipa": "dəʊnt",
+"legge": "dóunt",
+"it": "non (do not)"
+},
+"draw": {
+"ipa": "drɔː",
+"legge": "droo",
+"it": "disegna"
+},
+"drawing": {
+"ipa": "ˈdrɔːɪŋ",
+"legge": "dròoing",
+"it": "disegno"
+},
+"each": {
+"ipa": "iːtʃ",
+"legge": "iic",
+"it": "ogni"
+},
+"eggs": {
+"ipa": "eɡz",
+"legge": "egz",
+"it": "uova"
+},
+"eight": {
+"ipa": "eɪt",
+"legge": "éit",
+"it": "otto"
+},
+"eleven": {
+"ipa": "ɪˈlevn",
+"legge": "ilévn",
+"it": "undici"
+},
+"english": {
+"ipa": "ˈɪŋɡlɪʃ",
+"legge": "ìnglish",
+"it": "inglese"
+},
+"eyes": {
+"ipa": "aɪz",
+"legge": "àiz",
+"it": "occhi"
+},
+"family": {
+"ipa": "ˈfæməli",
+"legge": "fèmili",
+"it": "famiglia"
+},
+"february": {
+"ipa": "ˈfebruəri",
+"legge": "fébruari",
+"it": "febbraio"
+},
+"fifteen": {
+"ipa": "ˌfɪfˈtiːn",
+"legge": "fiftìin",
+"it": "quindici"
+},
+"fifty": {
+"ipa": "ˈfɪfti",
+"legge": "fìfti",
+"it": "cinquanta"
+},
+"first": {
+"ipa": "fɜːst",
+"legge": "feest",
+"it": "primo"
+},
+"fish": {
+"ipa": "fɪʃ",
+"legge": "fish",
+"it": "pesce"
+},
+"five": {
+"ipa": "faɪv",
+"legge": "fàiv",
+"it": "cinque"
+},
+"food": {
+"ipa": "fuːd",
+"legge": "fuud",
+"it": "cibo"
+},
+"for": {
+"ipa": "fɔː",
+"legge": "foo",
+"it": "per"
+},
+"forty": {
+"ipa": "ˈfɔːti",
+"legge": "fòoti",
+"it": "quaranta"
+},
+"four": {
+"ipa": "fɔː",
+"legge": "foo",
+"it": "quattro"
+},
+"fourteen": {
+"ipa": "ˌfɔːˈtiːn",
+"legge": "footìin",
+"it": "quattordici"
+},
+"friday": {
+"ipa": "ˈfraɪdeɪ",
+"legge": "fràidei",
+"it": "venerdì"
+},
+"go": {
+"ipa": "ɡəʊ",
+"legge": "góu",
+"it": "andare"
+},
+"good": {
+"ipa": "ɡʊd",
+"legge": "gud",
+"it": "buono"
+},
+"got": {
+"ipa": "ɡɒt",
+"legge": "got",
+"it": "has got = ha"
+},
+"grandma": {
+"ipa": "ˈɡrænmɑː",
+"legge": "grènmaa",
+"it": "nonna"
+},
+"grandpa": {
+"ipa": "ˈɡrænpɑː",
+"legge": "grènpaa",
+"it": "nonno"
+},
+"green": {
+"ipa": "ɡriːn",
+"legge": "griin",
+"it": "verde"
+},
+"hair": {
+"ipa": "heə",
+"legge": "hèe",
+"it": "capelli"
+},
+"half": {
+"ipa": "hɑːf",
+"legge": "haaf",
+"it": "mezzo, mezza"
+},
+"has": {
+"ipa": "hæz",
+"legge": "hez",
+"it": "ha"
+},
+"have": {
+"ipa": "hæv",
+"legge": "hev",
+"it": "avere, ho"
+},
+"he": {
+"ipa": "hiː",
+"legge": "hii",
+"it": "lui"
+},
+"hot": {
+"ipa": "hɒt",
+"legge": "hot",
+"it": "caldo"
+},
+"how": {
+"ipa": "haʊ",
+"legge": "hàu",
+"it": "come"
+},
+"i": {
+"ipa": "aɪ",
+"legge": "ài",
+"it": "io"
+},
+"is": {
+"ipa": "ɪz",
+"legge": "iz",
+"it": "è"
+},
+"it": {
+"ipa": "ɪt",
+"legge": "it",
+"it": "esso (per cose e animali)"
+},
+"it's": {
+"ipa": "ɪts",
+"legge": "its",
+"it": "è (it is)"
+},
+"january": {
+"ipa": "ˈdʒænjuəri",
+"legge": "gèniuari",
+"it": "gennaio"
+},
+"july": {
+"ipa": "dʒuˈlaɪ",
+"legge": "giulài",
+"it": "luglio"
+},
+"june": {
+"ipa": "dʒuːn",
+"legge": "giuun",
+"it": "giugno"
+},
+"last": {
+"ipa": "lɑːst",
+"legge": "laast",
+"it": "ultimo"
+},
+"like": {
+"ipa": "laɪk",
+"legge": "làik",
+"it": "piacere (I like = mi piace)"
+},
+"long": {
+"ipa": "lɒŋ",
+"legge": "long",
+"it": "lungo"
+},
+"lunch": {
+"ipa": "lʌntʃ",
+"legge": "lanc",
+"it": "pranzo"
+},
+"march": {
+"ipa": "mɑːtʃ",
+"legge": "maac",
+"it": "marzo"
+},
+"may": {
+"ipa": "meɪ",
+"legge": "méi",
+"it": "maggio"
+},
+"milk": {
+"ipa": "mɪlk",
+"legge": "milk",
+"it": "latte"
+},
+"model": {
+"ipa": "ˈmɒdl",
+"legge": "mòdel",
+"it": "modello"
+},
+"monday": {
+"ipa": "ˈmʌndeɪ",
+"legge": "màndei",
+"it": "lunedì"
+},
+"month": {
+"ipa": "mʌnθ",
+"legge": "manth",
+"it": "mese"
+},
+"months": {
+"ipa": "mʌnθs",
+"legge": "manths",
+"it": "mesi"
+},
+"morning": {
+"ipa": "ˈmɔːnɪŋ",
+"legge": "mòoning",
+"it": "mattina"
+},
+"mum": {
+"ipa": "mʌm",
+"legge": "mam",
+"it": "mamma"
+},
+"my": {
+"ipa": "maɪ",
+"legge": "mài",
+"it": "mio, mia"
+},
+"next": {
+"ipa": "nekst",
+"legge": "nekst",
+"it": "prossimo"
+},
+"nine": {
+"ipa": "naɪn",
+"legge": "nàin",
+"it": "nove"
+},
+"not": {
+"ipa": "nɒt",
+"legge": "not",
+"it": "non"
+},
+"notebook": {
+"ipa": "ˈnəʊtbʊk",
+"legge": "nóutbuk",
+"it": "quaderno"
+},
+"november": {
+"ipa": "nəʊˈvembə",
+"legge": "nouvémbe",
+"it": "novembre"
+},
+"numbers": {
+"ipa": "ˈnʌmbəz",
+"legge": "nàmbez",
+"it": "numeri"
+},
+"o'clock": {
+"ipa": "əˈklɒk",
+"legge": "eklòk",
+"it": "in punto"
+},
+"of": {
+"ipa": "ɒv",
+"legge": "ov",
+"it": "di"
+},
+"on": {
+"ipa": "ɒn",
+"legge": "on",
+"it": "su"
+},
+"one": {
+"ipa": "wʌn",
+"legge": "uàn",
+"it": "uno"
+},
+"past": {
+"ipa": "pɑːst",
+"legge": "paast",
+"it": "passate (half past three = le tre e mezza)"
+},
+"pasta": {
+"ipa": "ˈpæstə",
+"legge": "pèsta",
+"it": "pasta"
+},
+"person": {
+"ipa": "ˈpɜːsn",
+"legge": "péesn",
+"it": "persona"
+},
+"pizza": {
+"ipa": "ˈpiːtsə",
+"legge": "pìitsa",
+"it": "pizza"
+},
+"quarter": {
+"ipa": "ˈkwɔːtə",
+"legge": "kuòote",
+"it": "quarto (d'ora)"
+},
+"raining": {
+"ipa": "ˈreɪnɪŋ",
+"legge": "réining",
+"it": "piove (sta piovendo)"
+},
+"right": {
+"ipa": "raɪt",
+"legge": "ràit",
+"it": "giusto"
+},
+"saturday": {
+"ipa": "ˈsætədeɪ",
+"legge": "sètedei",
+"it": "sabato"
+},
+"school": {
+"ipa": "skuːl",
+"legge": "skuul",
+"it": "scuola"
+},
+"sentence": {
+"ipa": "ˈsentəns",
+"legge": "séntens",
+"it": "frase"
+},
+"sentences": {
+"ipa": "ˈsentənsɪz",
+"legge": "séntensiz",
+"it": "frasi"
+},
+"seven": {
+"ipa": "ˈsevn",
+"legge": "sévn",
+"it": "sette"
+},
+"seventy": {
+"ipa": "ˈsevnti",
+"legge": "sévnti",
+"it": "settanta"
+},
+"she": {
+"ipa": "ʃiː",
+"legge": "shii",
+"it": "lei"
+},
+"short": {
+"ipa": "ʃɔːt",
+"legge": "shoot",
+"it": "corto"
+},
+"sister": {
+"ipa": "ˈsɪstə",
+"legge": "sìste",
+"it": "sorella"
+},
+"six": {
+"ipa": "sɪks",
+"legge": "siks",
+"it": "sei"
+},
+"snowing": {
+"ipa": "ˈsnəʊɪŋ",
+"legge": "snóuing",
+"it": "nevica (sta nevicando)"
+},
+"start": {
+"ipa": "stɑːt",
+"legge": "staat",
+"it": "iniziare"
+},
+"straight": {
+"ipa": "streɪt",
+"legge": "stréit",
+"it": "lisci (capelli), dritto"
+},
+"sunday": {
+"ipa": "ˈsʌndeɪ",
+"legge": "sàndei",
+"it": "domenica"
+},
+"sunny": {
+"ipa": "ˈsʌni",
+"legge": "sàni",
+"it": "c'è il sole"
+},
+"ten": {
+"ipa": "ten",
+"legge": "ten",
+"it": "dieci"
+},
+"the": {
+"ipa": "ðə",
+"legge": "dhe",
+"it": "il, lo, la, i, gli, le"
+},
+"then": {
+"ipa": "ðen",
+"legge": "dhen",
+"it": "poi"
+},
+"this": {
+"ipa": "ðɪs",
+"legge": "dhis",
+"it": "questo, questa"
+},
+"three": {
+"ipa": "θriː",
+"legge": "thrii",
+"it": "tre"
+},
+"thursday": {
+"ipa": "ˈθɜːzdeɪ",
+"legge": "théezdei",
+"it": "giovedì"
+},
+"time": {
+"ipa": "taɪm",
+"legge": "tàim",
+"it": "ora, tempo"
+},
+"to": {
+"ipa": "tuː",
+"legge": "tu",
+"it": "a, verso (quarter to six = le sei meno un quarto)"
+},
+"tuesday": {
+"ipa": "ˈtjuːzdeɪ",
+"legge": "tiùuzdei",
+"it": "martedì"
+},
+"twelve": {
+"ipa": "twelv",
+"legge": "tuèlv",
+"it": "dodici"
+},
+"twenty": {
+"ipa": "ˈtwenti",
+"legge": "tuénti",
+"it": "venti"
+},
+"two": {
+"ipa": "tuː",
+"legge": "tuu",
+"it": "due"
+},
+"under": {
+"ipa": "ˈʌndə",
+"legge": "ànde",
+"it": "sotto"
+},
+"up": {
+"ipa": "ʌp",
+"legge": "ap",
+"it": "su (wake up = svegliarsi)"
+},
+"use": {
+"ipa": "juːz",
+"legge": "iuuz",
+"it": "usa"
+},
+"verb": {
+"ipa": "vɜːb",
+"legge": "veeb",
+"it": "verbo"
+},
+"wake": {
+"ipa": "weɪk",
+"legge": "uéik",
+"it": "svegliarsi (wake up)"
+},
+"weather": {
+"ipa": "ˈweðə",
+"legge": "uèdhe",
+"it": "tempo (meteo)"
+},
+"wednesday": {
+"ipa": "ˈwenzdeɪ",
+"legge": "uénzdei",
+"it": "mercoledì"
+},
+"week": {
+"ipa": "wiːk",
+"legge": "uiik",
+"it": "settimana"
+},
+"what": {
+"ipa": "wɒt",
+"legge": "uòt",
+"it": "che cosa"
+},
+"which": {
+"ipa": "wɪtʃ",
+"legge": "uìc",
+"it": "quale"
+},
+"windy": {
+"ipa": "ˈwɪndi",
+"legge": "uìndi",
+"it": "c'è vento"
+},
+"with": {
+"ipa": "wɪð",
+"legge": "uìdh",
+"it": "con"
+},
+"words": {
+"ipa": "wɜːdz",
+"legge": "ueedz",
+"it": "parole"
+},
+"write": {
+"ipa": "raɪt",
+"legge": "ràit",
+"it": "scrivi"
+},
+"year": {
+"ipa": "jɪə",
+"legge": "iìe",
+"it": "anno"
+},
+"you": {
+"ipa": "juː",
+"legge": "iuu",
+"it": "tu, voi"
+},
+"your": {
+"ipa": "jɔː",
+"legge": "ioo",
+"it": "tuo, tua"
+}
+}

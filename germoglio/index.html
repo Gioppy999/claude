@@ -120,6 +120,13 @@ label.chk input{width:22px;height:22px;accent-color:var(--leaf)}
 .album .fig.no{border:2px dashed var(--line);color:var(--muted)}
 .album .fig .em.no{font-family:var(--display);color:var(--line)}
 .album .fig small{color:var(--muted)}
+
+.w{border-bottom:2px dotted var(--m-inglese);cursor:pointer;border-radius:3px}
+.w:hover,.w:focus-visible{background:var(--leaf-soft);outline:none}
+.parola-sheet{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;padding:0 max(12px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.parola-sheet .in{background:var(--surface);border:2px solid var(--m-inglese);border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.25);padding:16px 18px;width:100%;max-width:520px;display:flex;flex-direction:column;gap:6px}
+.parola-sheet .pw{font-family:var(--display);font-size:2rem;font-weight:600;color:var(--m-inglese)}
+.parola-sheet .ipa{font-family:"Doulos SIL","Charis SIL","Lucida Sans Unicode","Segoe UI",system-ui,sans-serif;color:var(--muted)}
 </style>
 
 <div class="wrap">
@@ -165,6 +172,39 @@ async function salva(data,id,patch){
   render();
 }
 function st(data,id){return (S.prog[data]||{})[id]||{}}
+
+/* ---------- parole inglesi: trascrizione e pronuncia ---------- */
+S.diz={};
+fetch("dizionario.json").then(r=>r.json()).then(d=>{S.diz=d;render()}).catch(()=>{});
+function chiaveParola(w){const k=w.toLowerCase().replace(/[’]/g,"'"); return S.diz[k]?k:null}
+function mdT(t,x){return t.materia==="inglese"?mdEn(x):md(x)}
+function mdEn(t){
+  return String(t??"").split(/([A-Za-z][A-Za-z'’]*)/).map(x=>{
+    if(!/^[A-Za-z]/.test(x)) return esc(x);
+    const k=(x.length>1||x==="I")?chiaveParola(x):null;
+    return k?`<span class="w" role="button" tabindex="0" data-w="${esc(k)}">${esc(x)}</span>`:esc(x);
+  }).join("").replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>");
+}
+function voceInglese(){const vs=(window.speechSynthesis&&speechSynthesis.getVoices())||[]; return vs.find(v=>/^en[-_]GB/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang))||null}
+function pronuncia(w){ if(!("speechSynthesis" in window)) return; speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(w); const v=voceInglese(); if(v)u.voice=v; u.lang=v?v.lang:"en-GB"; u.rate=.8; speechSynthesis.speak(u) }
+function apriParola(k,testo){
+  const d=S.diz[k]; if(!d) return; chiudiParola();
+  const sh=el(`<div class="parola-sheet" role="dialog" aria-label="Parola inglese"><div class="in">
+    <div class="row" style="justify-content:space-between"><span class="pw">${esc(testo)}</span><button class="btn ghost" data-a="chiudi" aria-label="Chiudi" style="padding:6px 12px">✕</button></div>
+    <div><strong>Si legge:</strong> «${esc(d.legge)}»</div>
+    <div class="ipa">Trascrizione: /${esc(d.ipa)}/</div>
+    <div><strong>In italiano:</strong> ${esc(d.it)}</div>
+    ${"speechSynthesis" in window?`<button class="btn" data-a="ascolta" style="margin-top:4px">Ascolta la pronuncia</button>`:`<p style="margin:0;color:var(--muted)">Questo dispositivo non può leggere ad alta voce.</p>`}
+  </div></div>`);
+  sh.querySelector('[data-a="chiudi"]').onclick=chiudiParola;
+  const a=sh.querySelector('[data-a="ascolta"]'); if(a) a.onclick=()=>pronuncia(testo);
+  document.body.append(sh); pronuncia(testo);
+}
+function chiudiParola(){document.querySelectorAll(".parola-sheet").forEach(x=>x.remove())}
+document.addEventListener("click",e=>{const w=e.target.closest&&e.target.closest(".w"); if(w){e.preventDefault();e.stopPropagation();apriParola(w.dataset.w,w.textContent);return}
+  if(!e.target.closest||!e.target.closest(".parola-sheet")) chiudiParola()},true);
+document.addEventListener("keydown",e=>{if(e.key==="Escape") chiudiParola(); const w=e.target.closest&&e.target.closest(".w"); if(w&&(e.key==="Enter"||e.key===" ")){e.preventDefault();apriParola(w.dataset.w,w.textContent)}});
+if("speechSynthesis" in window) speechSynthesis.onvoiceschanged=()=>{};
 
 /* ---------- vista Oggi ---------- */
 function prossimoGiornoConCompiti(from,dir){
@@ -329,8 +369,8 @@ function cardTappa(t){
   if(t.tipo==="quiz") return quiz(c,b,t,ui);
   // 1. la consegna
   b.append(el(`<div class="step-label">1 · Leggi la consegna</div>`));
-  b.append(el(`<div class="consegna"><strong>Consegna</strong>${md(t.consegna)}</div>`));
-  if(t.testo) b.append(el(`<div class="testo">${md(t.testo)}</div>`));
+  b.append(el(`<div class="consegna"><strong>Consegna</strong>${mdT(t,t.consegna)}</div>`));
+  if(t.testo) b.append(el(`<div class="testo">${mdT(t,t.testo)}</div>`));
   // 2. la domanda di controllo
   if(!ui.capito){
     if(!ui.letto){
@@ -346,7 +386,7 @@ function cardTappa(t){
     const n=t.verifica.opzioni.length;
     if(!ui.ordine) ui.ordine=[...Array(n).keys()];
     b.append(el(`<div class="step-label">2 · Hai capito cosa fare?</div>`));
-    b.append(el(`<p style="margin:0;font-weight:700">${md(t.verifica.domanda)}</p>`));
+    b.append(el(`<p style="margin:0;font-weight:700">${mdT(t,t.verifica.domanda)}</p>`));
     const o=el(`<div class="opts"></div>`);
     ui.ordine.forEach(i=>{const op=t.verifica.opzioni[i]; const x=el(`<button>${md(op)}</button>`);
       x.onclick=()=>{ const tent=(st(S.date,t.id).tentativi||0)+1;
@@ -373,17 +413,17 @@ function cardTappa(t){
 }
 function mostraLavoro(b,t,ui,rivedi){
   if(!rivedi) b.append(el(`<div class="msg ok">Giusto! Ora al lavoro sul quaderno.</div>`));
-  if(rivedi){b.append(el(`<div class="consegna"><strong>Consegna</strong>${md(t.consegna)}</div>`)); if(t.testo) b.append(el(`<div class="testo">${md(t.testo)}</div>`))}
+  if(rivedi){b.append(el(`<div class="consegna"><strong>Consegna</strong>${mdT(t,t.consegna)}</div>`)); if(t.testo) b.append(el(`<div class="testo">${mdT(t,t.testo)}</div>`))}
   if(t.passi&&t.passi.length){ if(!rivedi) b.append(el(`<div class="step-label">3 · Sul quaderno</div>`));
-    const ol=el(`<ol class="passi"></ol>`); t.passi.forEach(p=>ol.append(el(`<li>${md(p)}</li>`))); b.append(ol)}
+    const ol=el(`<ol class="passi"></ol>`); t.passi.forEach(p=>ol.append(el(`<li>${mdT(t,p)}</li>`))); b.append(ol)}
   if(t.aiuto&&!rivedi){
-    if(ui.aiuto) b.append(el(`<div class="aiuto">${md(t.aiuto)}</div>`));
+    if(ui.aiuto) b.append(el(`<div class="aiuto">${mdT(t,t.aiuto)}</div>`));
     else{const a=el(`<button class="btn ghost">Non ho capito: dammi un aiuto</button>`);a.onclick=()=>{ui.aiuto=true;salva(S.date,t.id,{aiuto:true})};b.append(a)}
   }
 }
 function quiz(c,b,t,ui){
   ui.i=ui.i||0; ui.err=ui.err||0;
-  if(ui.i===0&&!ui.via){b.append(el(`<div class="consegna"><strong>Consegna</strong>${md(t.consegna)}</div>`));
+  if(ui.i===0&&!ui.via){b.append(el(`<div class="consegna"><strong>Consegna</strong>${mdT(t,t.consegna)}</div>`));
     const bt=el(`<button class="btn">Via!</button>`);bt.onclick=()=>{ui.via=true;render()};b.append(bt);return c}
   if(ui.i>=t.domande.length){
     b.append(el(`<div class="msg ok">Finito! ${ui.err===0?"Nessun errore.":"Errori: "+ui.err+"."}</div>`));
@@ -394,7 +434,7 @@ function quiz(c,b,t,ui){
   }
   const d=t.domande[ui.i];
   b.append(el(`<div class="step-label">Domanda ${ui.i+1} di ${t.domande.length}</div>`));
-  b.append(el(`<div class="quizq">${md(d.q)}</div>`));
+  b.append(el(`<div class="quizq">${mdT(t,d.q)}</div>`));
   const o=el(`<div class="opts"></div>`);
   d.o.forEach((op,i)=>{const x=el(`<button>${md(op)}</button>`); if(ui.sb===i)x.classList.add("wrong");
     x.onclick=()=>{ if(i===d.g){ui.i++;ui.sb=null}else{ui.sb=i;ui.err++} render()}; o.append(x)});
