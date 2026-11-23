@@ -1,5 +1,5 @@
 // Germoglio: prima la rete, se manca usa la copia salvata. I dati (/api) non si salvano qui.
-const CACHE = "germoglio-v3";
+const CACHE = "germoglio-v4";
 const BASE = ["/", "/index.html", "/piano.json", "/manifest.json", "/icon-192.png", "/icon-512.png"];
 self.addEventListener("install", (e) => { e.waitUntil(caches.open(CACHE).then((c) => c.addAll(BASE))); self.skipWaiting(); });
 self.addEventListener("activate", (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== CACHE).map((k) => caches.delete(k))))); self.clients.claim(); });
